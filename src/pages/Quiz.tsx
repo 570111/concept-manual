@@ -1,0 +1,83 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { categoryOrder, categoryInfo, type Category } from '../data/concepts'
+import { getQuestionsByCategory, countByDifficulty } from '../data/quiz'
+import { getWrongAnswers, getBestScore } from '../lib/progress'
+import QuizRunner from '../components/QuizRunner'
+
+function scoreKey(category: Category) {
+  return `category-${category}`
+}
+
+function CategorySelect({ onSelect }: { onSelect: (c: Category) => void }) {
+  const wrongCount = getWrongAnswers().length
+  return (
+    <div className="space-y-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">测验练习</h1>
+          <p className="mt-2 text-slate-500 dark:text-slate-400">
+            选一个分类，把这一类下所有概念的题目混在一起练习。也可以去每个概念详情页里做单独的2题小测验。
+          </p>
+        </div>
+        {wrongCount > 0 && (
+          <span className="btn-secondary flex-none !px-3 !py-2 text-amber-600 dark:text-amber-400">
+            📓 错题 {wrongCount}
+          </span>
+        )}
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {categoryOrder.map((c) => {
+          const qs = getQuestionsByCategory(c)
+          const counts = countByDifficulty(c)
+          const best = getBestScore(scoreKey(c))
+          return (
+            <button
+              key={c}
+              onClick={() => onSelect(c)}
+              className="flex items-center gap-4 rounded-2xl border-2 border-slate-200 bg-white p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:scale-[1.01] hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+            >
+              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-slate-800 text-base font-bold text-white dark:bg-slate-600">
+                {categoryInfo[c].numeral}
+              </div>
+              <div className="flex-1">
+                <h2 className="font-bold text-slate-900 dark:text-white">{categoryInfo[c].label}</h2>
+                <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
+                  {qs.length} 道题目 · 🌱基础{counts.basic} → 🔥应用{counts.advanced}
+                </p>
+              </div>
+              {best !== null && (
+                <div className="flex-none rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+                  最高 {best}%
+                </div>
+              )}
+            </button>
+          )
+        })}
+      </div>
+
+      <p className="text-center text-sm text-slate-400">
+        还没学过对应的概念？先去 <Link to="/concepts" className="font-medium text-emerald-600 hover:underline dark:text-emerald-400">概念地图</Link> 看看。
+      </p>
+    </div>
+  )
+}
+
+export default function Quiz() {
+  const [category, setCategory] = useState<Category | null>(null)
+
+  if (!category) {
+    return <CategorySelect onSelect={setCategory} />
+  }
+
+  return (
+    <QuizRunner
+      title={categoryInfo[category].label}
+      questions={getQuestionsByCategory(category)}
+      scoreKey={scoreKey(category)}
+      onExit={() => setCategory(null)}
+      exitLabel="返回分类"
+    />
+  )
+}
