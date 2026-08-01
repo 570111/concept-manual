@@ -1,4 +1,4 @@
-export type Category = 'bias' | 'social' | 'economy' | 'strategy' | 'systems'
+export type Category = 'bias' | 'social' | 'economy' | 'strategy' | 'systems' | 'thinking' | 'communication'
 
 export type ConceptMeta = {
   id: string
@@ -9,7 +9,7 @@ export type ConceptMeta = {
   category: Category
 }
 
-export const categoryOrder: Category[] = ['bias', 'social', 'economy', 'strategy', 'systems']
+export const categoryOrder: Category[] = ['bias', 'social', 'economy', 'strategy', 'systems', 'thinking', 'communication']
 
 export const categoryInfo: Record<Category, { label: string; desc: string; numeral: string }> = {
   bias: {
@@ -36,6 +36,16 @@ export const categoryInfo: Record<Category, { label: string; desc: string; numer
     label: '系统与演化',
     desc: '跳出单次事件，看事情在更长时间尺度上是怎么发展、怎么被历史选择的。',
     numeral: 'E',
+  },
+  thinking: {
+    label: '思维与决策方法',
+    desc: '不只是理解现象，而是可以主动拿来用的推理工具——遇到复杂问题时，怎么想会更清楚。',
+    numeral: 'F',
+  },
+  communication: {
+    label: '沟通与关系',
+    desc: '同样的意思，说法不同，得到的回应可能天差地别——理解表达和情绪背后更深的东西。',
+    numeral: 'G',
   },
 }
 
@@ -444,6 +454,88 @@ export const concepts: ConceptMeta[] = [
     aka: 'Antifragility',
     summary: '玻璃杯受冲击会碎，石头受冲击不变，而肌肉骨骼却会在适度压力下变得更强——这才是"反脆弱"。',
     category: 'systems',
+  },
+  // ---------- 思维与决策方法 ----------
+  {
+    id: 'occams-razor',
+    icon: '🪒',
+    title: '奥卡姆剃刀',
+    aka: "Occam's Razor",
+    summary: '如果一件事有好几种解释都说得通，通常假设最少、最简单的那种解释更可能是对的。',
+    category: 'thinking',
+  },
+  {
+    id: 'first-principles',
+    icon: '🧱',
+    title: '第一性原理',
+    aka: 'First Principles Thinking',
+    summary: '别人说"这就是行业常态"，你却拆到最基础的事实往上推理——而不是照搬别人的"常识"。',
+    category: 'thinking',
+  },
+  {
+    id: 'inversion',
+    icon: '🔄',
+    title: '逆向思维',
+    aka: 'Inversion',
+    summary: '"如果我知道我会死在哪里，我就永远不去那个地方"——与其想怎么成功，不如先想清楚怎么会失败。',
+    category: 'thinking',
+  },
+  {
+    id: 'hanlons-razor',
+    icon: '🤷',
+    title: '汉隆剃刀',
+    aka: "Hanlon's Razor",
+    summary: '"不要把能用愚蠢或疏忽解释的事，归咎为恶意"——同事没回你消息，大概率只是忙忘了。',
+    category: 'thinking',
+  },
+  {
+    id: 'second-order-thinking',
+    icon: '🎯',
+    title: '二阶思维',
+    aka: 'Second-Order Thinking',
+    summary: '只想"这个决定会带来什么"是一阶思维，接着想"然后呢，再然后呢"才是二阶思维。',
+    category: 'thinking',
+  },
+  // ---------- 沟通与关系 ----------
+  {
+    id: 'nonviolent-communication',
+    icon: '🕊️',
+    title: '非暴力沟通',
+    aka: 'Nonviolent Communication',
+    summary: '"你总是不做家务"容易引发争吵；"我看到这周的碗有三次没洗，希望我们商量下分工"更容易被听进去。',
+    category: 'communication',
+  },
+  {
+    id: 'iceberg-theory',
+    icon: '🧊',
+    title: '冰山理论',
+    aka: 'Iceberg Theory（萨提亚沟通模式）',
+    summary: '孩子考砸了摔门大哭说"我再也不学了"——这句话是冰山一角，底下藏着的可能是"我怕让你们失望"。',
+    category: 'communication',
+  },
+  {
+    id: 'johari-window',
+    icon: '🪟',
+    title: '乔哈里视窗',
+    aka: 'Johari Window',
+    summary: '你身上有一块连自己都没意识到、却被别人看得清清楚楚的"盲区"，往往最值得关注。',
+    category: 'communication',
+  },
+  {
+    id: 'abc-theory',
+    icon: '🔺',
+    title: '情绪ABC理论',
+    aka: 'ABC Theory of Emotion',
+    summary: '让你产生情绪的，往往不是事件本身，而是你对这件事的解读。',
+    category: 'communication',
+  },
+  {
+    id: 'feedback-sandwich',
+    icon: '🥪',
+    title: '三明治反馈法',
+    aka: 'Feedback Sandwich',
+    summary: '先夸一句、中间提意见、最后再鼓励一句——把批评"夹"在两片肯定中间，对方更容易听进去。',
+    category: 'communication',
   },
 ]
 

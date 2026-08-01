@@ -8,7 +8,7 @@ const modules = [
     to: '/concepts',
     icon: '🗺️',
     title: '概念地图',
-    desc: `${concepts.length}个概念分5大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
+    desc: `${concepts.length}个概念分${categoryOrder.length}大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
   },
   {
     to: '/quiz',
@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-xl font-semibold text-slate-900 dark:text-white">5大类，{concepts.length}个概念一览</h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-900 dark:text-white">{categoryOrder.length}大类，{concepts.length}个概念一览</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categoryOrder.map((cat) => (
             <div key={cat} className="rounded-2xl border-2 border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
