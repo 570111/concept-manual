@@ -8,7 +8,7 @@ const modules = [
     to: '/concepts',
     icon: '🗺️',
     title: '概念地图',
-    desc: '20个概念分5大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。',
+    desc: `${concepts.length}个概念分5大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
   },
   {
     to: '/quiz',
@@ -76,7 +76,7 @@ export default function Home() {
     <div className="space-y-12">
       <section className="text-center">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
-          用20个思维模型，看懂生活里那些说不清的规则
+          用{concepts.length}个思维模型，看懂生活里那些说不清的规则
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-slate-500 dark:text-slate-400">
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？为什么有些老规矩明明不方便却一直没人改？
@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-xl font-semibold text-slate-900 dark:text-white">5大类，20个概念一览</h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-900 dark:text-white">5大类，{concepts.length}个概念一览</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categoryOrder.map((cat) => (
             <div key={cat} className="rounded-2xl border-2 border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">

@@ -102,7 +102,7 @@ export default function Concepts() {
   return (
     <div className="space-y-12">
       <div>
-        <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">概念地图：20个看懂生活规则的思维工具</h1>
+        <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">概念地图：{concepts.length}个看懂生活规则的思维工具</h1>
         <p className="mt-2 text-slate-500 dark:text-slate-400">
           分成5大类：认知偏误关乎"你怎么想"，社会与人际关乎"一群人怎么处"，经济与决策关乎"怎么分配有限的东西"，
           博弈与影响关乎"人和人怎么过招"，系统与演化关乎"事情长期会往哪走"。每个概念都配一个生活场景，学完可以直接用。
