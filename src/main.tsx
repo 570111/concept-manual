@@ -8,9 +8,11 @@ import Concepts from './pages/Concepts.tsx'
 import ConceptDetail from './pages/ConceptDetail.tsx'
 import Quiz from './pages/Quiz.tsx'
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route element={<App />}>
           <Route index element={<Home />} />
