@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 const links = [
   { to: '/', label: '首页' },
   { to: '/concepts', label: '概念地图' },
+  { to: '/graph', label: '关系图谱' },
   { to: '/quiz', label: '测验' },
 ]
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { concepts, categoryOrder, categoryInfo } from '../data/concepts'
 import { getLearnedConcepts } from '../lib/progress'
+import TodayConceptCard from '../components/TodayConceptCard'
 
 const modules = [
   {
@@ -9,6 +10,12 @@ const modules = [
     icon: '🗺️',
     title: '概念地图',
     desc: `${concepts.length}个概念分${categoryOrder.length}大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
+  },
+  {
+    to: '/graph',
+    icon: '🕸️',
+    title: '关系图谱',
+    desc: '这些概念之间怎么互相关联，用一张图看清楚——从一个概念顺藤摸瓜学到相关的另一个。',
   },
   {
     to: '/quiz',
@@ -82,12 +89,13 @@ export default function Home() {
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？为什么有些老规矩明明不方便却一直没人改？
           这些现象背后都有名字、有原理。每个概念用一个生活场景讲透，讲完还告诉你怎么在自己的生活里用上。
         </p>
-        <div className="mt-6">
+        <div className="mt-6 space-y-3">
+          <TodayConceptCard />
           <ContinueLearningCard />
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2">
+      <section className="grid gap-4 sm:grid-cols-3">
         {modules.map((m) => (
           <Link
             key={m.to}

@@ -509,7 +509,7 @@ export const concepts: ConceptMeta[] = [
     id: 'iceberg-theory',
     icon: '🧊',
     title: '冰山理论',
-    aka: 'Iceberg Theory（萨提亚沟通模式）',
+    aka: 'Iceberg Theory',
     summary: '孩子考砸了摔门大哭说"我再也不学了"——这句话是冰山一角，底下藏着的可能是"我怕让你们失望"。',
     category: 'communication',
   },
