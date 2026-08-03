@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { concepts, categoryOrder, categoryInfo, getConceptsByCategory, type Category } from '../data/concepts'
+import { categoryOrder, categoryInfo, type Category, type ConceptMeta } from '../data/concepts'
+import { useContent } from '../lib/ContentContext'
 import { getLearnedConcepts } from '../lib/progress'
 
 function ConceptNode({
@@ -10,7 +11,7 @@ function ConceptNode({
   isNext,
   isLast,
 }: {
-  concept: (typeof concepts)[number]
+  concept: ConceptMeta
   index: number
   isDone: boolean
   isNext: boolean
@@ -60,8 +61,18 @@ function ConceptNode({
   )
 }
 
-function CategorySection({ category, learned, nextConceptId }: { category: Category; learned: Set<string>; nextConceptId: string | null }) {
-  const items = getConceptsByCategory(category)
+function CategorySection({
+  category,
+  concepts,
+  learned,
+  nextConceptId,
+}: {
+  category: Category
+  concepts: ConceptMeta[]
+  learned: Set<string>
+  nextConceptId: string | null
+}) {
+  const items = concepts.filter((c) => c.category === category)
   return (
     <section className="space-y-6">
       <div className="flex items-start gap-3 rounded-2xl border-2 border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-800/40">
@@ -91,11 +102,15 @@ function CategorySection({ category, learned, nextConceptId }: { category: Categ
 }
 
 export default function Concepts() {
+  const { data } = useContent()
   const [learned, setLearned] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     setLearned(getLearnedConcepts())
   }, [])
+
+  if (!data) return null
+  const { concepts } = data
 
   const nextConceptId = concepts.find((c) => !learned.has(c.id))?.id ?? null
 
@@ -111,7 +126,7 @@ export default function Concepts() {
       </div>
 
       {categoryOrder.map((category) => (
-        <CategorySection key={category} category={category} learned={learned} nextConceptId={nextConceptId} />
+        <CategorySection key={category} category={category} concepts={concepts} learned={learned} nextConceptId={nextConceptId} />
       ))}
     </div>
   )

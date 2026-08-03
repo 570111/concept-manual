@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import { clearSession } from '../lib/auth'
+import { useContent } from '../lib/ContentContext'
 
 const links = [
   { to: '/', label: '首页' },
@@ -10,9 +10,10 @@ const links = [
 
 export default function NavBar() {
   const navigate = useNavigate()
+  const { logout } = useContent()
 
   function handleLogout() {
-    clearSession()
+    logout()
     navigate('/login', { replace: true })
   }
 

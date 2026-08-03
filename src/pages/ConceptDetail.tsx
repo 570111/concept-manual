@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { concepts, getConcept, categoryInfo } from '../data/concepts'
-import { conceptContent } from '../data/conceptContent'
-import { getQuestionsByConcept } from '../data/quiz'
+import { categoryInfo } from '../data/concepts'
+import { useContent } from '../lib/ContentContext'
 import { markConceptLearned } from '../lib/progress'
 import StoryCard from '../components/StoryCard'
 import Callout from '../components/Callout'
@@ -10,8 +9,7 @@ import QuizRunner from '../components/QuizRunner'
 
 export default function ConceptDetail() {
   const { conceptId } = useParams<{ conceptId: string }>()
-  const concept = conceptId ? getConcept(conceptId) : undefined
-  const content = conceptId ? conceptContent[conceptId] : undefined
+  const { data } = useContent()
   const [quizOpen, setQuizOpen] = useState(false)
 
   useEffect(() => {
@@ -19,14 +17,19 @@ export default function ConceptDetail() {
     setQuizOpen(false)
   }, [conceptId])
 
+  if (!data) return null
+
+  const concept = conceptId ? data.concepts.find((c) => c.id === conceptId) : undefined
+  const content = conceptId ? data.conceptContent[conceptId] : undefined
+
   if (!concept || !content) {
     return <Navigate to="/concepts" replace />
   }
 
-  const index = concepts.findIndex((c) => c.id === concept.id)
-  const prev = concepts[index - 1]
-  const next = concepts[index + 1]
-  const questions = getQuestionsByConcept(concept.id)
+  const index = data.concepts.findIndex((c) => c.id === concept.id)
+  const prev = data.concepts[index - 1]
+  const next = data.concepts[index + 1]
+  const questions = data.quizQuestions.filter((q) => q.conceptId === concept.id)
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -83,7 +86,7 @@ export default function ConceptDetail() {
           <h2 className="text-sm font-bold text-slate-400">关联概念</h2>
           <div className="flex flex-wrap gap-2">
             {content.related.map((id) => {
-              const rc = getConcept(id)
+              const rc = data.concepts.find((c) => c.id === id)
               if (!rc) return null
               return (
                 <Link

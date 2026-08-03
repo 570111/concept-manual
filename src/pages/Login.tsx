@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { useLocation, useNavigate, Navigate } from 'react-router-dom'
-import { verifyAccessKey, setSession, getSession } from '../lib/auth'
+import { useContent } from '../lib/ContentContext'
 
 export default function Login() {
   const [key, setKey] = useState('')
-  const [error, setError] = useState<string | null>(null)
   const [checking, setChecking] = useState(false)
+  const { data, error, login } = useContent()
   const navigate = useNavigate()
   const location = useLocation()
 
-  if (getSession()) {
+  if (data) {
     const from = (location.state as { from?: string } | null)?.from ?? '/'
     return <Navigate to={from} replace />
   }
@@ -18,16 +18,12 @@ export default function Login() {
     e.preventDefault()
     if (!key.trim()) return
     setChecking(true)
-    setError(null)
-    const label = await verifyAccessKey(key)
+    const ok = await login(key)
     setChecking(false)
-    if (!label) {
-      setError('密钥不正确，检查一下有没有输错或漏了字符')
-      return
+    if (ok) {
+      const from = (location.state as { from?: string } | null)?.from ?? '/'
+      navigate(from, { replace: true })
     }
-    setSession(label)
-    const from = (location.state as { from?: string } | null)?.from ?? '/'
-    navigate(from, { replace: true })
   }
 
   return (

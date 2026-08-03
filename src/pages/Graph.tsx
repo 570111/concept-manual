@@ -1,13 +1,16 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { computeGraphLayout, categoryColor } from '../lib/graphLayout'
-import { getConcept, categoryOrder, categoryInfo, type Category } from '../data/concepts'
-import { conceptContent } from '../data/conceptContent'
+import { categoryOrder, categoryInfo, type Category } from '../data/concepts'
+import { useContent } from '../lib/ContentContext'
 
 const SIZE = 920
 
 export default function Graph() {
-  const { nodes, edges } = useMemo(() => computeGraphLayout(SIZE), [])
+  const { data } = useContent()
+  const concepts = useMemo(() => data?.concepts ?? [], [data])
+  const conceptContent = useMemo(() => data?.conceptContent ?? {}, [data])
+  const { nodes, edges } = useMemo(() => computeGraphLayout(concepts, conceptContent, SIZE), [concepts, conceptContent])
   const [hoverId, setHoverId] = useState<string | null>(null)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [dimCategory, setDimCategory] = useState<Category | null>(null)
@@ -25,6 +28,10 @@ export default function Graph() {
   }, [activeId, edges])
 
   const nodeById = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes])
+
+  if (!data) return null
+
+  const getConcept = (id: string) => concepts.find((c) => c.id === id)
   const selectedConcept = selectedId ? getConcept(selectedId) : null
   const selectedRelated = selectedId ? (conceptContent[selectedId]?.related ?? []) : []
 

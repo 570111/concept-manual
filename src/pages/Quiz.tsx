@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { categoryOrder, categoryInfo, type Category } from '../data/concepts'
-import { getQuestionsByCategory, countByDifficulty } from '../data/quiz'
+import { categoryOrder, categoryInfo, type Category, type ConceptMeta } from '../data/concepts'
+import type { QuizQuestion } from '../data/quiz'
+import { useContent } from '../lib/ContentContext'
 import { getWrongAnswers, getBestScore } from '../lib/progress'
 import QuizRunner from '../components/QuizRunner'
 
@@ -9,7 +10,27 @@ function scoreKey(category: Category) {
   return `category-${category}`
 }
 
-function CategorySelect({ onSelect }: { onSelect: (c: Category) => void }) {
+function questionsForCategory(concepts: ConceptMeta[], quizQuestions: QuizQuestion[], category: Category) {
+  const ids = new Set(concepts.filter((c) => c.category === category).map((c) => c.id))
+  return quizQuestions.filter((q) => ids.has(q.conceptId))
+}
+
+function countByDifficulty(qs: QuizQuestion[]) {
+  return {
+    basic: qs.filter((q) => q.difficulty === 'basic').length,
+    advanced: qs.filter((q) => q.difficulty === 'advanced').length,
+  }
+}
+
+function CategorySelect({
+  concepts,
+  quizQuestions,
+  onSelect,
+}: {
+  concepts: ConceptMeta[]
+  quizQuestions: QuizQuestion[]
+  onSelect: (c: Category) => void
+}) {
   const wrongCount = getWrongAnswers().length
   return (
     <div className="space-y-6">
@@ -29,8 +50,8 @@ function CategorySelect({ onSelect }: { onSelect: (c: Category) => void }) {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {categoryOrder.map((c) => {
-          const qs = getQuestionsByCategory(c)
-          const counts = countByDifficulty(c)
+          const qs = questionsForCategory(concepts, quizQuestions, c)
+          const counts = countByDifficulty(qs)
           const best = getBestScore(scoreKey(c))
           return (
             <button
@@ -65,16 +86,20 @@ function CategorySelect({ onSelect }: { onSelect: (c: Category) => void }) {
 }
 
 export default function Quiz() {
+  const { data } = useContent()
   const [category, setCategory] = useState<Category | null>(null)
 
+  if (!data) return null
+  const { concepts, quizQuestions } = data
+
   if (!category) {
-    return <CategorySelect onSelect={setCategory} />
+    return <CategorySelect concepts={concepts} quizQuestions={quizQuestions} onSelect={setCategory} />
   }
 
   return (
     <QuizRunner
       title={categoryInfo[category].label}
-      questions={getQuestionsByCategory(category)}
+      questions={questionsForCategory(concepts, quizQuestions, category)}
       scoreKey={scoreKey(category)}
       onExit={() => setCategory(null)}
       exitLabel="返回分类"

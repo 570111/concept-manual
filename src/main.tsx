@@ -10,24 +10,27 @@ import Quiz from './pages/Quiz.tsx'
 import Graph from './pages/Graph.tsx'
 import Login from './pages/Login.tsx'
 import RequireAuth from './components/RequireAuth.tsx'
+import { ContentProvider } from './lib/ContentContext.tsx'
 
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename={basename}>
-      <Routes>
-        <Route path="login" element={<Login />} />
-        <Route element={<RequireAuth />}>
-          <Route element={<App />}>
-            <Route index element={<Home />} />
-            <Route path="concepts" element={<Concepts />} />
-            <Route path="concepts/:conceptId" element={<ConceptDetail />} />
-            <Route path="graph" element={<Graph />} />
-            <Route path="quiz" element={<Quiz />} />
+    <ContentProvider>
+      <BrowserRouter basename={basename}>
+        <Routes>
+          <Route path="login" element={<Login />} />
+          <Route element={<RequireAuth />}>
+            <Route element={<App />}>
+              <Route index element={<Home />} />
+              <Route path="concepts" element={<Concepts />} />
+              <Route path="concepts/:conceptId" element={<ConceptDetail />} />
+              <Route path="graph" element={<Graph />} />
+              <Route path="quiz" element={<Quiz />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </ContentProvider>
   </StrictMode>,
 )

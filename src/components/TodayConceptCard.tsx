@@ -2,14 +2,18 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getTodaysConcept, formatTodayLabel } from '../lib/dailyConcept'
 import { isConceptLearned } from '../lib/progress'
+import { useContent } from '../lib/ContentContext'
 
 export default function TodayConceptCard() {
+  const { data } = useContent()
   const [learned, setLearned] = useState(false)
-  const concept = getTodaysConcept()
+  const concept = data ? getTodaysConcept(data.concepts) : null
 
   useEffect(() => {
-    setLearned(isConceptLearned(concept.id))
-  }, [concept.id])
+    if (concept) setLearned(isConceptLearned(concept.id))
+  }, [concept?.id])
+
+  if (!concept) return null
 
   return (
     <Link

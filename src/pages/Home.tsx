@@ -1,31 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { concepts, categoryOrder, categoryInfo } from '../data/concepts'
+import { categoryOrder, categoryInfo } from '../data/concepts'
+import { useContent } from '../lib/ContentContext'
 import { getLearnedConcepts } from '../lib/progress'
 import TodayConceptCard from '../components/TodayConceptCard'
 
-const modules = [
-  {
-    to: '/concepts',
-    icon: '🗺️',
-    title: '概念地图',
-    desc: `${concepts.length}个概念分${categoryOrder.length}大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
-  },
-  {
-    to: '/graph',
-    icon: '🕸️',
-    title: '关系图谱',
-    desc: '这些概念之间怎么互相关联，用一张图看清楚——从一个概念顺藤摸瓜学到相关的另一个。',
-  },
-  {
-    to: '/quiz',
-    icon: '✏️',
-    title: '测验练习',
-    desc: '每学完几个概念做几道题，检验自己是不是真的理解了，答错自动收进错题本。',
-  },
-]
-
-function ContinueLearningCard() {
+function ContinueLearningCard({ concepts }: { concepts: { id: string; icon: string; title: string }[] }) {
   const [learned, setLearned] = useState<Set<string> | null>(null)
 
   useEffect(() => {
@@ -79,6 +59,31 @@ function ContinueLearningCard() {
 }
 
 export default function Home() {
+  const { data } = useContent()
+  if (!data) return null
+  const { concepts } = data
+
+  const modules = [
+    {
+      to: '/concepts',
+      icon: '🗺️',
+      title: '概念地图',
+      desc: `${concepts.length}个概念分${categoryOrder.length}大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
+    },
+    {
+      to: '/graph',
+      icon: '🕸️',
+      title: '关系图谱',
+      desc: '这些概念之间怎么互相关联，用一张图看清楚——从一个概念顺藤摸瓜学到相关的另一个。',
+    },
+    {
+      to: '/quiz',
+      icon: '✏️',
+      title: '测验练习',
+      desc: '每学完几个概念做几道题，检验自己是不是真的理解了，答错自动收进错题本。',
+    },
+  ]
+
   return (
     <div className="space-y-12">
       <section className="text-center">
@@ -91,7 +96,7 @@ export default function Home() {
         </p>
         <div className="mt-6 space-y-3">
           <TodayConceptCard />
-          <ContinueLearningCard />
+          <ContinueLearningCard concepts={concepts} />
         </div>
       </section>
 

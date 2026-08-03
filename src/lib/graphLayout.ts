@@ -1,5 +1,5 @@
-import { concepts, categoryOrder, type Category } from '../data/concepts'
-import { conceptContent } from '../data/conceptContent'
+import { categoryOrder, type Category, type ConceptMeta } from '../data/concepts'
+import type { ConceptContent } from '../data/conceptContent'
 
 export const categoryColor: Record<Category, string> = {
   bias: '#f97316',
@@ -25,7 +25,11 @@ export type GraphEdge = {
 
 const GAP_DEG = 5
 
-export function computeGraphLayout(size = 900) {
+export function computeGraphLayout(
+  concepts: ConceptMeta[],
+  conceptContent: Record<string, ConceptContent>,
+  size = 900,
+) {
   const cx = size / 2
   const cy = size / 2
   const radius = size * 0.42
