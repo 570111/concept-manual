@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { previewConcepts } from '../data/previewContent'
 import StoryCard from '../components/StoryCard'
@@ -29,6 +30,13 @@ const faqs = [
 ]
 
 export default function Preview() {
+  useEffect(() => {
+    const target = window.location.hash.slice(1) || new URLSearchParams(window.location.search).get('s')
+    if (!target) return
+    const el = document.getElementById(target)
+    el?.scrollIntoView()
+  }, [])
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
     <div className="mx-auto w-full max-w-2xl space-y-10 px-4 py-8">
@@ -63,7 +71,7 @@ export default function Preview() {
           <p className="mt-1 text-xs text-slate-400">不删减、不打码，跟付费后看到的正文一模一样</p>
         </div>
         {previewConcepts.map((c) => (
-          <div key={c.id} className="space-y-3 rounded-3xl border-2 border-slate-200 bg-slate-50/60 p-4 dark:border-slate-800 dark:bg-slate-900/40">
+          <div key={c.id} id={`preview-${c.id}`} className="space-y-3 rounded-3xl border-2 border-slate-200 bg-slate-50/60 p-4 dark:border-slate-800 dark:bg-slate-900/40">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-emerald-50 text-2xl dark:bg-emerald-900/40">
                 {c.icon}
