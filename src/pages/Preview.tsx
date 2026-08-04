@@ -3,10 +3,7 @@ import { previewConcepts } from '../data/previewContent'
 import StoryCard from '../components/StoryCard'
 import Callout from '../components/Callout'
 
-// TODO(卖家)：把这两个值换成你自己的。
-// PURCHASE_URL：闲鱼商品链接（发布商品后，闲鱼 App 里"分享→复制链接"就能拿到）。
-// PRICE_TEXT：标价文案，跟闲鱼商品页上的价格保持一致。
-const PURCHASE_URL = 'https://www.goofish.com/'
+const PURCHASE_URL = 'https://www.goofish.com/item?id=1070546163337'
 const PRICE_TEXT = '¥16.9'
 
 const stats = [
