@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLocation, useNavigate, Navigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, Navigate } from 'react-router-dom'
 import { useContent } from '../lib/ContentContext'
 
 export default function Login() {
@@ -48,7 +48,12 @@ export default function Login() {
             {checking ? '验证中…' : '进入'}
           </button>
         </form>
-        <p className="mt-5 text-center text-xs text-slate-400">没有密钥？联系提供给你这份资料的人获取。</p>
+        <p className="mt-5 text-center text-xs text-slate-400">
+          没有密钥？
+          <Link to="/preview" className="font-medium text-emerald-600 hover:underline dark:text-emerald-400">
+            先免费试读3个概念 →
+          </Link>
+        </p>
       </div>
     </div>
   )

@@ -9,6 +9,7 @@ import ConceptDetail from './pages/ConceptDetail.tsx'
 import Quiz from './pages/Quiz.tsx'
 import Graph from './pages/Graph.tsx'
 import Login from './pages/Login.tsx'
+import Preview from './pages/Preview.tsx'
 import RequireAuth from './components/RequireAuth.tsx'
 import { ContentProvider } from './lib/ContentContext.tsx'
 
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
     <ContentProvider>
       <BrowserRouter basename={basename}>
         <Routes>
+          <Route path="preview" element={<Preview />} />
           <Route path="login" element={<Login />} />
           <Route element={<RequireAuth />}>
             <Route element={<App />}>
