@@ -58,6 +58,10 @@ export default function ConceptDetail() {
         <p className="leading-relaxed text-slate-600 dark:text-slate-300">{content.explain}</p>
       </section>
 
+      <Callout tone="good" title={`📚 ${content.realCase.title}`}>
+        {content.realCase.body}
+      </Callout>
+
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">怎么用</h2>
         <div className="space-y-3">
@@ -76,6 +80,23 @@ export default function ConceptDetail() {
           ))}
         </div>
       </section>
+
+      {content.misconceptions.length > 0 && (
+        <section className="space-y-2">
+          <h2 className="text-sm font-bold text-slate-400">常见误解</h2>
+          <ul className="space-y-2">
+            {content.misconceptions.map((m, i) => (
+              <li
+                key={i}
+                className="flex gap-2 rounded-2xl border-2 border-slate-200 bg-white p-3.5 text-sm leading-relaxed text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+              >
+                <span className="flex-none text-slate-300 dark:text-slate-600">✗</span>
+                {m}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <Callout tone="warn" title="⚠️ 别用错了">
         {content.pitfall}

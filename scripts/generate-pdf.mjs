@@ -161,6 +161,9 @@ function conceptPage(c) {
       return `<a class="related-chip" href="#concept-${id}">${rc.icon} ${esc(rc.title)}</a>`
     })
     .join('')
+  const misconceptionsHtml = content.misconceptions
+    .map((m) => `<div class="misconception-item"><span class="misconception-x">✗</span>${esc(m)}</div>`)
+    .join('')
   return `
   <section class="page concept-page" id="concept-${c.id}">
     <div class="concept-header">
@@ -182,10 +185,17 @@ function conceptPage(c) {
       <p>${esc(content.explain)}</p>
     </div>
 
+    <div class="realcase-box">
+      <div class="box-label">📚 ${esc(content.realCase.title)}</div>
+      <p>${esc(content.realCase.body)}</p>
+    </div>
+
     <div class="apply-box">
       <div class="box-label" style="color:${color}">怎么用</div>
       ${applyHtml}
     </div>
+
+    ${misconceptionsHtml ? `<div class="misconception-box"><div class="box-label">常见误解</div>${misconceptionsHtml}</div>` : ''}
 
     <div class="pitfall-box">
       <div class="box-label">⚠️ 别用错</div>
@@ -356,10 +366,15 @@ a { text-decoration: none; color: inherit; }
 .aka { font-size: 8.5pt; color: #94a3b8; margin-top: 1pt; }
 .tag { display: inline-block; color: #fff; font-size: 7.8pt; font-weight: 700; padding: 1.5pt 8pt; border-radius: 999px; }
 .box-label { font-size: 8.6pt; font-weight: 800; color: #64748b; margin-bottom: 2pt; }
-.story-box, .explain-box, .apply-box, .pitfall-box { margin-bottom: 6pt; break-inside: avoid; }
+.story-box, .explain-box, .realcase-box, .apply-box, .misconception-box, .pitfall-box { margin-bottom: 6pt; break-inside: avoid; }
 .story-box { background: #f8fafc; border-radius: 8pt; padding: 6pt 10pt; font-size: 9pt; color: #334155; }
-.explain-box p, .pitfall-box p { font-size: 9pt; color: #334155; margin: 0.25em 0; }
+.explain-box p, .pitfall-box p, .realcase-box p { font-size: 9pt; color: #334155; margin: 0.25em 0; }
+.realcase-box { background: #ecfdf5; border-left: 3pt solid #10b981; border-radius: 6pt; padding: 6pt 10pt; }
+.realcase-box p { color: #065f46; }
 .pitfall-box { background: #fffbeb; border-left: 3pt solid #f59e0b; border-radius: 6pt; padding: 6pt 10pt; }
+.misconception-box { display: flex; flex-direction: column; gap: 3pt; }
+.misconception-item { display: flex; gap: 5pt; font-size: 8.6pt; color: #64748b; border: 1pt solid #e2e8f0; border-radius: 6pt; padding: 4pt 8pt; }
+.misconception-x { flex: none; color: #cbd5e1; }
 .apply-item { display: flex; gap: 6pt; margin-top: 4pt; }
 .apply-num { flex: none; width: 13pt; height: 13pt; border-radius: 50%; color: #fff; font-size: 7.5pt; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1pt; }
 .apply-title { font-size: 9.2pt; font-weight: 700; color: #0f172a; }

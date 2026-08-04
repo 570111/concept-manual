@@ -40,7 +40,9 @@ const contentRows = concepts.map((c) => {
     concept_id: c.id,
     story: content.story,
     explain: content.explain,
+    real_case: content.realCase,
     apply: content.apply,
+    misconceptions: content.misconceptions,
     pitfall: content.pitfall,
     related: content.related,
   }

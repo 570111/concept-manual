@@ -19,7 +19,9 @@ create table if not exists concept_content (
   concept_id text primary key references concepts(id) on delete cascade,
   story text not null,
   explain text not null,
+  real_case jsonb not null default '{"title":"","body":""}'::jsonb,
   apply jsonb not null,
+  misconceptions jsonb not null default '[]'::jsonb,
   pitfall text not null,
   related jsonb not null
 );
@@ -76,8 +78,8 @@ begin
     'label', found_label,
     'concepts', (select coalesce(jsonb_agg(to_jsonb(c) order by c.sort_order), '[]'::jsonb) from concepts c),
     'content', (select coalesce(jsonb_object_agg(cc.concept_id, jsonb_build_object(
-                  'story', cc.story, 'explain', cc.explain, 'apply', cc.apply,
-                  'pitfall', cc.pitfall, 'related', cc.related
+                  'story', cc.story, 'explain', cc.explain, 'realCase', cc.real_case, 'apply', cc.apply,
+                  'misconceptions', cc.misconceptions, 'pitfall', cc.pitfall, 'related', cc.related
                 )), '{}'::jsonb) from concept_content cc),
     'quiz', (select coalesce(jsonb_agg(to_jsonb(q)), '[]'::jsonb) from quiz_questions q)
   ) into result;
