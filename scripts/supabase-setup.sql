@@ -56,7 +56,7 @@ create or replace function verify_key_and_get_content(input_key text)
 returns jsonb
 language plpgsql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
 declare
   found_label text;
@@ -92,7 +92,7 @@ create or replace function add_access_key(input_label text, plain_key text)
 returns void
 language sql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
   insert into access_keys (label, hash) values (input_label, crypt(plain_key, gen_salt('bf')));
 $$;
@@ -101,7 +101,7 @@ create or replace function revoke_access_key(target_label text)
 returns void
 language sql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
   update access_keys set revoked = true where label = target_label;
 $$;
