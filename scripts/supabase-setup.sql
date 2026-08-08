@@ -20,9 +20,12 @@ create table if not exists concept_content (
   story text not null,
   explain text not null,
   real_case jsonb not null default '{"title":"","body":""}'::jsonb,
+  second_case jsonb not null default '{"title":"","body":""}'::jsonb,
   apply jsonb not null,
   misconceptions jsonb not null default '[]'::jsonb,
   pitfall text not null,
+  self_task text not null default '',
+  further_reading jsonb not null default '{"title":"","type":"","note":""}'::jsonb,
   related jsonb not null
 );
 
@@ -78,8 +81,9 @@ begin
     'label', found_label,
     'concepts', (select coalesce(jsonb_agg(to_jsonb(c) order by c.sort_order), '[]'::jsonb) from concepts c),
     'content', (select coalesce(jsonb_object_agg(cc.concept_id, jsonb_build_object(
-                  'story', cc.story, 'explain', cc.explain, 'realCase', cc.real_case, 'apply', cc.apply,
-                  'misconceptions', cc.misconceptions, 'pitfall', cc.pitfall, 'related', cc.related
+                  'story', cc.story, 'explain', cc.explain, 'realCase', cc.real_case, 'secondCase', cc.second_case,
+                  'apply', cc.apply, 'misconceptions', cc.misconceptions, 'pitfall', cc.pitfall,
+                  'selfTask', cc.self_task, 'furtherReading', cc.further_reading, 'related', cc.related
                 )), '{}'::jsonb) from concept_content cc),
     'quiz', (select coalesce(jsonb_agg(to_jsonb(q)), '[]'::jsonb) from quiz_questions q)
   ) into result;

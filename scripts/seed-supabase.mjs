@@ -41,9 +41,12 @@ const contentRows = concepts.map((c) => {
     story: content.story,
     explain: content.explain,
     real_case: content.realCase,
+    second_case: content.secondCase,
     apply: content.apply,
     misconceptions: content.misconceptions,
     pitfall: content.pitfall,
+    self_task: content.selfTask,
+    further_reading: content.furtherReading,
     related: content.related,
   }
 })

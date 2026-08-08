@@ -37,6 +37,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '已经交的学费是沉没成本，无法收回，理性判断应该只看"接下来继续学"本身是否值得，而不是被已经花掉的钱绑架。',
   },
+  {
+    id: 'sunk-cost-3',
+    conceptId: 'sunk-cost',
+    difficulty: 'basic',
+    question: '关于沉没成本谬误，下列说法正确的是？',
+    options: ['沉没成本是已经发生、不该再影响未来决策的支出', '沉没成本应该是决策时权重最大的因素', '沉没成本谬误建议凡事都要坚持到底', '沉没成本只出现在金钱相关的决策里'],
+    correctIndex: 0,
+    explanation: '沉没成本是已经付出、无论后续怎么选都拿不回来的成本，理性决策应该只向前看，时间、感情、精力同样可以构成沉没成本。',
+  },
+  {
+    id: 'sunk-cost-4',
+    conceptId: 'sunk-cost',
+    difficulty: 'advanced',
+    question: '2015年谷歌关停了投入巨大的消费者版Google Glass项目，而不是继续追加投资硬撑。这个决策体现的是？',
+    options: ['没有被沉没成本谬误绑架，及时止损', '典型的损失厌恶行为', '一种羊群效应式的从众决策', '路径依赖导致的锁定效应'],
+    correctIndex: 0,
+    explanation: '尽管已经投入大量研发资源，谷歌依然只根据未来的市场前景做判断，果断放弃了已经不被市场接受的方向，这正是避免沉没成本谬误的表现。',
+  },
   // 邓宁-克鲁格效应
   {
     id: 'dunning-kruger-1',
@@ -55,6 +73,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['刚入门时信心达到高峰，深入学习后信心先下降后回升', '信心会随着能力提升一直线性增长，没有波动', '能力越强，信心越低，不存在回升阶段', '信心水平和能力完全无关'],
     correctIndex: 0,
     explanation: '曲线大致是：刚入门信心飙升到"愚昧之峰"，学得越多信心反而跌入"绝望之谷"，最后随真正精通慢慢爬回理性的自信。',
+  },
+  {
+    id: 'dunning-kruger-3',
+    conceptId: 'dunning-kruger',
+    difficulty: 'basic',
+    question: '心理学家邓宁和克鲁格最初研究这个效应的灵感来自哪个真实事件？',
+    options: ['一名往脸上涂柠檬汁抢劫银行、以为能躲开监控的劫匪', '一场股市崩盘', '一次空难事故', '一场大规模的社会调查'],
+    correctIndex: 0,
+    explanation: '1995年匹兹堡一名男子相信柠檬汁能当隐形墨水、让监控拍不到自己，公然抢劫后被轻易抓获，这则新闻启发了邓宁设计相关实验。',
+  },
+  {
+    id: 'dunning-kruger-4',
+    conceptId: 'dunning-kruger',
+    difficulty: 'advanced',
+    question: '后来有学者用"回归均值"这一统计现象重新分析邓宁-克鲁格曲线的数据，这说明了什么？',
+    options: ['即使是知名的心理学发现，也需要经受住后续更严谨方法的反复检验', '邓宁-克鲁格效应已经被彻底推翻、完全不存在', '统计学方法对心理学研究没有意义', '这个效应只存在于最初的实验样本里，无法被重新分析'],
+    correctIndex: 0,
+    explanation: '这场学术争论说明科学结论会持续被更严谨的方法审视和修正，这本身也是"保持虚心、不断自我校准"精神的体现。',
   },
   // 幸存者偏差
   {
@@ -75,6 +111,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '你能看到的成功案例，本身就是被筛选过的"幸存者"，同样方法论下失败的人通常不会主动现身说法，据此判断方法论有效需要更完整的样本。',
   },
+  {
+    id: 'survivorship-bias-3',
+    conceptId: 'survivorship-bias',
+    difficulty: 'basic',
+    question: '基金业绩排行榜为什么容易存在幸存者偏差？',
+    options: ['业绩长期不佳的基金常被清盘或合并，从数据库里消失，只留下表现好的基金供人参考', '基金经理都会主动隐藏自己的真实业绩', '基金的历史数据每年都会被完全清零重算', '监管要求基金必须删除亏损年份的数据'],
+    correctIndex: 0,
+    explanation: '表现差的基金退出市场后不再计入统计，导致留存基金的平均业绩系统性地高于全部基金（含已消失的）的真实平均水平。',
+  },
+  {
+    id: 'survivorship-bias-4',
+    conceptId: 'survivorship-bias',
+    difficulty: 'advanced',
+    question: '要减少幸存者偏差对判断的影响，比较有效的做法是？',
+    options: ['主动寻找同样方法论下失败的样本，而不只看留存下来的成功案例', '看到的成功案例越多就越能证明规律成立', '完全不相信任何总结出来的经验规律', '只需要提醒自己"这可能是偏差"就足够了'],
+    correctIndex: 0,
+    explanation: '样本数量多不能弥补样本本身有偏的问题，主动核对失败者的数据、补全完整样本，才是应对幸存者偏差的关键。',
+  },
   // 锚定效应
   {
     id: 'anchoring-1',
@@ -93,6 +147,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['锚定效应，让1999元成为参照点，衬托599元显得划算', '幸存者偏差', '帕金森定律', '破窗效应'],
     correctIndex: 0,
     explanation: '即便1999元从未真实成交过，它依然会在消费者心里"扎根"成为参照锚点，让599元显得格外便宜。',
+  },
+  {
+    id: 'anchoring-3',
+    conceptId: 'anchoring',
+    difficulty: 'advanced',
+    question: '研究发现，让资深法官先掷一对被动过手脚的骰子，再给模拟案件建议刑期，结果骰子点数居然显著影响了量刑建议。这说明？',
+    options: ['即使是专业、理应客观的判断，也很难完全摆脱无关数字的锚定影响', '法官的判断完全不受任何外部因素影响', '骰子点数和量刑之间存在真实的因果关系', '这个实验只对没有经验的新人法官有效'],
+    correctIndex: 0,
+    explanation: '骰子点数和案情毫无关系，但依然拉偏了专业法官的量刑判断，说明锚定效应的影响力比人们直觉认为的更顽固、更难靠专业身份免疫。',
+  },
+  {
+    id: 'anchoring-4',
+    conceptId: 'anchoring',
+    difficulty: 'basic',
+    question: '想在谈判或议价中减少被对方锚定的影响，比较有效的做法是？',
+    options: ['尽量自己先出价，或者提前独立估算出一个合理数字', '完全不做任何准备，凭临场感觉出价', '让对方随意开价，自己再决定要不要接受', '只要提醒自己"别被锚点影响"就足够了'],
+    correctIndex: 0,
+    explanation: '研究显示，即使提前警告过受试者"这是个锚"，判断依然会被拉偏；主动先出价或独立估算，比单纯提醒自己更能有效降低影响。',
   },
   // 巴纳姆效应
   {
@@ -113,6 +185,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '每个学生拿到的都是同一份描述，却普遍打出高准确度分数，说明这类描述的"准确感"来自措辞的宽泛，而不是真的分析了每个人。',
   },
+  {
+    id: 'barnum-effect-3',
+    conceptId: 'barnum-effect',
+    difficulty: 'advanced',
+    question: '专业灵媒/算命师常用的"冷读术"技巧，核心原理最接近？',
+    options: ['先说模糊笼统的话，再根据对方反应调整描述，利用巴纳姆效应制造"精准"的错觉', '通过提前调查对方的真实信息来精准描述', '完全依靠随机猜测，没有任何固定技巧', '只对轻信、缺乏判断力的人有效'],
+    correctIndex: 0,
+    explanation: '冷读术的关键是先抛出几乎人人适用的模糊描述，再顺着对方的反应细节收窄和调整，让对方产生"被看穿了"的错觉，本质就是巴纳姆效应的应用。',
+  },
+  {
+    id: 'barnum-effect-4',
+    conceptId: 'barnum-effect',
+    difficulty: 'basic',
+    question: '怎么初步判断一段"性格分析"是不是巴纳姆式的空话？',
+    options: ['把它读给别人听，看对方是否也觉得"说的就是我"', '只要是付费得到的分析结果，就一定是准确的', '描述越长、越复杂，就说明分析得越具体越可信', '只要用词听起来专业，就说明分析可信'],
+    correctIndex: 0,
+    explanation: '如果同一段描述换给任何人听都会让对方觉得"很准"，说明这段话本身措辞模糊笼统，而不是真的分析了具体的某个人。',
+  },
   // 确认偏误
   {
     id: 'confirmation-bias-1',
@@ -131,6 +221,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['指定一个人专门负责挑出方案的漏洞和反例', '让发言最积极的人先说，其他人附和即可', '尽量减少讨论时间，快速达成一致', '只让最资深的人发表意见'],
     correctIndex: 0,
     explanation: '类似"魔鬼代言人"的角色能有效对抗团队集体倾向于寻找支持性证据、忽视反面意见的确认偏误。',
+  },
+  {
+    id: 'confirmation-bias-3',
+    conceptId: 'confirmation-bias',
+    difficulty: 'basic',
+    question: '《华尔街日报》"Blue Feed, Red Feed"这个交互项目主要展示了什么现象？',
+    options: ['算法根据用户已有立场持续推送同类内容，不同立场的人看到的信息几乎是两个平行世界', '所有社交媒体用户看到的内容其实完全一样', '新闻媒体的报道从不受任何算法影响', '确认偏误只存在于政治议题上'],
+    correctIndex: 0,
+    explanation: '这个项目并排展示了算法推给不同政治立场用户的热门内容，直观呈现了确认偏误在推荐算法作用下被系统性放大、形成信息茧房的过程。',
+  },
+  {
+    id: 'confirmation-bias-4',
+    conceptId: 'confirmation-bias',
+    difficulty: 'advanced',
+    question: '心理学家沃森的"2-4-6任务"实验里，大多数参与者最终都没能猜对真实规则，最主要的原因是？',
+    options: ['他们只提出符合自己假设的数字组合来验证，很少主动尝试可能推翻假设的组合', '参与者的数学能力普遍不足', '实验的规则本身表述不清楚', '沃森故意误导了参与者的猜测方向'],
+    correctIndex: 0,
+    explanation: '参与者习惯性地寻找"符合"的证据来验证自己心里的假设，却很少设计一个"如果假设错了会怎样"的证伪性测试，这正是确认偏误的核心表现。',
   },
   // 光环效应
   {
@@ -151,6 +259,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '把"外表/谈吐"和"专业能力"分开单独打分，能有效避免某一项特别出彩就带动其他未验证维度也被高估。',
   },
+  {
+    id: 'halo-effect-3',
+    conceptId: 'halo-effect',
+    difficulty: 'advanced',
+    question: '"苹果光环效应"指的是什么现象？',
+    options: ['iPod的成功让消费者连带对Mac产生更高评价和购买意愿', 'iPod和Mac的销量完全没有关联', '苹果的所有产品线销量总是同步下滑', '消费者只会为苹果的外观设计买单，完全不关心其他方面'],
+    correctIndex: 0,
+    explanation: '一个爆款产品积累的好感，会不自觉扩散到品牌旗下其他产品的评价上，这是光环效应在商业品牌管理中的典型体现。',
+  },
+  {
+    id: 'halo-effect-4',
+    conceptId: 'halo-effect',
+    difficulty: 'basic',
+    question: '心理学家尼斯贝特和威尔逊的教师录像实验发现了什么？',
+    options: ['学生看到老师表现热情的版本后，连带认为老师的外貌也更有魅力，即使外貌完全相同', '学生能准确分辨出老师的外貌评分不受态度影响', '态度冷淡的老师总是被认为外貌更有魅力', '实验没有发现态度和外貌评价之间存在任何关联'],
+    correctIndex: 0,
+    explanation: '两段录像里老师的外貌完全一样，但热情友善的表现让学生连带给出了更高的外貌评分，说明一个维度的正面印象会扩散到其他不相关维度。',
+  },
   // 损失厌恶
   {
     id: 'loss-aversion-1',
@@ -169,6 +295,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['损失厌恶，强调"损失/错过"的框架比强调"收益"的框架更能触发行动', '沉没成本谬误', '边际效用递减', '幸存者偏差'],
     correctIndex: 0,
     explanation: '同样的信息换成强调"损失"的表达方式，因为损失厌恶心理，触发的行动力往往比强调"收益"更强。',
+  },
+  {
+    id: 'loss-aversion-3',
+    conceptId: 'loss-aversion',
+    difficulty: 'advanced',
+    question: '德国和奥地利的器官捐献登记率相差悬殊（约12% vs 约99%），研究发现主要原因是？',
+    options: ['两国的默认选项设置不同：一个默认不捐献需主动同意，另一个默认捐献需主动退出', '两国国民的价值观和宗教信仰完全不同', '奥地利的医疗技术远远领先于德国', '这个差异纯粹是统计误差，没有实际意义'],
+    correctIndex: 0,
+    explanation: '放弃"默认状态"会被感知为一种损失，大多数人倾向于保持默认选项不变，这个案例后来深刻影响了多国公共政策中默认选项的设计。',
+  },
+  {
+    id: 'loss-aversion-4',
+    conceptId: 'loss-aversion',
+    difficulty: 'basic',
+    question: '"禀赋效应"和损失厌恶的关系是？',
+    options: ['禀赋效应是损失厌恶的衍生现象：一旦拥有某物，人会高估它的价值，因为失去它被感知为损失', '禀赋效应和损失厌恶是两个完全无关的独立概念', '禀赋效应只在人主动购买物品后才会出现', '禀赋效应指的是人总是低估自己已经拥有的东西'],
+    correctIndex: 0,
+    explanation: '马克杯实验显示，仅仅因为"已经拥有"，卖家的要价就显著高于买家的出价，这正是损失厌恶心理在"拥有"和"失去"之间产生的不对称。',
   },
   // 可得性启发
   {
@@ -189,6 +333,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '生动、反复报道的画面太容易被想起，导致对飞机风险的直觉判断严重偏离真实的统计概率。',
   },
+  {
+    id: 'availability-heuristic-3',
+    conceptId: 'availability-heuristic',
+    difficulty: 'basic',
+    question: '重大空难事件被密集报道后，涉事航空公司乃至整个行业的短期机票预订量往往会？',
+    options: ['出现明显下滑，即使航空安全的长期统计数据几乎没有变化', '几乎不受任何影响，因为消费者只看长期数据', '总是保持稳定上升', '只有涉事航空公司受影响，行业其他公司完全不受波及'],
+    correctIndex: 0,
+    explanation: '生动的事故画面被反复报道后，容易让人高估飞行风险，即使这类极端事件的长期统计概率并没有明显变化。',
+  },
+  {
+    id: 'availability-heuristic-4',
+    conceptId: 'availability-heuristic',
+    difficulty: 'advanced',
+    question: '想避免可得性启发扭曲对风险的判断，比较有效的做法是？',
+    options: ['主动去查真实的统计数据，而不是只凭"最近好像经常听说"的印象下判断', '完全不再关注任何新闻报道', '相信自己的直觉判断永远是对的', '越是罕见的事件，越应该认为它更可能发生'],
+    correctIndex: 0,
+    explanation: '媒体天然偏爱报道罕见、戏剧化的事件，权威的统计数据来源通常比"我感觉""我听说"更能反映真实的风险水平。',
+  },
   // 双曲贴现
   {
     id: 'hyperbolic-discounting-1',
@@ -207,6 +369,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['把长期目标翻译成能立刻兑现的小奖励，或提前移除眼前的诱惑', '只依靠意志力硬抗眼前的诱惑', '完全不设定任何长期目标', '双曲贴现无法通过任何方法缓解'],
     correctIndex: 0,
     explanation: '让长期目标产生即时反馈、或提前移除诱惑物，比单纯依靠意志力硬扛更能有效对抗双曲贴现。',
+  },
+  {
+    id: 'hyperbolic-discounting-3',
+    conceptId: 'hyperbolic-discounting',
+    difficulty: 'advanced',
+    question: '20世纪初美国银行推出的"圣诞储蓄俱乐部"账户（利息很低、中途不能取用）为什么会受到欢迎？',
+    options: ['它用"提前锁死、不能中途支取"的方式帮储户对抗自己眼前想花钱的双曲贴现冲动', '因为它提供了远高于市场平均水平的超高利息', '因为储户完全不了解这类账户的真实收益率', '这类账户其实并不受欢迎，只是历史记录夸大了它的影响力'],
+    correctIndex: 0,
+    explanation: '尽管从纯金融回报角度看毫无吸引力，但强制锁定资金的机制恰好能帮当时的家庭对抗即时消费的冲动，这和现代"自动加入"储蓄计划是同一个思路。',
+  },
+  {
+    id: 'hyperbolic-discounting-4',
+    conceptId: 'hyperbolic-discounting',
+    difficulty: 'basic',
+    question: '"今天拿100元还是一年后拿150元，大多数人选今天的100元；但十年后拿100元还是十一年后拿150元，大多数人却愿意多等一年拿150元。"这个现象说明？',
+    options: ['人对未来价值的折价方式不是线性稳定的，越接近当下折损越剧烈', '人对任何延迟的选择都会做出完全一致、理性的判断', '这个现象只在涉及金钱时才会出现', '大多数人根本不在乎金额大小的差异'],
+    correctIndex: 0,
+    explanation: '这正是"双曲线型"折价曲线的经典体现——延迟发生在近期时价值折损极大，同样长度的延迟发生在远期时折损却小得多。',
   },
   // 自我服务偏误
   {
@@ -227,6 +407,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '去个人化的讨论方式能减少每个人因为自我保护心理而互相甩锅，让复盘真正聚焦在如何改进上。',
   },
+  {
+    id: 'self-serving-bias-3',
+    conceptId: 'self-serving-bias',
+    difficulty: 'advanced',
+    question: '研究发现，上市公司高管在财报电话会议中，业绩好时更常用"我们的战略/执行力"，业绩差时更常用"行业整体承压"。这体现了？',
+    options: ['自我服务偏误：把成功归因于内部因素，把失败归因于外部因素', '这些高管都在故意撒谎，没有反映任何心理规律', '业绩好坏和归因方式之间毫无关联', '这种措辞差异只出现在个别公司，不具有普遍性'],
+    correctIndex: 0,
+    explanation: '这种归因语言的系统性不对称，正是自我服务偏误在真实商业沟通场景里的体现，研究者甚至尝试用它作为分析管理层真实判断的信号。',
+  },
+  {
+    id: 'self-serving-bias-4',
+    conceptId: 'self-serving-bias',
+    difficulty: 'basic',
+    question: '心理学家劳和罗素分析美式橄榄球赛后报道发现，赢球后球队更倾向于将原因归结于？',
+    options: ['自己队伍的能力和努力', '裁判判罚和运气', '对方球队实力太弱', '天气等不可控的外部环境'],
+    correctIndex: 0,
+    explanation: '赢球后大部分归因都指向自身能力和努力，输球后"归因于自己不足"的比例则大幅下降，更多被归结为外部因素，这正是自我服务偏误的经典体现。',
+  },
   // 路西法效应
   {
     id: 'lucifer-effect-1',
@@ -245,6 +443,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['心理健康的普通人在被赋予权力和特定情境后，可能表现出真实的虐待行为', '只有性格有缺陷的人才会在监狱环境中表现出暴力行为', '情境对人的行为几乎没有影响', '这个实验和路西法效应没有关联'],
     correctIndex: 0,
     explanation: '实验前被评定为心理正常的大学生，在扮演狱警的情境中短短几天内就表现出真实的虐待行为。',
+  },
+  {
+    id: 'lucifer-effect-3',
+    conceptId: 'lucifer-effect',
+    difficulty: 'advanced',
+    question: '二战期间法国"勒尚邦"村庄集体收留数千名犹太难民的案例，在讨论路西法效应时最主要的意义是？',
+    options: ['说明情境的塑造力量并不只导向恶，也能塑造集体的见义勇为', '证明所有法国人在二战期间都参与了反抗行动', '说明该村庄的居民天生比其他人更善良', '这个案例与路西法效应的讨论无关'],
+    correctIndex: 0,
+    explanation: '当地的信仰传统、公开号召和邻里默契共同构建出了鼓励见义勇为的社群情境，从正面印证了情境塑造行为这一核心机制。',
+  },
+  {
+    id: 'lucifer-effect-4',
+    conceptId: 'lucifer-effect',
+    difficulty: 'basic',
+    question: '关于路西法效应，下列理解正确的是？',
+    options: ['情境能解释行为发生的原因，但不代表可以免除个人应承担的责任', '只要处于恶劣情境中，个人就完全不需要为自己的行为负责', '路西法效应证明人性本质上是邪恶的', '这个理论认为情境对行为完全没有影响'],
+    correctIndex: 0,
+    explanation: '这个概念更适合用来指导如何设计更好的制度去预防不良行为，而不是作为个人恶行免责的借口。',
   },
   // 群体极化
   {
@@ -265,6 +481,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '独立记录观点能帮助个体察觉自己是否被带偏，引入不同立场能有效打破单一立场的自我强化循环。',
   },
+  {
+    id: 'group-polarization-3',
+    conceptId: 'group-polarization',
+    difficulty: 'advanced',
+    question: '法学家凯斯·桑斯坦的模拟陪审团研究发现，如果小组成员初始判断都偏向"应该重罚"，讨论后小组给出的惩罚性赔偿金额通常会？',
+    options: ['比组内任何一个人最初的独立判断都更高', '总是趋向组内所有人判断的平均值', '比组内所有人最初判断中最低的那个还要低', '和讨论前完全没有变化'],
+    correctIndex: 0,
+    explanation: '这项研究说明群体极化在真实的司法决策场景中同样存在，是法学界讨论陪审团制度设计时的重要参考。',
+  },
+  {
+    id: 'group-polarization-4',
+    conceptId: 'group-polarization',
+    difficulty: 'basic',
+    question: '心理学家詹姆斯·斯托纳最早发现群体极化现象时，采用的研究方法是？',
+    options: ['让参与者先独立判断，再分组讨论后重新决策，对比讨论前后的变化', '直接调查大规模人群的政治立场', '分析历史上的真实犯罪案例', '通过问卷调查测量参与者的智商水平'],
+    correctIndex: 0,
+    explanation: '这种"讨论前后对比"的方法首次发现，小组讨论后的决定普遍比个人决策更倾向于极端（最初被称为"冒险转移"现象）。',
+  },
   // 情绪感染
   {
     id: 'emotional-contagion-1',
@@ -283,6 +517,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['刻意在公开场合保持稳定、积极的情绪表达', '情绪管理对团队氛围没有实质影响', '只需要通过制度规定禁止抱怨即可', '情绪感染只发生在同级同事之间，管理者的情绪不会影响团队'],
     correctIndex: 0,
     explanation: '团队负责人的情绪对周围人的感染力格外强，稳定积极的情绪表达能给团队整体氛围带来正向影响。',
+  },
+  {
+    id: 'emotional-contagion-3',
+    conceptId: 'emotional-contagion',
+    difficulty: 'advanced',
+    question: '社会学家阿莉·霍克希尔德提出的"情绪劳动"概念，最初来自对哪个职业群体的研究？',
+    options: ['航空公司空乘人员', '医院护士', '中小学教师', '呼叫中心客服'],
+    correctIndex: 0,
+    explanation: '霍克希尔德发现航空公司要求空乘始终保持热情表达，因为这种情绪表达会直接感染乘客体验，揭示了情绪感染早已被服务行业系统性纳入职业管理。',
+  },
+  {
+    id: 'emotional-contagion-4',
+    conceptId: 'emotional-contagion',
+    difficulty: 'basic',
+    question: '2014年Facebook与康奈尔大学合作的情绪传染实验发现了什么？',
+    options: ['情绪感染可以通过纯文字的社交媒体内容、在没有面对面接触的情况下发生', '情绪感染只能通过面对面的表情和语调传递', '用户发布内容的情绪倾向完全不受推送内容影响', '这项实验因为方法严谨完全没有引发任何伦理争议'],
+    correctIndex: 0,
+    explanation: '被展示更多负面内容的用户，自己后续发布状态里的负面词汇也显著增多，证明了纯文字内容同样能引发情绪传染，但这项研究也因未经用户明确同意而引发伦理争议。',
   },
   // 旁观者效应
   {
@@ -303,6 +555,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '把责任精准地压在一个具体的人身上，能有效打破责任分散心理，大大提高得到帮助的概率。',
   },
+  {
+    id: 'bystander-effect-3',
+    conceptId: 'bystander-effect',
+    difficulty: 'advanced',
+    question: '2011年"小悦悦事件"中，7分钟内18名路人经过均未施救，这个真实案例最适合用来讨论？',
+    options: ['旁观者效应在真实社会事件中的具体表现', '沉没成本谬误', '鲶鱼效应', '棘轮效应'],
+    correctIndex: 0,
+    explanation: '这起事件曾引发全国范围的道德讨论，也推动了多地探索"好人法"等鼓励和保护主动施救者的制度设计。',
+  },
+  {
+    id: 'bystander-effect-4',
+    conceptId: 'bystander-effect',
+    difficulty: 'basic',
+    question: '在达利和拉塔内的"烟雾房间实验"中，独自一人时报告烟雾的比例和有其他"陪同者"在场时相比？',
+    options: ['独自一人时报告比例（约75%）远高于有陪同者在场时（约10%）', '两种情况下报告比例几乎相同', '有陪同者在场时报告比例反而更高', '实验没有设置对照组，无法比较'],
+    correctIndex: 0,
+    explanation: '这个悬殊的对比揭示了"有其他人在场"这一个变量本身，就足以导致行动意愿出现断崖式下降。',
+  },
   // 标签效应
   {
     id: 'labeling-effect-1',
@@ -321,6 +591,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['在对方偶尔表现出条理性时明确肯定，给予正向标签', '反复强调"你总是丢三落四"', '完全不提及对方的行为表现', '标签效应对成年人不起作用'],
     correctIndex: 0,
     explanation: '正向标签更容易引导对方逐渐向这个方向靠拢，而反复强调负面标签反而可能让对方"活成"这个标签。',
+  },
+  {
+    id: 'labeling-effect-3',
+    conceptId: 'labeling-effect',
+    difficulty: 'advanced',
+    question: '心理学家克劳德·斯蒂尔的"刻板印象威胁"实验发现，提醒学生某项测验和负面刻板印象相关后，学生的实际表现会？',
+    options: ['显著下降，即使这些学生的真实能力没有变化', '完全不受影响，因为这只是心理暗示', '表现反而会提升，因为学生会努力证明刻板印象是错的', '只有实验人员明确说出歧视性言论时才会有影响'],
+    correctIndex: 0,
+    explanation: '负面标签造成的心理压力本身就能真实拖累临场表现，这是标签效应负面镜像的经典证据。',
+  },
+  {
+    id: 'labeling-effect-4',
+    conceptId: 'labeling-effect',
+    difficulty: 'basic',
+    question: '罗森塔尔和雅各布森的"皮格马利翁"实验中，被随机贴上"高潜力"标签的学生后来表现如何？',
+    options: ['智商测验分数的提升幅度显著高于其他同学', '和其他同学的表现完全没有差异', '表现明显比其他同学更差', '实验并未真正测量学生的智商变化'],
+    correctIndex: 0,
+    explanation: '老师因为相信这些学生"潜力更高"，无意中给了他们更多关注和更高期待，最终真的转化为了更好的学习表现。',
   },
   // 沉默的螺旋
   {
@@ -341,6 +629,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '先独立写下意见能避免"当众反对"的压力从一开始就压制不同声音，让持异议的人有机会表达真实想法。',
   },
+  {
+    id: 'spiral-of-silence-3',
+    conceptId: 'spiral-of-silence',
+    difficulty: 'basic',
+    question: '谷歌"亚里士多德计划"研究发现，高效团队最重要的共同特征是？',
+    options: ['心理安全感：成员敢于表达不同意见、承认错误而不担心被否定', '团队成员的平均智商水平', '团队成员的资历和工作年限', '团队规模越大越好'],
+    correctIndex: 0,
+    explanation: '这项研究从正面证明了，一旦"沉默的螺旋"被打破、异见能被安全表达，团队整体的判断质量会显著提升。',
+  },
+  {
+    id: 'spiral-of-silence-4',
+    conceptId: 'spiral-of-silence',
+    difficulty: 'advanced',
+    question: '诺尔-诺依曼提出"沉默的螺旋"理论时，发现了一个被称为"最后一分钟摇摆"的现象，这个现象具体指？',
+    options: ['选民公开预测"占优"一方会获胜的比例上升，即使他们自己的投票意向并未改变', '所有选民在投票前一刻都改变了自己的真实投票意向', '民调机构在选举前刻意修改了调查结果', '两党的实际支持率在选前发生了剧烈变化'],
+    correctIndex: 0,
+    explanation: '公开支持"看起来正在失势"的一方会让人产生社会性不安，导致部分选民虽然投票意向没变，却不愿再公开谈论自己的立场。',
+  },
   // 机会成本
   {
     id: 'opportunity-cost-1',
@@ -359,6 +665,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['把自己投入的时间成本也计入机会成本，和请人费用做真实对比', '只要没有直接花钱，就一定是划算的', '机会成本只适用于职业选择，不适用于日常小事', '时间不需要被计入任何成本核算'],
     correctIndex: 0,
     explanation: '花掉的时间本可以用来做别的更有价值的事，很多"省钱"的决定算上机会成本后其实并不划算。',
+  },
+  {
+    id: 'opportunity-cost-3',
+    conceptId: 'opportunity-cost',
+    difficulty: 'advanced',
+    question: '经济学家在分析"上大学到底有多贵"时发现，公众讨论容易忽视的一项重要成本是？',
+    options: ['如果不上大学、直接工作，这几年本可以赚到的工资', '学校食堂的餐费', '教材和文具的购买费用', '大学期间的社交娱乐支出'],
+    correctIndex: 0,
+    explanation: '这部分被放弃的工资是典型的机会成本，多项研究显示它占真实总成本的比例往往比学费本身更高，是理解教育投资时容易被忽视的重要变量。',
+  },
+  {
+    id: 'opportunity-cost-4',
+    conceptId: 'opportunity-cost',
+    difficulty: 'basic',
+    question: '巴菲特和芒格评估一笔新投资时，真正的比较基准是什么？',
+    options: ['这笔投资和手头已经拥有的最佳投资机会相比，谁更值得', '这笔投资本身的绝对收益率是否为正', '市场上大多数人是否看好这笔投资', '这笔投资是否符合当下的市场热点'],
+    correctIndex: 0,
+    explanation: '他们用现有最优持仓作为"标尺"，任何新机会必须明显优于这把标尺才值得投入资金，这正是把机会成本作为核心决策纪律的体现。',
   },
   // 复利效应
   {
@@ -379,6 +703,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '复利效应要求成果能持续累积、不中断，单次高强度但不连续的投入很难产生真正的复利效果。',
   },
+  {
+    id: 'compound-effect-3',
+    conceptId: 'compound-effect',
+    difficulty: 'basic',
+    question: '丰田生产方式中的"改善"（Kaizen）理念，体现的核心思路是？',
+    options: ['不追求一次性突破，而是每天持续做微小改进，长期累积成巨大提升', '集中资源，追求一次性的颠覆式技术突破', '只在季度末统一集中处理所有流程问题', '改进流程只是管理层的责任，与一线员工无关'],
+    correctIndex: 0,
+    explanation: '单次改进微不足道，但数十年如一日的持续微小改进，通过复利式积累带来了效率和质量的巨大提升。',
+  },
+  {
+    id: 'compound-effect-4',
+    conceptId: 'compound-effect',
+    difficulty: 'advanced',
+    question: '根据巴菲特财富积累的曲线，他绝大部分的财富是在什么阶段获得的？',
+    options: ['50岁之后，得益于本金和时间的持续复利叠加', '十几岁刚开始投资时', '30岁到40岁之间的黄金阶段', '财富积累速度在他一生中始终保持线性、平稳增长'],
+    correctIndex: 0,
+    explanation: '早期财富积累速度看起来并不惊人，但随着时间推移，复利效应让增长曲线在后期呈现出爆发式的陡峭上升，这说明时间是复利中比收益率更关键的变量。',
+  },
   // 规模效应
   {
     id: 'economies-of-scale-1',
@@ -397,6 +739,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['规模扩张到一定程度后，管理和协调成本可能上升，出现"规模不经济"', '企业规模越大，单位成本一定持续下降，没有上限', '规模效应只对大企业有意义，个人和小团队完全无法利用', '规模效应和固定成本能否被摊薄没有关系'],
     correctIndex: 0,
     explanation: '规模扩张到一定程度后协调复杂度上升，可能导致单位成本不降反升，判断是否扩张要综合考虑边际收益和边际管理成本。',
+  },
+  {
+    id: 'economies-of-scale-3',
+    conceptId: 'economies-of-scale',
+    difficulty: 'advanced',
+    question: '亚马逊AWS云计算业务能以低价提供服务，最主要得益于？',
+    options: ['长期积累的大规模数据中心基础设施带来的规模效应，摊薄了边际成本', '完全免费提供服务器硬件', '所有客户都只使用极少量的计算资源', 'AWS的定价和成本结构没有关系'],
+    correctIndex: 0,
+    explanation: '亚马逊为电商业务积累的大规模服务器基础设施，让边际成本被大大摊薄，这部分冗余算力后来成长为利润率最高的业务之一。',
+  },
+  {
+    id: 'economies-of-scale-4',
+    conceptId: 'economies-of-scale',
+    difficulty: 'basic',
+    question: '福特T型车从1908年到1925年售价大幅下降，最主要的原因是？',
+    options: ['标准化零部件和移动装配流水线大幅提升生产规模，摊薄了固定成本', '大幅压低了工人工资', '减少了汽车的安全配置', '原材料价格在这期间大幅下跌'],
+    correctIndex: 0,
+    explanation: '历史记录显示福特同期反而提高了工人薪资，价格下降主要来自流水线带来的生产效率提升和规模摊薄，而不是压低成本投入。',
   },
   // 棘轮效应
   {
@@ -417,6 +777,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '维持原有消费基准线、优先储蓄，能为未来收入的不确定性留出缓冲空间，避免棘轮效应带来的被动。',
   },
+  {
+    id: 'ratchet-effect-3',
+    conceptId: 'ratchet-effect',
+    difficulty: 'basic',
+    question: '关于彩票中奖者和职业运动员退役后陷入财务困境的现象，两者的共同点是？',
+    options: ['收入快速上升后生活方式随之膨胀，一旦收入下滑很难降回原有水平', '他们的收入下降都是因为投资决策失误', '这类人群普遍缺乏基本的理财知识，与棘轮效应无关', '这种现象只发生在特定职业群体，具有偶然性'],
+    correctIndex: 0,
+    explanation: '两类人群都经历了收入的快速上升和随后的骤降，而生活方式的锁定效应让向下调整变得异常困难，这正是棘轮效应造成严重后果的典型例证。',
+  },
+  {
+    id: 'ratchet-effect-4',
+    conceptId: 'ratchet-effect',
+    difficulty: 'advanced',
+    question: '经济学家詹姆斯·杜森贝里提出棘轮效应时，主要用来解释什么现象？',
+    options: ['经济衰退时，居民消费的下降往往滞后于收入的下降', '经济繁荣时，居民消费的上升总是快于收入的上升', '消费水平和收入水平永远保持同步变化', '棘轮效应只能用于分析机械装置，不适用于经济现象'],
+    correctIndex: 0,
+    explanation: '收入减少时消费习惯因为社会攀比和生活方式惯性很难同步降下来，这正是棘轮效应用来解释消费滞后于收入下降现象的核心逻辑。',
+  },
   // 心理账户
   {
     id: 'mental-accounting-1',
@@ -435,6 +813,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['提醒自己"这笔钱和工资本质上没有区别"，避免因为账户分类而冲动消费', '意外之财理应比工资花得更随意', '心理账户只是虚构的概念，不需要特别注意', '意外之财应该完全避免用于任何形式的储蓄'],
     correctIndex: 0,
     explanation: '把意外之财和工资放回同一个心理账户衡量，能有效减少因为分类不同而产生的冲动消费。',
+  },
+  {
+    id: 'mental-accounting-3',
+    conceptId: 'mental-accounting',
+    difficulty: 'advanced',
+    question: '行为经济学中的"庄家的钱"（house money）效应指的是？',
+    options: ['赌徒把先赢来的钱单独归为一个心理账户，用它下更大更冒险的赌注', '赌场老板会主动把利润分给顾客', '赌徒对所有下注金额的态度完全一致，不会区分本金和赢利', '这个效应只在赌场场景中成立，与投资无关'],
+    correctIndex: 0,
+    explanation: '赢来的钱被归入和本金不同的心理账户，人会觉得"输了也不那么心疼"，这种心理在真实的股票交易中也得到验证：用账面浮盈加仓时往往承担更高风险。',
+  },
+  {
+    id: 'mental-accounting-4',
+    conceptId: 'mental-accounting',
+    difficulty: 'basic',
+    question: '"心理账户"这个概念最早由哪位学者提出？',
+    options: ['理查德·塞勒', '丹尼尔·卡尼曼', '罗伯特·西奥迪尼', '菲利普·津巴多'],
+    correctIndex: 0,
+    explanation: '理查德·塞勒在1980年代提出了心理账户理论，并在1999年发表的论文《心理账户很重要》中系统总结了这个理论框架。',
   },
   // 凡勃伦效应
   {
@@ -455,6 +851,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '这个提问能帮你分清自己购买的是商品的实际使用价值，还是价格本身带来的身份感。',
   },
+  {
+    id: 'veblen-effect-3',
+    conceptId: 'veblen-effect',
+    difficulty: 'advanced',
+    question: '轻奢品牌Coach在2010年代加大折扣促销力度后，遇到的主要问题是？',
+    options: ['正价专柜的销量和品牌溢价能力下滑，因为折扣款随处可见稀释了身份稀缺感', '短期和长期销量都持续大幅上升，没有任何负面影响', '折扣促销让产品的实际使用价值大幅提升', '消费者开始更愿意支付更高的正价购买'],
+    correctIndex: 0,
+    explanation: '这个案例说明凡勃伦效应对定价策略的要求和"薄利多销"逻辑相反，过度打折反而会摧毁支撑高价的身份价值。',
+  },
+  {
+    id: 'veblen-effect-4',
+    conceptId: 'veblen-effect',
+    difficulty: 'basic',
+    question: '神经经济学家的葡萄酒实验发现，参与者品尝被贴上"更贵"价格标签的（实际相同的）酒时？',
+    options: ['主观报告更好喝，大脑愉悦感相关脑区的活跃程度也确实更高', '主观报告更好喝，但大脑活动没有任何变化', '大脑活动有变化，但主观报告的口感评价没有差异', '价格标签对主观体验和大脑反应都没有任何影响'],
+    correctIndex: 0,
+    explanation: '这说明价格标签对人的主观体验和大脑真实反应的影响，不只是心理暗示层面的自我说服，而是切实改变了大脑对同一款产品的感知。',
+  },
   // 互惠原理
   {
     id: 'reciprocity-1',
@@ -473,6 +887,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['互惠原理，接受了免费的小恩惠后，更难拒绝购买请求', '沉没成本谬误', '破窗效应', '帕金森定律'],
     correctIndex: 0,
     explanation: '接受免费试吃这份"好处"后，人会不自觉产生需要回报的心理压力，从而更容易掏钱购买。',
+  },
+  {
+    id: 'reciprocity-3',
+    conceptId: 'reciprocity',
+    difficulty: 'advanced',
+    question: '研究发现，服务员在结账单上附赠糖果会显著提升小费金额，这项研究揭示的核心机制是？',
+    options: ['一个成本几乎可以忽略不计的小恩惠，也能通过互惠心理触发实际的回报行为', '顾客只是单纯喜欢糖果本身的味道', '小费金额和服务态度没有任何关联', '这个效应只在高档餐厅才会出现'],
+    correctIndex: 0,
+    explanation: '不送糖、送一颗糖、送一颗后再"额外"追加一颗，三种情况下的小费率依次提升，证明互惠心理即使被极小的恩惠触发，也能带来实实在在的行为改变。',
+  },
+  {
+    id: 'reciprocity-4',
+    conceptId: 'reciprocity',
+    difficulty: 'basic',
+    question: '克里希那教成员在机场向路人"赠送"鲜花后紧接着募捐的案例，最能说明什么？',
+    options: ['即使人们明知不想要这份"礼物"，互惠心理带来的人情压力依然会真实影响后续行为', '这种募捐方式在心理学上被证明是无效的', '接受陌生人的礼物完全不会产生任何心理负担', '这个现象只在宗教组织中才会出现'],
+    correctIndex: 0,
+    explanation: '很多路人事后会把收到的花直接扔掉，却依然在当下因为"已经收了礼物"而掏钱捐款，说明互惠原理的作用往往发生在意识察觉之外。',
   },
   // 权威效应
   {
@@ -493,6 +925,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '超过60%的参与者在实验人员的权威指令下，持续加大电击强度，展现了权威效应对人行为的强大影响力。',
   },
+  {
+    id: 'authority-bias-3',
+    conceptId: 'authority-bias',
+    difficulty: 'advanced',
+    question: '霍夫林医院实验中，22名护士接到陌生"医生"的电话指令后，准备执行明显违反用药安全规定操作的比例约为？',
+    options: ['约95%（21人）', '约10%（2人）', '约50%（11人）', '0%，全部护士都拒绝了指令'],
+    correctIndex: 0,
+    explanation: '这项实验比米尔格拉姆的电击实验更贴近真实专业场景，说明即使训练有素的医护人员，面对权威身份也很难本能地质疑指令。',
+  },
+  {
+    id: 'authority-bias-4',
+    conceptId: 'authority-bias',
+    difficulty: 'basic',
+    question: '"福克斯博士效应"实验中，专业听众对一场内容空洞的讲座给出了很高评价，最主要原因是？',
+    options: ['讲者展现出的自信流畅的表达方式，掩盖了内容本身的空洞', '听众都对讲座主题非常不熟悉', '讲座内容其实经过精心设计、逻辑严密', '听众收了讲者的礼物，出于人情给了高分'],
+    correctIndex: 0,
+    explanation: '这个实验揭示了权威气场和自信表达本身就能触发听众的信任，即使内容前后矛盾、毫无逻辑，也很难被当场识破。',
+  },
   // 稀缺原理
   {
     id: 'scarcity-principle-1',
@@ -511,6 +961,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['把这个提示单独拎出来，先问自己"没有这个提示，我还想买吗"', '立刻下单，避免错过机会', '完全忽视商品本身的价值，只看库存数字', '库存提示一定是真实的，不需要多想'],
     correctIndex: 0,
     explanation: '把"东西本身值不值得买"和"错过是否可惜"分开判断，能有效过滤掉纯粹被稀缺感冲动触发的消费。',
+  },
+  {
+    id: 'scarcity-principle-3',
+    conceptId: 'scarcity-principle',
+    difficulty: 'advanced',
+    question: '潮牌Supreme长期坚持极小批量、几乎不补货的销售策略，主要利用的原理是？',
+    options: ['刻意制造和维持稀缺感，让"买不到"本身成为品牌最大的吸引力', '通过降低生产成本来提高利润率', '产品设计本身远超同类竞品', '这种策略和稀缺原理没有关联，纯粹是产能限制'],
+    correctIndex: 0,
+    explanation: '这种极致的饥饿营销策略被认为是Supreme从滑板小店成长为潮流帝国的核心驱动力之一，是稀缺原理在商业实践中最典型的应用。',
+  },
+  {
+    id: 'scarcity-principle-4',
+    conceptId: 'scarcity-principle',
+    difficulty: 'basic',
+    question: '饼干罐实验发现，"数量从10块变成2块"（动态变化）和"始终只有2块"（静态稀缺）相比，哪种情况的评分提升效果更强？',
+    options: ['数量从10块变成2块的动态变化效果更强', '始终只有2块的静态稀缺效果更强', '两种情况完全没有差异', '实验没有比较这两种情况'],
+    correctIndex: 0,
+    explanation: '"正在变得稀缺"这种动态过程比"一直就很稀缺"的静态状态触发效果更强，这也是很多购物网站用实时库存递减动画的心理学依据。',
   },
   // 熵增定律
   {
@@ -531,6 +999,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '熵增是持续发生的，对抗它需要持续、常态化的投入，而不是指望一次性的维护就能一劳永逸。',
   },
+  {
+    id: 'entropy-law-3',
+    conceptId: 'entropy-law',
+    difficulty: 'advanced',
+    question: '软件工程中"技术债"这个比喻，主要用来说明什么现象？',
+    options: ['仓促写下的代码如果没有持续重构维护，代码库会像未整理的房间一样逐渐变得混乱难维护', '写代码的速度和质量完全没有关系', '只要项目上线，代码质量就不再重要', '技术债是一种可以完全避免的现象，不存在必然性'],
+    correctIndex: 0,
+    explanation: '这是熵增定律"没有外部能量投入、系统自发走向无序"这一规律在软件工程系统里的直接体现，也是"持续重构"被反复强调的原因。',
+  },
+  {
+    id: 'entropy-law-4',
+    conceptId: 'entropy-law',
+    difficulty: 'basic',
+    question: '戈特曼的婚姻追踪研究发现，走向破裂的婚姻通常是因为？',
+    options: ['长期缺乏日常"情感存款"的持续累积后果，而不一定是某次具体的重大冲突', '几乎都是由单一的重大背叛事件直接导致的', '婚姻关系的走向和日常互动质量无关', '所有婚姻最终都会不可避免地走向破裂'],
+    correctIndex: 0,
+    explanation: '即使没有发生任何重大冲突事件，亲密感也会因为缺乏持续投入而自然流失、逐渐疏离，这和物理系统的熵增规律高度呼应。',
+  },
   // 飞轮效应
   {
     id: 'flywheel-effect-1',
@@ -549,6 +1035,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['以为要找一个爆发式的突破点，而忽视了持续、方向一致的小推动才是关键', '飞轮效应说明只要用力足够大，一次推动就能让系统持续运转', '飞轮效应和方向是否一致没有关系', '飞轮转动起来后不需要再投入任何资源'],
     correctIndex: 0,
     explanation: '真正起作用的是持续、方向一致的小推动，中途换方向意味着之前积累的势能大幅归零重来。',
+  },
+  {
+    id: 'flywheel-effect-3',
+    conceptId: 'flywheel-effect',
+    difficulty: 'advanced',
+    question: '好市多（Costco）的商业飞轮中，会员费收入的核心作用是？',
+    options: ['支撑超低价格策略，吸引大量顾客复购，进而拿到更优惠的批发价并提升续费率', '完全不影响商品定价策略', '主要用于门店装修和广告投放', '会员费和商品价格是两套完全独立、互不影响的业务'],
+    correctIndex: 0,
+    explanation: '这套循环让好市多的会员续费率长期维持在90%左右的高位，是"会员费反哺低价"这一独特飞轮结构的核心。',
+  },
+  {
+    id: 'flywheel-effect-4',
+    conceptId: 'flywheel-effect',
+    difficulty: 'basic',
+    question: '"亚马逊飞轮"草图描述的核心循环逻辑是？',
+    options: ['更低成本带来更低价格，吸引更多顾客和卖家，规模扩大进一步降低单位成本', '亚马逊的增长完全依赖一次性的市场营销投入', '飞轮的各个环节之间相互独立，不存在循环强化关系', '亚马逊的商业模式和规模效应没有关联'],
+    correctIndex: 0,
+    explanation: '这个自我强化的正反馈循环，每一环都在推动下一环转得更快，被广泛认为是亚马逊数十年持续增长的核心逻辑。',
   },
   // 红皇后效应
   {
@@ -569,6 +1073,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '在持续竞争的系统里，相对位置能否维持取决于自己的进步速度是否跟上整体环境的平均前进速度，而不只是和自己的过去比较。',
   },
+  {
+    id: 'red-queen-effect-3',
+    conceptId: 'red-queen-effect',
+    difficulty: 'basic',
+    question: '百视达（Blockbuster）最终在2010年申请破产，最核心的原因是？',
+    options: ['核心业务模式多年未有实质性演进，进化速度远远落后于Netflix等新兴对手', '实体门店的选址出现了严重问题', '百视达从未获得过市场领先地位', '录像带租赁这个行业本身完全消失了，与竞争无关'],
+    correctIndex: 0,
+    explanation: '百视达并非在原地不动中"变差"，只是整个行业加速进化的背景下，它的进化速度远远落后，这正是红皇后效应的商业翻版。',
+  },
+  {
+    id: 'red-queen-effect-4',
+    conceptId: 'red-queen-effect',
+    difficulty: 'advanced',
+    question: '范瓦伦对化石记录的统计分析发现了一个反直觉的现象，具体是？',
+    options: ['物种的灭绝概率并不会因为存活时间更长而降低，大致保持恒定', '存活时间越长的物种，灭绝概率会持续下降至接近零', '所有物种的灭绝概率完全相同，不存在任何差异', '灭绝概率只和物种自身的体型大小有关'],
+    correctIndex: 0,
+    explanation: '范瓦伦据此推断，物种灭绝主要不是因为自身退化，而是因为所处生态环境也在持续演化，进化速度跟不上环境整体节奏的物种早晚会被淘汰。',
+  },
   // 差序格局
   {
     id: 'differential-mode-1',
@@ -587,6 +1109,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['和对方关系的亲疏远近，越靠近"自己"这个中心，责任和信任浓度越高', '完全依照法律和正式合同规定', '对方的社会地位高低', '所有人一视同仁，权利义务完全相同'],
     correctIndex: 0,
     explanation: '这与西方社会常见的"团体格局"（边界清晰、对所有成员一视同仁）不同，差序格局按亲疏远近层层往外推。',
+  },
+  {
+    id: 'differential-mode-3',
+    conceptId: 'differential-mode',
+    difficulty: 'advanced',
+    question: '社会学家边燕杰对天津求职者的研究发现，即使在正式的城市劳动力市场，人们依然更多通过什么途径找到更好的工作？',
+    options: ['亲友介绍等"关系"网络', '完全公开透明的招聘渠道', '政府统一分配', '随机投递简历'],
+    correctIndex: 0,
+    explanation: '这项研究把差序格局理论从乡土社会延伸验证到了现代城市职场，说明按亲疏远近调动资源的逻辑并未随社会现代化而消失。',
+  },
+  {
+    id: 'differential-mode-4',
+    conceptId: 'differential-mode',
+    difficulty: 'basic',
+    question: '关于差序格局，下列说法正确的是？',
+    options: ['它只是对社会结构的一种客观描述，不等同于"走后门""拉关系"', '差序格局是中国独有、其他社会完全不存在的现象', '差序格局在现代契约社会里已经完全消失', '差序格局要求所有人际关系都必须平等对待'],
+    correctIndex: 0,
+    explanation: '差序格局本身是中性的社会结构描述，怎么运用这套结构才涉及价值判断；费孝通的对比研究也显示亲疏远近的差序性广泛存在于不同社会。',
   },
   // 羊群效应
   {
@@ -607,6 +1147,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '在完全不了解产品本身的情况下，仅凭"很多人在排队"这一从众信号做决定，是羊群效应的典型场景。',
   },
+  {
+    id: 'herd-effect-3',
+    conceptId: 'herd-effect',
+    difficulty: 'advanced',
+    question: '2021年GameStop股价暴涨事件中，大量后期入场的散户买入的主要理由是？',
+    options: ['看到社交媒体上越来越多人讨论、买入，而不是基于公司基本面判断', '经过详尽的财务分析后认为公司被低估', '公司发布了远超预期的季度财报', '监管机构公开推荐购买该股票'],
+    correctIndex: 0,
+    explanation: '这场事件是社交媒体时代羊群效应被加速传播、放大波动的典型案例，很多参与者的决策依据只是"很多人在讨论和买入"。',
+  },
+  {
+    id: 'herd-effect-4',
+    conceptId: 'herd-effect',
+    difficulty: 'basic',
+    question: '关于羊群效应，下列说法正确的是？',
+    options: ['在信息严重不对称、自己完全外行的领域，参考多数人的选择有时是理性的"抄近道"', '跟随大多数人的选择永远是不理性的', '羊群效应只出现在金融市场，日常生活中不存在', '排队现象一定都是非理性的从众行为，不可能反映真实口碑'],
+    correctIndex: 0,
+    explanation: '羊群效应不是说从众总是错的，真正该警惕的是"因为怕不合群而放弃自己已经掌握的独立判断"。',
+  },
   // 破窗效应
   {
     id: 'broken-windows-1',
@@ -625,6 +1183,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['破窗效应', '边际效用递减', '巴纳姆效应', '囚徒困境'],
     correctIndex: 0,
     explanation: '第一条没人管的广告，就像那扇没修的破窗户，向所有人传递了"这里没规矩"的信号，导致失序不断扩散。',
+  },
+  {
+    id: 'broken-windows-3',
+    conceptId: 'broken-windows',
+    difficulty: 'basic',
+    question: '荷兰心理学家凯斯·凯泽的田野实验发现，墙上有涂鸦的巷子里，路人乱扔垃圾的比例相比干净墙面？',
+    options: ['明显更高，约是干净墙面前的两倍多', '完全没有差异', '明显更低', '只有在实验人员在场监督时才会更高'],
+    correctIndex: 0,
+    explanation: '这项发表于《科学》杂志的真实田野实验，为"失序信号会传染扩散"提供了严谨的实证支持，是破窗效应的重要证据来源。',
+  },
+  {
+    id: 'broken-windows-4',
+    conceptId: 'broken-windows',
+    difficulty: 'advanced',
+    question: '关于破窗效应的局限性，下列说法正确的是？',
+    options: ['学界对"破窗治理"和犯罪率下降之间的因果关系强弱仍有不同意见，也曾因执法过度受到批评', '破窗效应已经被科学界完全证实，不存在任何争议', '破窗效应只能用于城市治安管理，不适用于其他场景', '只要严惩所有轻微违规行为，就一定能有效降低犯罪率'],
+    correctIndex: 0,
+    explanation: '纽约的治理政策因执法过度、误伤无辜受到批评，后续研究也指出经济复苏、警力增加等因素可能同时影响了犯罪率下降。',
   },
   // 鲶鱼效应
   {
@@ -645,6 +1221,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '这位新成员扮演了"搅局者"的角色，打破了团队一潭死水的沉闷状态，激活了整体的讨论质量和竞争意识。',
   },
+  {
+    id: 'catfish-effect-3',
+    conceptId: 'catfish-effect',
+    difficulty: 'advanced',
+    question: '宝洁公司1931年提出的"品牌经理制"，让旗下多个品牌的团队互相竞争资源和市场份额，这种制度设计体现的思路最接近？',
+    options: ['刻意在组织内部制造"鲶鱼"，用结构性竞争保持团队活力，避免组织僵化', '让所有品牌团队完全独立、互不接触', '减少品牌数量以降低管理复杂度', '取消所有内部竞争以提高团队和谐度'],
+    correctIndex: 0,
+    explanation: '这套制度通过让多个品牌团队直接内部竞争，制造出结构性的"鲶鱼"效应，被认为是宝洁保持产品创新活力的重要原因。',
+  },
+  {
+    id: 'catfish-effect-4',
+    conceptId: 'catfish-effect',
+    difficulty: 'basic',
+    question: '关于"往鱼舱放鲶鱼"这个故事的说法，比较准确的是？',
+    options: ['在海洋生物学家看来更像是广泛流传的商业寓言，而非严格记录的真实做法', '这是被严格科学验证过的渔业事实，有大量原始记录', '沙丁鱼放入鲶鱼后存活率会必然下降', '这个故事和鲶鱼效应这个管理学概念没有任何关系'],
+    correctIndex: 0,
+    explanation: '这个故事更多是一则商业寓言，但它指向的"引入搅局者激活组织活力"的管理逻辑在真实商业史上确实有据可查。',
+  },
   // 选择悖论
   {
     id: 'paradox-of-choice-1',
@@ -663,6 +1257,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['满足者', '最大化者', '幸存者', '从众者'],
     correctIndex: 0,
     explanation: '"满足者"接受一个不错的选择就停止比较，"最大化者"则耗尽心力寻找理论上的最优解，研究发现前者通常更幸福。',
+  },
+  {
+    id: 'paradox-of-choice-3',
+    conceptId: 'paradox-of-choice',
+    difficulty: 'advanced',
+    question: '希娜·艾扬格针对401(k)退休储蓄计划的研究发现，公司提供的基金选项每增加10个，员工的参与率会？',
+    options: ['下降约2个百分点', '上升约2个百分点', '几乎没有任何变化', '上升约20个百分点'],
+    correctIndex: 0,
+    explanation: '这项研究把果酱实验的结论延伸验证到了关乎退休生活质量的重大财务决策上：选项越多，反而有更多员工因为难以选择而放弃参与。',
+  },
+  {
+    id: 'paradox-of-choice-4',
+    conceptId: 'paradox-of-choice',
+    difficulty: 'basic',
+    question: '果酱试吃摊实验中，24种口味摊位和6种口味摊位相比，最终购买转化率的结果是？',
+    options: ['6种口味摊位的购买转化率明显更高', '24种口味摊位的购买转化率明显更高', '两者的购买转化率完全相同', '24种口味摊位吸引的驻足人数和购买转化率都更低'],
+    correctIndex: 0,
+    explanation: '24种口味摊位吸引了更多人驻足试吃，但最终购买转化率只有3%，远低于6种口味摊位的30%，说明选项过多会阻碍最终的决策。',
   },
   // 边际效用递减
   {
@@ -683,6 +1295,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '物质消费的边际效用递减得快，而每次内容不同的体验（旅行、学新技能）能更持久地带来满足感。',
   },
+  {
+    id: 'diminishing-utility-3',
+    conceptId: 'diminishing-utility',
+    difficulty: 'basic',
+    question: '自助餐厅"随便吃"的商业模式，能够盈利的经济学原理主要是？',
+    options: ['边际效用递减，顾客的满足感会随着进食量增加而下降，通常在"吃回本"前就会主动停下', '所有顾客的食量都天生很小', '餐厅提供的食物成本极低，几乎不需要考虑顾客吃多少', '这和边际效用递减没有关系，纯粹是薄利多销策略'],
+    correctIndex: 0,
+    explanation: '第一盘食物的满足感最高，之后每多吃一口的边际效用迅速下降，大多数顾客会在食物成本超过餐费之前就主动停止进食。',
+  },
+  {
+    id: 'diminishing-utility-4',
+    conceptId: 'diminishing-utility',
+    difficulty: 'advanced',
+    question: '卡尼曼和迪顿2010年关于收入与幸福感的研究发现了什么？',
+    options: ['收入对日常情绪幸福感的提升作用，在年收入达到一定水平后会趋于平缓', '收入越高，幸福感一定线性持续上升，没有任何减缓迹象', '收入水平和幸福感之间完全没有关联', '收入超过一定水平后，幸福感反而会持续下降'],
+    correctIndex: 0,
+    explanation: '这项研究是边际效用递减规律在"金钱与幸福"议题上最常被引用的实证依据，尽管后续研究对具体拐点数值仍有讨论。',
+  },
   // 二八法则
   {
     id: 'pareto-principle-1',
@@ -701,6 +1331,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['把更多精力和资源向这20%的核心客户倾斜，同时不完全放弃另外80%', '立刻放弃剩下80%的客户，把所有精力都投入核心客户', '平均分配精力给所有客户，避免厚此薄彼', '这个规律只适用于财富分配，不能用于客户管理'],
     correctIndex: 0,
     explanation: '二八法则提醒你找到关键的少数、优先倾斜资源，但不代表可以完全无视次要的80%，它们有时也有不可忽视的价值。',
+  },
+  {
+    id: 'pareto-principle-3',
+    conceptId: 'pareto-principle',
+    difficulty: 'advanced',
+    question: '微软对Windows和Office错误报告的内部分析发现，修复约20%最频繁报告的漏洞，能消除多少比例的系统崩溃？',
+    options: ['约80%', '约20%', '约50%', '几乎不会有明显效果'],
+    correctIndex: 0,
+    explanation: '这项发现被软件工程领域广泛引用，说明优先攻克那一小部分"高频出问题"的代码，投入产出比通常最高。',
+  },
+  {
+    id: 'pareto-principle-4',
+    conceptId: 'pareto-principle',
+    difficulty: 'basic',
+    question: '把二八法则从帕累托最初的经济学观察，系统化推广到全球企业质量管理实践的关键人物是？',
+    options: ['约瑟夫·朱兰', '亚当·斯密', '约翰·梅纳德·凯恩斯', '米尔顿·弗里德曼'],
+    correctIndex: 0,
+    explanation: '朱兰在20世纪40年代提出"关键少数法则"，推动企业优先解决贡献大部分缺陷的少数根源问题，这套方法论后来成为精益生产和六西格玛的重要思想源头。',
   },
   // 帕金森定律
   {
@@ -721,6 +1369,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '压缩截止时间能逼自己提前排除干扰、聚焦核心步骤，往往能在不明显牺牲质量的前提下提高效率。',
   },
+  {
+    id: 'parkinsons-law-3',
+    conceptId: 'parkinsons-law',
+    difficulty: 'basic',
+    question: '帕金森在原始数据中还发现，英国殖民地部的人员编制在殖民地数量持续减少的年代呈现什么趋势？',
+    options: ['人员编制反而持续增长，甚至在殖民地最少的年份达到历史最高点', '人员编制同步大幅减少', '人员编制完全没有发生变化', '这个数据和帕金森定律没有关联'],
+    correctIndex: 0,
+    explanation: '这个案例和海军部数据相互印证，说明官僚机构的膨胀有自己的内在逻辑，几乎不受真实工作量变化的约束。',
+  },
+  {
+    id: 'parkinsons-law-4',
+    conceptId: 'parkinsons-law',
+    difficulty: 'advanced',
+    question: '关于帕金森定律的适用边界，下列说法正确的是？',
+    options: ['压缩时间更适合有明确产出标准的事务性任务，创造性工作压缩过头可能牺牲质量', '压缩截止时间在任何类型的任务上都能提高效率、不会有负面影响', '帕金森定律只能用来解释个人拖延，与组织行为无关', '预算和团队规模一旦确定，就会精确按照实际需求使用，不会自我膨胀'],
+    correctIndex: 0,
+    explanation: '创造性工作、需要沉淀和试错的任务，一味压缩时间反而容易逼出"糊弄式"的低质量产出，需要区分任务类型。',
+  },
   // 囚徒困境
   {
     id: 'prisoners-dilemma-1',
@@ -739,6 +1405,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['先释放合作善意，之后模仿对方上一轮的选择（以牙还牙）', '无论对方怎么选，自己永远选择背叛', '无论对方怎么选，自己永远选择合作、绝不还击', '随机选择合作或背叛'],
     correctIndex: 0,
     explanation: '政治学家 Robert Axelrod 的经典实验发现，"先合作、再模仿对方上一次选择"的策略能同时兼顾合作意愿和自我保护，长期表现最好。',
+  },
+  {
+    id: 'prisoners-dilemma-3',
+    conceptId: 'prisoners-dilemma',
+    difficulty: 'basic',
+    question: '全球气候治理中的"减排搭便车"难题，为什么常被视为典型的囚徒困境？',
+    options: ['每个国家单独减排要承担高成本，但改善的好处由全世界共享，容易导致集体减排力度不足', '所有国家在气候问题上的利益完全一致，不存在任何博弈', '气候问题和博弈论没有关联', '只要有一个国家减排，其他国家就会自动跟进'],
+    correctIndex: 0,
+    explanation: '如果所有国家都指望"别人减排、自己搭便车"，最终全球减排力度不足，所有国家共同承受更严重后果，这正是囚徒困境的核心逻辑在国际治理中的体现。',
+  },
+  {
+    id: 'prisoners-dilemma-4',
+    conceptId: 'prisoners-dilemma',
+    difficulty: 'advanced',
+    question: '阿克塞尔罗德分析"以牙还牙"策略获胜的原因时，指出这个策略同时具备哪三个特点？',
+    options: ['友善（不主动背叛）、可激怒（背叛后回击）、宽恕（对方转回合作后立刻恢复合作）', '强硬、报复、绝不妥协', '完全随机、不可预测、难以模仿', '永远背叛、永不合作、追求短期利益最大化'],
+    correctIndex: 0,
+    explanation: '这三个特点的平衡是"以牙还牙"策略长期胜出的关键，纯粹的强硬报复策略在竞赛中反而表现不佳。',
   },
   // 登门槛效应
   {
@@ -759,6 +1443,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '先完成一个小到几乎不会失败的目标，能建立"我是会锻炼的人"的自我认知，为后续加大强度打下心理基础。',
   },
+  {
+    id: 'foot-in-the-door-3',
+    conceptId: 'foot-in-the-door',
+    difficulty: 'advanced',
+    question: '很多慈善机构采用"先请路人签署联署请愿，再逐步邀请小额捐款"的筹款路径，这套策略主要利用了？',
+    options: ['登门槛效应，先小承诺建立"愿意配合"的自我认知，再逐步升级请求', '拆屋效应，先提出夸张的大额捐款请求', '稀缺原理，营造捐款名额有限的紧迫感', '权威效应，借助机构的权威身份施压'],
+    correctIndex: 0,
+    explanation: '从"签请愿"这条路径进来的捐赠者，长期捐赠金额和留存率普遍更高，是登门槛效应在公益筹款体系中的结构化应用。',
+  },
+  {
+    id: 'foot-in-the-door-4',
+    conceptId: 'foot-in-the-door',
+    difficulty: 'basic',
+    question: 'Freedman 和 Fraser 的安全驾驶贴纸实验中，先同意贴小贴纸的居民后来同意竖巨大广告牌的比例，和直接被问的对照组相比？',
+    options: ['前者（约76%）远高于后者（约17%）', '两组比例几乎相同', '前者的同意比例反而更低', '实验没有设置对照组'],
+    correctIndex: 0,
+    explanation: '这组悬殊的对比数据证明了登门槛效应的强大影响力，中间一次小小的承诺让最终同意率提升了三倍以上。',
+  },
   // 拆屋效应
   {
     id: 'door-in-the-face-1',
@@ -777,6 +1479,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['互惠式让步 和 对比效应', '沉没成本谬误 和 幸存者偏差', '锚定效应 和 边际效用递减', '路径依赖 和 破窗效应'],
     correctIndex: 0,
     explanation: '对方退了一步会觉得你也该配合退让（互惠式让步），第二个请求在大请求的对比下也显得格外小（对比效应）。',
+  },
+  {
+    id: 'door-in-the-face-3',
+    conceptId: 'door-in-the-face',
+    difficulty: 'basic',
+    question: '工会在集体薪资谈判中常采用"开局要求远高于实际预期的涨薪幅度"策略，这套做法体现的是？',
+    options: ['拆屋效应，高开后退让能让管理层产生"争取到让步"的心理感受', '登门槛效应，先提出小额加薪请求', '囚徒困境，双方都追求个体利益最大化', '互惠原理，工会先给管理层让利'],
+    correctIndex: 0,
+    explanation: '相比直接开出目标价，"高开后退让"通常能换来对方更强的"赢了一局"的心理满足感，最终成交价往往更接近真正想要的水平。',
+  },
+  {
+    id: 'door-in-the-face-4',
+    conceptId: 'door-in-the-face',
+    difficulty: 'advanced',
+    question: '拆屋效应可能失效甚至反噬的情况是？',
+    options: ['第一个请求过分到显得不真诚、像是故意施压，对方会觉得被冒犯，连后续合理请求也一并拒绝', '第一个请求提得越离谱，最终成功率一定越高', '拆屋效应在任何情况下都不会失效', '第一个请求的合理性对最终结果没有影响'],
+    correctIndex: 0,
+    explanation: '第一个"大请求"需要保持在"看起来是真心想要、只是确实太贵/太多"的范围内，过分到失去诚意会适得其反。',
   },
   // 承诺一致原理
   {
@@ -797,6 +1517,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '公开、具体的承诺比私下模糊的想法更能借助言行一致的心理压力帮助自己坚持下去。',
   },
+  {
+    id: 'commitment-consistency-3',
+    conceptId: 'commitment-consistency',
+    difficulty: 'advanced',
+    question: '心理学家格林沃尔德在选举前一天询问选民"你明天会投票吗"，这个简单问题带来的效果是？',
+    options: ['被问到的选民实际投票率显著高于未被问到的对照组', '被问到的选民投票率反而更低', '这个问题对投票率完全没有影响', '这个问题只对已经决定投票的人有效'],
+    correctIndex: 0,
+    explanation: '这被称为"自我预言效应"，一句轻描淡写的口头承诺就能通过言行一致的心理机制转化为真实行动，后来被用于提升多种公共参与率。',
+  },
+  {
+    id: 'commitment-consistency-4',
+    conceptId: 'commitment-consistency',
+    difficulty: 'basic',
+    question: '朝鲜战争战俘营案例中，管理者诱导战俘写下的最初"小声明"有什么特点？',
+    options: ['内容看似无关紧要、几乎人人都会同意的中性表述', '直接要求战俘公开背叛自己的立场', '需要战俘做出书面的重大政治宣誓', '完全通过暴力胁迫强制签署'],
+    correctIndex: 0,
+    explanation: '正是这种"看似无害"的小承诺，通过言行一致的心理压力层层升级，逐渐把不少战俘的自我认知真实地推向了管理者期望的方向。',
+  },
   // 喜好原理
   {
     id: 'liking-principle-1',
@@ -815,6 +1553,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['刻意把"我喜不喜欢提出者"和"方案本身是否合理"分开判断', '提出者是自己喜欢的人，方案质量自然更高', '完全不需要考虑喜好原理对判断的潜在影响', '只有讨厌的人提出的方案才需要仔细审查'],
     correctIndex: 0,
     explanation: '把对人的好恶和对方案本身的客观评估分开，能有效避免喜好原理干扰重要判断的客观性。',
+  },
+  {
+    id: 'liking-principle-3',
+    conceptId: 'liking-principle',
+    difficulty: 'advanced',
+    question: '伯纳德·麦道夫策划的庞氏骗局能维持数十年不被发现，一个关键原因是？',
+    options: ['他专门从自己所在的高信任度社区招募投资者，利用"自己人"的信任降低了受害者的警惕', '他只针对完全陌生、毫无关系基础的投资者行骗', '他的投资回报率明显低于市场平均水平，不会引起怀疑', '这个骗局完全没有利用任何心理学原理'],
+    correctIndex: 0,
+    explanation: '这种专门针对高信任度社群下手的诈骗手法被称为"情感式欺诈"，说明喜好和信任一旦被恶意利用，杀伤力可以远超单纯的商业营销。',
+  },
+  {
+    id: 'liking-principle-4',
+    conceptId: 'liking-principle',
+    difficulty: 'basic',
+    question: '研究发现哪些因素能提升好感、进而增强说服力？',
+    options: ['外表吸引力、相似性、真诚的赞美、熟悉度', '仅仅是产品本身的客观质量', '说服者的社会地位高低，与其他因素无关', '说服的语速和音量'],
+    correctIndex: 0,
+    explanation: '这些因素共同构成了喜好原理的心理基础，家庭聚会式销售的成功案例正是这些因素综合作用的体现。',
   },
   // 零和博弈
   {
@@ -835,6 +1591,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '很多看似零和的谈判，纳入更多维度后往往能找到让双方都比单纯切分蛋糕更满意的组合方案。',
   },
+  {
+    id: 'zero-sum-game-3',
+    conceptId: 'zero-sum-game',
+    difficulty: 'advanced',
+    question: '谈判学中的"分配型谈判"和"整合型谈判"两种范式，主要区别是？',
+    options: ['分配型是切分固定蛋糕的零和博弈，整合型是先挖掘双方利益诉求、把蛋糕做大', '两者本质上完全相同，只是名称不同', '整合型谈判只适用于国际外交场景', '分配型谈判总是比整合型谈判更有效'],
+    correctIndex: 0,
+    explanation: '优秀的谈判者往往先投入时间做整合型的利益探索，找到共赢空间后，再对真正存在冲突的部分进行分配型的讨价还价。',
+  },
+  {
+    id: 'zero-sum-game-4',
+    conceptId: 'zero-sum-game',
+    difficulty: 'basic',
+    question: '"两姐妹争一个橙子"的经典谈判案例说明了什么？',
+    options: ['很多看似零和的冲突，是因为双方没有深入沟通真实需求，而被误判成非此即彼的零和博弈', '橙子这类实物资源永远只能通过对半分配解决', '姐妹之间的冲突比陌生人之间的冲突更难解决', '深入沟通需求在任何情况下都无法找到更优解'],
+    correctIndex: 0,
+    explanation: '姐姐只想要橙子皮做蛋糕，妹妹只想要果肉榨汁——如果早知道这一点，两人本可以获得远超"对半分"的价值组合。',
+  },
   // 林迪效应
   {
     id: 'lindy-effect-1',
@@ -853,6 +1627,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['一本已经流传了上百年、依然被反复阅读的经典著作，未来大概率还会继续流传很长时间', '一个人的寿命越长，未来还能活的时间也应该越长', '一款刚上市一个月的新产品，因为足够新，未来存活时间一定比经典产品长', '林迪效应对任何事物都适用，包括人的寿命'],
     correctIndex: 0,
     explanation: '林迪效应只适用于非生物、靠文化传承延续的事物，人和生物体有自然寿命限制，不适用这个逻辑。',
+  },
+  {
+    id: 'lindy-effect-3',
+    conceptId: 'lindy-effect',
+    difficulty: 'advanced',
+    question: '电子邮件的核心协议诞生于1971年，历经半个多世纪几乎没有被真正取代，这个案例最能说明？',
+    options: ['一项技术存活的时间越长，说明它已证明能适应无数轮替代品冲击，这本身就是它能继续存活的有力证据', '电子邮件的用户体验是所有通讯方式里最好的', '新的通讯方式从未真正尝试过取代电子邮件', '技术存活时间的长短和未来能否继续存在没有关系'],
+    correctIndex: 0,
+    explanation: '塔勒布常以电子邮件这类"看似过时却异常长寿"的技术为例说明林迪效应，历经无数轮替代品冲击依然存活本身就是有力证据。',
+  },
+  {
+    id: 'lindy-effect-4',
+    conceptId: 'lindy-effect',
+    difficulty: 'basic',
+    question: '莎士比亚的戏剧写于四百多年前，至今依然被全球反复搬演，用林迪效应解释，这说明？',
+    options: ['作品已经历四百年的检验，大概率还能继续被传诵至少同样长的时间', '莎士比亚的作品会在不久的将来被彻底遗忘', '流传时间的长短和作品未来的生命力毫无关联', '这只是单纯的运气，不能反映任何规律'],
+    correctIndex: 0,
+    explanation: '相比同时代绝大多数已被遗忘的戏剧作品，莎士比亚作品经受住了无数代观众和文化变迁的检验，是林迪效应的经典例证。',
   },
   // 黑天鹅效应
   {
@@ -873,6 +1665,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '黑天鹅事件的本质是"前所未见"，历史数据无法涵盖它，预留冗余和灵活性是应对这种不确定性最朴素有效的方法。',
   },
+  {
+    id: 'black-swan-3',
+    conceptId: 'black-swan',
+    difficulty: 'basic',
+    question: '2011年福岛核事故的一个重要教训是？',
+    options: ['仅凭历史记录设定安全边界有局限性，真正的极端风险可能发生在历史数据完全没覆盖的区域', '核电站的设计标准从一开始就完全没有考虑过海啸风险', '这场事故完全是人为操作失误导致的，与自然灾害无关', '历史上发生过的海啸已经足以覆盖所有可能的未来情形'],
+    correctIndex: 0,
+    explanation: '电站设计依据的历史海啸记录未能覆盖那次地震引发的海啸规模，这个案例常被风险管理领域引用，说明历史数据存在天然局限。',
+  },
+  {
+    id: 'black-swan-4',
+    conceptId: 'black-swan',
+    difficulty: 'advanced',
+    question: '关于黑天鹅事件，塔勒布的核心观点是？',
+    options: ['这类事件本质上超出既有模型的预测能力，应对之道是提升系统的冗余和韧性', '只要模型足够精密，就能提前准确预测下一次黑天鹅事件', '黑天鹅事件从统计学上讲根本不可能真实发生', '所有意外的坏消息都应该被视为黑天鹅事件'],
+    correctIndex: 0,
+    explanation: '塔勒布认为与其幻想能预测出具体时间，不如把精力放在建设能承受意外冲击、甚至从中受益的反脆弱系统上。',
+  },
   // 路径依赖
   {
     id: 'path-dependence-1',
@@ -891,6 +1701,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['路径依赖——不一定是因为这个流程最优，而是切换成本太高、没人愿意承担改动的阵痛', '幸存者偏差', '拆屋效应', '边际效用递减'],
     correctIndex: 0,
     explanation: '很多流程延续下来不是因为它是最优解，而是因为改动的学习成本和磨合成本太高，产生了自我强化的路径依赖惯性。',
+  },
+  {
+    id: 'path-dependence-3',
+    conceptId: 'path-dependence',
+    difficulty: 'advanced',
+    question: 'Netflix在DVD邮寄业务仍然盈利的情况下，主动投入巨资转型流媒体，这个决策体现了什么？',
+    options: ['主动打破路径依赖、在被市场淘汰之前抢先自我颠覆', '路径依赖的典型受害案例，转型最终以失败告终', '这个决策和路径依赖这个概念没有任何关联', '流媒体业务从一开始就是Netflix唯一擅长的领域'],
+    correctIndex: 0,
+    explanation: '相比很多困在原有路径里、直到被市场淘汰才被迫转型的公司，Netflix在自己还没被逼到墙角时就主动重建核心业务。',
+  },
+  {
+    id: 'path-dependence-4',
+    conceptId: 'path-dependence',
+    difficulty: 'basic',
+    question: 'Betamax在技术指标上普遍被认为优于VHS，但最终却被VHS击败，最主要的原因是？',
+    options: ['VHS更早、更广泛地开放技术授权，形成了更大的用户规模和内容生态', 'Betamax的画质和录制时长完全无法与VHS竞争', '消费者普遍认为VHS的技术指标更优', '这场格式之争与路径依赖这个概念无关'],
+    correctIndex: 0,
+    explanation: 'VHS凭借更早形成的用户规模和内容生态，让更多消费者和内容提供商围绕它形成路径依赖，最终在市场竞争中胜出，尽管技术上并不占优。',
   },
   // 蝴蝶效应
   {
@@ -911,6 +1739,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '现实中绝大多数微小变化会被系统的缓冲机制吸收，只有处于"混沌系统临界点"上的特定情形才真正符合蝴蝶效应。',
   },
+  {
+    id: 'butterfly-effect-3',
+    conceptId: 'butterfly-effect',
+    difficulty: 'basic',
+    question: '为什么即使计算机算力大幅提升，天气预报的可靠预测极限依然只有10到14天左右？',
+    options: ['大气系统作为混沌系统，对初始观测数据的微小误差存在指数级放大效应，不是算力能突破的限制', '气象学家至今没有掌握足够先进的预测算法', '这个限制只是暂时的技术瓶颈，未来会被完全突破', '天气系统其实并不属于混沌系统'],
+    correctIndex: 0,
+    explanation: '这个理论天花板精确印证了洛伦兹最初的发现，是蝴蝶效应在当代科学实践中持续起作用的直接证据。',
+  },
+  {
+    id: 'butterfly-effect-4',
+    conceptId: 'butterfly-effect',
+    difficulty: 'advanced',
+    question: '1914年萨拉热窝刺杀事件中，司机因未被及时告知路线变更而走错路口，这个细节在历史学家讨论蝴蝶效应时的意义是？',
+    options: ['一个看似微不足道的偶然事件，在复杂的政治军事系统里被层层放大，最终触发了第一次世界大战', '这个细节其实对刺杀结果没有任何实质影响', '历史学家普遍认为这场刺杀无论如何都会成功', '这个案例和蝴蝶效应这个概念没有关联，纯属巧合'],
+    correctIndex: 0,
+    explanation: '如果司机没有走错那个路口，刺客普林西普当时已经准备放弃行动离开现场，这场特定的刺杀事件很可能根本不会发生。',
+  },
   // 木桶效应
   {
     id: 'cannikin-law-1',
@@ -929,6 +1775,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['优先找到并补齐最薄弱的短板环节', '持续加大投入打磨已经很强的部分', '木桶效应认为补短板从来都不是有效策略', '完全忽视短板，专注扩大长板优势'],
     correctIndex: 0,
     explanation: '相比继续打磨已经很强、边际收益递减的部分，补齐明显的短板往往是提升整体表现性价比最高的做法。',
+  },
+  {
+    id: 'cannikin-law-3',
+    conceptId: 'cannikin-law',
+    difficulty: 'advanced',
+    question: '2013年塔吉特（Target）数据泄露事件中，黑客的入侵路径是？',
+    options: ['通过一家安全措施薄弱的第三方暖通空调供应商，作为侵入塔吉特内部网络的跳板', '直接攻破了塔吉特自身层层设防的核心系统', '通过内部员工主动泄露的账号密码', '塔吉特从未遭遇过大规模数据泄露事件'],
+    correctIndex: 0,
+    explanation: '塔吉特自身的核心防护再强，也抵不过一个被忽视的外部接口这块"短板"，是木桶效应在网络安全领域的真实体现。',
+  },
+  {
+    id: 'cannikin-law-4',
+    conceptId: 'cannikin-law',
+    difficulty: 'basic',
+    question: '李比希提出的"最小因子定律"，最初是在哪个领域的研究中发现的？',
+    options: ['农业化学，作物产量由土壤中最匮乏的必需养分决定', '心理学的性格测试研究', '经济学的财富分配研究', '气象学的天气系统模拟'],
+    correctIndex: 0,
+    explanation: '即使氮、磷等养分充足，只要钾元素严重不足，作物产量依然会被这块"短板"限制住，这是木桶效应比喻的科学原型。',
   },
   // 网络效应
   {
@@ -949,6 +1813,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '用户规模领先会形成自我强化的正循环，早期争取用户规模优势对具备网络效应的产品格外关键。',
   },
+  {
+    id: 'network-effect-3',
+    conceptId: 'network-effect',
+    difficulty: 'basic',
+    question: 'Facebook能在2008年前后反超曾经用户规模更大的MySpace，说明了什么？',
+    options: ['网络效应能建立先发优势，但核心产品体验持续跟不上时，用户依然可能大规模迁移到更好的新平台', '网络效应一旦形成，绝对不可能被后来者超越', 'MySpace从未真正拥有过用户规模优势', 'Facebook的反超和产品体验完全无关，纯粹是运气'],
+    correctIndex: 0,
+    explanation: '这个案例提醒我们，网络效应是很强的护城河，但不是绝对无法被突破的壁垒，核心体验依然至关重要。',
+  },
+  {
+    id: 'network-effect-4',
+    conceptId: 'network-effect',
+    difficulty: 'advanced',
+    question: '微软Windows和Office能长期占据办公软件市场主导地位，核心驱动力是什么？',
+    options: ['几乎所有人都用同样的文件格式和软件，"大家都在用"本身构成了极强的使用理由和转换壁垒', '微软的产品在每一项具体功能上都远超所有竞品', '办公软件市场从未出现过其他有力的竞争者', '这个格局和网络效应这个概念没有关联'],
+    correctIndex: 0,
+    explanation: '这一格局也成为美国司法部1998年对微软提起反垄断诉讼的核心争议焦点之一，是网络效应催生"赢家通吃"市场结构的经典案例。',
+  },
   // 反脆弱
   {
     id: 'antifragility-1',
@@ -967,6 +1849,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['保留一定的资源冗余和灵活性，而不是把一切都优化到极致效率', '把所有资源都投入到追求极致效率，不留任何冗余', '完全避免让系统经历任何压力和挑战', '反脆弱理论认为效率和冗余之间没有任何取舍关系'],
     correctIndex: 0,
     explanation: '过度优化到极致效率的系统在面对意外冲击时格外脆弱，保留冗余和灵活性能提升系统的反脆弱能力。',
+  },
+  {
+    id: 'antifragility-3',
+    conceptId: 'antifragility',
+    difficulty: 'basic',
+    question: '接种疫苗背后的免疫学原理，如何体现反脆弱特性？',
+    options: ['注入可控的减弱病原体让免疫系统受到"小冲击"，从而产生记忆抗体、应对未来更强的威胁', '疫苗只是单纯预防疾病，与反脆弱这个概念无关', '疫苗接种后免疫系统会变得更脆弱', '免疫系统对任何外来刺激都只会产生损伤，不会变强'],
+    correctIndex: 0,
+    explanation: '这是"适度冲击让系统变得更强"的生物学原型，反脆弱理论很大程度上正是从这类生物系统的运作规律中提炼出来的。',
+  },
+  {
+    id: 'antifragility-4',
+    conceptId: 'antifragility',
+    difficulty: 'advanced',
+    question: '塔勒布认为航空业整体安全性持续提升的关键机制是什么？',
+    options: ['强制性、系统性地从每一次事故中学习并转化为具体改进的调查机制', '单纯依靠飞机制造技术的自然进步', '严格限制航班数量，减少事故发生的绝对次数', '这个提升和反脆弱这个概念没有关联'],
+    correctIndex: 0,
+    explanation: '每一次事故都触发详尽的独立调查，调查结论转化为机型改进和规范修订并全行业共享，个别失败被系统性地转化为整体变强的养分。',
   },
   // 奥卡姆剃刀
   {
@@ -987,6 +1887,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '把简单、常见的可能性排除完之前，不应该急着往复杂离奇的方向猜测。',
   },
+  {
+    id: 'occams-razor-3',
+    conceptId: 'occams-razor',
+    difficulty: 'advanced',
+    question: '16世纪日心说逐渐取代地心说的过程中，奥卡姆剃刀式的考量体现在哪里？',
+    options: ['地心说需要不断叠加复杂的"本轮"修正机制，而日心说只需要简洁得多的假设就能解释观测数据', '日心说的观测数据比地心说更多', '地心说完全没有得到过任何观测数据的支持', '这场天文学革命和奥卡姆剃刀原则没有关联'],
+    correctIndex: 0,
+    explanation: '"假设更少的理论更值得优先采信"这一原则，在这场天文学革命的说服过程中扮演了重要角色。',
+  },
+  {
+    id: 'occams-razor-4',
+    conceptId: 'occams-razor',
+    difficulty: 'basic',
+    question: '"当你听到蹄声，先想马，别想斑马"这句医学教育口诀，主要想传达什么？',
+    options: ['面对常见症状，应该优先考虑最常见的病因，而不是罕见的疑难杂症', '医生应该优先考虑最罕见、最特殊的诊断', '这句口诀和奥卡姆剃刀原则没有关联', '只要症状足够复杂，就应该直接考虑最复杂的病因'],
+    correctIndex: 0,
+    explanation: '绝大多数情况下，简单、常见的解释才是真正的答案，这是奥卡姆剃刀原则在医学诊断实践中最广为人知的应用。',
+  },
   // 第一性原理
   {
     id: 'first-principles-1',
@@ -1005,6 +1923,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['拆解到最基础的原材料成本后，发现电池的理论成本远低于行业公认的"常识价格"', '电池成本无法通过重新推算来降低', '第一性原理证明所有行业的"常识价格"都是错误的', '这个案例和第一性原理没有关联'],
     correctIndex: 0,
     explanation: '从最基础的原材料价格重新推算，发现"常识"里藏着可以突破的空间，进而推动了电池成本的大幅下降。',
+  },
+  {
+    id: 'first-principles-3',
+    conceptId: 'first-principles',
+    difficulty: 'basic',
+    question: '马斯克拆解火箭原材料成本这个案例，最终推动他做出了什么决策？',
+    options: ['创立SpaceX，自己造火箭而不是采购现成产品', '放弃进入航天行业', '继续按行业标准价格采购现成火箭', '这个案例和第一性原理没有关联'],
+    correctIndex: 0,
+    explanation: '拆解后发现原材料成本只占最终售价的一小部分，这个发现成为他创立SpaceX的核心逻辑起点。',
+  },
+  {
+    id: 'first-principles-4',
+    conceptId: 'first-principles',
+    difficulty: 'advanced',
+    question: '关于第一性原理思维的使用边界，下列说法正确的是？',
+    options: ['从零拆解推理成本较高，更适合用在真正重要、行业惯例可能已过时的关键问题上', '应该在所有日常小事上都使用第一性原理重新推导', '第一性原理要求完全不借鉴任何已有的成熟技术和经验', '第一性原理和"从零发明一切"是完全相同的概念'],
+    correctIndex: 0,
+    explanation: '大多数日常决策直接借鉴已有经验反而更高效，第一性原理更适合用在值得深挖的核心问题上。',
   },
   // 逆向思维
   {
@@ -1025,6 +1961,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '这句话正是逆向思维的核心体现——从"如何避免失败"倒推出更可靠的行动路径。',
   },
+  {
+    id: 'inversion-3',
+    conceptId: 'inversion',
+    difficulty: 'advanced',
+    question: '亚马逊的"逆向工作法"要求团队在正式立项前先做什么？',
+    options: ['先写一份模拟产品发布时的新闻稿和常见问题解答，倒推产品该解决什么问题', '先完成产品开发，再补写宣传文案', '直接跳过规划阶段，立即投入开发资源', '这套方法和逆向思维这个概念没有关联'],
+    correctIndex: 0,
+    explanation: '如果连一份让人心动的新闻稿都写不出来，说明这个想法本身可能就不值得做，这是逆向思维系统化成企业工作流程的例子。',
+  },
+  {
+    id: 'inversion-4',
+    conceptId: 'inversion',
+    difficulty: 'basic',
+    question: '芒格1986年在哈佛学校毕业典礼上的演讲，题目和内容是？',
+    options: ['《如何保证过上悲惨的一生》，列举了一系列必然导致人生失败的行为', '《如何获得幸福成功的人生》，讲述了他的成功经验', '这场演讲的主题和逆向思维无关', '芒格从未在毕业典礼上发表过演讲'],
+    correctIndex: 0,
+    explanation: '这场演讲反其道而行之，通过列举导致不幸的因素并建议主动避开，成为逆向思维应用于人生规划的经典案例。',
+  },
   // 汉隆剃刀
   {
     id: 'hanlons-razor-1',
@@ -1043,6 +1997,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['先假设对方可能只是太忙没看到，而不是故意冷落自己', '直接认定对方是故意针对自己', '立刻在心里编织各种"对方讨厌我"的剧情', '汉隆剃刀原则建议完全不去猜测原因'],
     correctIndex: 0,
     explanation: '默认"无心之失"的解释而不是"恶意"，往往更接近真相，也更有利于关系的维护。',
+  },
+  {
+    id: 'hanlons-razor-3',
+    conceptId: 'hanlons-razor',
+    difficulty: 'advanced',
+    question: '心理学家克鲁格和爱普利2005年的研究发现，人们在邮件、短信等纯文字沟通中？',
+    options: ['普遍高估了自己准确传达和识别语气的能力，实际误解率远高于自我预期', '几乎从不会误解对方的语气', '文字沟通比面对面沟通更不容易引发误会', '这项研究和汉隆剃刀原则没有关联'],
+    correctIndex: 0,
+    explanation: '这项研究解释了为什么线上沟通格外容易因为语气被误读而引发不必要的冲突，是汉隆剃刀在数字时代的应用场景。',
+  },
+  {
+    id: 'hanlons-razor-4',
+    conceptId: 'hanlons-razor',
+    difficulty: 'basic',
+    question: '心理学家李·罗斯提出的"基本归因错误"概念，为汉隆剃刀提供了什么支持？',
+    options: ['人在解释他人行为时会系统性高估性格因素、低估情境因素的影响，这是一种普遍的认知偏差', '证明大多数人的负面行为确实都是出于恶意', '说明情境因素对行为完全没有任何影响', '这个概念和汉隆剃刀原则没有关联'],
+    correctIndex: 0,
+    explanation: '这个被反复验证的心理学发现，为"不要把能用疏忽解释的事情归咎为恶意"这条处世格言提供了坚实的科学依据。',
   },
   // 二阶思维
   {
@@ -1063,6 +2035,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '真正有价值的判断常常藏在别人没有深想的第二层、第三层效应里，而不是显而易见的一阶结论。',
   },
+  {
+    id: 'second-order-thinking-3',
+    conceptId: 'second-order-thinking',
+    difficulty: 'basic',
+    question: '抗生素滥用导致"超级细菌"出现的案例，最能说明什么？',
+    options: ['只关注一阶疗效（迅速杀菌），而未能充分推演第二层的进化和生态后果，会带来长期代价', '抗生素的使用完全不存在任何负面后果', '细菌产生抗药性和抗生素的使用方式无关', '这个案例和二阶思维这个概念没有关联'],
+    correctIndex: 0,
+    explanation: '世界卫生组织已将抗生素耐药性列为全球公共卫生的重大威胁之一，这正是二阶效应被忽视带来的长期代价。',
+  },
+  {
+    id: 'second-order-thinking-4',
+    conceptId: 'second-order-thinking',
+    difficulty: 'advanced',
+    question: '投资人霍华德·马克斯反复强调二阶思维的原因是？',
+    options: ['很多显而易见的一阶结论，因为太容易被想到，价值已经被市场提前反映', '一阶思维在投资决策中永远比二阶思维更可靠', '二阶思维要求投资者放弃所有的一阶分析', '二阶思维和投资决策没有实际关联'],
+    correctIndex: 0,
+    explanation: '真正的洞察力往往藏在别人没有深想的第二层、第三层效应里，这也是他在多封投资者备忘录中反复强调的核心观点。',
+  },
   // 非暴力沟通
   {
     id: 'nonviolent-communication-1',
@@ -1081,6 +2071,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['用客观观察代替带评判色彩的指责', '直接提出请求', '表达自己的需要', '这个改动和非暴力沟通框架无关'],
     correctIndex: 0,
     explanation: '"你总是"是带评判的指责，换成具体客观的描述，更不容易触发对方的自我防御。',
+  },
+  {
+    id: 'nonviolent-communication-3',
+    conceptId: 'nonviolent-communication',
+    difficulty: 'advanced',
+    question: '美国多个学区推行的"修复式正义"项目，如何应用非暴力沟通框架？',
+    options: ['用"修复圈"围坐对话取代惩罚性处分，引导学生用"观察-感受-需要-请求"表达诉求', '完全取消所有纪律处分，不做任何干预', '只对成绩优秀的学生使用这套沟通框架', '这个项目和非暴力沟通框架没有关联'],
+    correctIndex: 0,
+    explanation: '多项跟踪评估显示，采用这类项目的学校停学率和重复违纪率出现了明显下降，是非暴力沟通框架在教育治理场景的真实应用。',
+  },
+  {
+    id: 'nonviolent-communication-4',
+    conceptId: 'nonviolent-communication',
+    difficulty: 'basic',
+    question: '卢森堡的非暴力沟通中心，曾把这套方法带入哪些高强度对立场景？',
+    options: ['以色列和巴勒斯坦地区、卢旺达大屠杀后的社区重建、美国街头帮派冲突调解', '只应用于温和的家庭日常小摩擦', '仅限于企业内部的团队建设活动', '这套方法从未被应用于真实的冲突场景'],
+    correctIndex: 0,
+    explanation: '这些实践后来被写入多本关于冲突调解和修复式正义的专业著作，证明了这套方法在极端冲突场景中的有效性。',
   },
   // 冰山理论
   {
@@ -1101,6 +2109,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '探索水面下真正驱动这个反应的情绪和需要，比只回应表面的情绪爆发更能找到冲突的根源。',
   },
+  {
+    id: 'iceberg-theory-3',
+    conceptId: 'iceberg-theory',
+    difficulty: 'advanced',
+    question: '管理学家埃德加·沙因提出的"组织文化冰山模型"，最底层的"基本假设层"指的是？',
+    options: ['深植在组织日常运作中、几乎从不被讨论却决定着一切决策的深层假设', '公司公开展示的标志和办公环境', '员工手册上明确写出的规章制度', '这个模型和萨提亚的冰山理论完全无关'],
+    correctIndex: 0,
+    explanation: '很多组织变革失败正是因为只改动了水面上的标语和制度，却没有触及水面下真正驱动员工行为的深层假设。',
+  },
+  {
+    id: 'iceberg-theory-4',
+    conceptId: 'iceberg-theory',
+    difficulty: 'basic',
+    question: '萨提亚在数十年家庭治疗实践中发现，家庭冲突里的争吵内容本身（谁没洗碗等）通常是？',
+    options: ['并不是真正的症结，水面下未被表达的情感需要才是反复引爆冲突的根源', '冲突唯一需要关注和解决的部分', '和水面下的情感需要完全无关的独立问题', '解决了表面的争吵内容，冲突就一定会彻底消失'],
+    correctIndex: 0,
+    explanation: '先探索水面下的部分，比直接纠正水面上的行为更能真正解决问题，这是萨提亚模式家庭治疗的核心工作方式。',
+  },
   // 乔哈里视窗
   {
     id: 'johari-window-1',
@@ -1119,6 +2145,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['主动向信任的人寻求具体的反馈', '只依靠自己独立内省，不需要他人反馈', '盲区无法通过任何方式被缩小', '避免和他人交流，减少被评价的机会'],
     correctIndex: 0,
     explanation: '真正的自我认知需要结合自我觉察和他人反馈，单靠自己内省永远无法看到"盲区"里的内容。',
+  },
+  {
+    id: 'johari-window-3',
+    conceptId: 'johari-window',
+    difficulty: 'advanced',
+    question: '企业里的"360度反馈"评估机制，主要针对乔哈里视窗中的哪个象限？',
+    options: ['盲区——自己评分和他人评分差异悬殊的维度', '隐藏区——员工主动分享的内心想法', '开放区——大家都已经知道的信息', '未知区——连本人和他人都不知道的部分'],
+    correctIndex: 0,
+    explanation: '单靠自我评估和上级单向评价，很难帮员工发现别人看得清楚、自己却毫无察觉的行为模式，360度反馈正是为缩小盲区设计的。',
+  },
+  {
+    id: 'johari-window-4',
+    conceptId: 'johari-window',
+    difficulty: 'basic',
+    question: '"乔哈里"（Johari）这个名字的由来是？',
+    options: ['由提出者约瑟夫·卢夫特（Joe）和哈里·英格拉姆（Harry）两人的名字拼接而成', '一个古老的心理学术语翻译', '来自提出者所在的一所大学名称', '这个名字没有任何特殊含义'],
+    correctIndex: 0,
+    explanation: '两位心理学家在美国"全国训练实验室"主持团体动力学培训项目时，为了帮助学员理解人际反馈的价值开发出了这个模型。',
   },
   // 情绪ABC理论
   {
@@ -1139,6 +2183,24 @@ export const quizQuestions: QuizQuestion[] = [
     correctIndex: 0,
     explanation: '真正决定情绪结果的中间变量是B（信念），而不是A（事件）本身直接导致C（情绪）。',
   },
+  {
+    id: 'abc-theory-3',
+    conceptId: 'abc-theory',
+    difficulty: 'advanced',
+    question: '2018年一项针对理性情绪行为疗法（REBT）的大规模元分析发现了什么？',
+    options: ['REBT对焦虑、抑郁等常见情绪困扰有中等到较强的治疗效果，在多种人群和情境中得到重复验证', 'REBT对任何情绪困扰都完全没有治疗效果', '这项元分析只汇总了一两项独立研究，样本量很小', 'REBT的效果只能在艾利斯本人的诊所中被观察到'],
+    correctIndex: 0,
+    explanation: '这项研究把艾利斯基于个人经历提出的理论主张，落实成了有大规模临床证据支持的心理治疗方法。',
+  },
+  {
+    id: 'abc-theory-4',
+    conceptId: 'abc-theory',
+    difficulty: 'basic',
+    question: '艾利斯年轻时用什么方式挑战自己"害怕被拒绝"的不合理信念？',
+    options: ['在一个月内主动接触上百位陌生女性并尝试搭讪', '完全回避所有可能被拒绝的社交场合', '只在理论上分析这个信念，从未采取任何实际行动', '这个经历和ABC理论的提出没有关联'],
+    correctIndex: 0,
+    explanation: '这次近乎"暴露疗法"的经历让他发现"被拒绝"远没有想象中可怕，直接印证并塑造了他后来提出的ABC理论核心观点。',
+  },
   // 三明治反馈法
   {
     id: 'feedback-sandwich-1',
@@ -1157,6 +2219,24 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['开头的肯定泛泛而谈、不够真诚具体，或者每次都用一模一样的固定句式', '中间的建议部分足够具体、可执行', '反馈整体的语气保持真诚自然', '这个方法在任何场合使用效果都完全一样，不存在使用不当的情况'],
     correctIndex: 0,
     explanation: '不真诚、套路化的肯定会被对方识破，反而削弱整个反馈的可信度和效果。',
+  },
+  {
+    id: 'feedback-sandwich-3',
+    conceptId: 'feedback-sandwich',
+    difficulty: 'advanced',
+    question: '皮克斯动画工作室的"plussing"（追加式）反馈文化，核心要求是？',
+    options: ['先说出作品里已经有效的部分，再用"如果……会不会更好"的方式提出建设性改进方向', '只允许提出批评意见，不允许任何肯定', '反馈者必须严格按照"先夸后批再鼓励"的固定顺序发言', '这套文化和三明治反馈法的心理机制完全无关'],
+    correctIndex: 0,
+    explanation: '这套文化刻意避免机械的"先夸后批"结构，始终聚焦在"如何让作品更好"这个具体目标上，是皮克斯保持创作水准的重要制度设计。',
+  },
+  {
+    id: 'feedback-sandwich-4',
+    conceptId: 'feedback-sandwich',
+    difficulty: 'basic',
+    question: '克鲁格和德尼西1996年的元分析研究发现，效果不佳的反馈往往有什么共同特点？',
+    options: ['把接受者的注意力从"任务本身"引向了"自我"', '反馈内容过于具体、可执行', '反馈始终聚焦在任务该如何改进这个具体问题上', '反馈者给出的建议方向完全正确'],
+    correctIndex: 0,
+    explanation: '让人更关注"我这个人怎么样"而不是"这件事具体哪里需要改进"，是导致反馈效果不佳的关键原因。',
   },
 ]
 

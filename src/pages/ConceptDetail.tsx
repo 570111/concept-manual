@@ -62,6 +62,10 @@ export default function ConceptDetail() {
         {content.realCase.body}
       </Callout>
 
+      <Callout tone="good" title={`🔁 ${content.secondCase.title}`}>
+        {content.secondCase.body}
+      </Callout>
+
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">怎么用</h2>
         <div className="space-y-3">
@@ -80,6 +84,10 @@ export default function ConceptDetail() {
           ))}
         </div>
       </section>
+
+      <Callout tone="info" title="✍️ 自测小任务">
+        {content.selfTask}
+      </Callout>
 
       {content.misconceptions.length > 0 && (
         <section className="space-y-2">
@@ -101,6 +109,16 @@ export default function ConceptDetail() {
       <Callout tone="warn" title="⚠️ 别用错了">
         {content.pitfall}
       </Callout>
+
+      <section className="rounded-2xl border-2 border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+        <div className="flex items-center gap-2">
+          <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-bold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+            {content.furtherReading.type}
+          </span>
+          <h3 className="font-semibold text-slate-900 dark:text-white">{content.furtherReading.title}</h3>
+        </div>
+        <p className="mt-1.5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{content.furtherReading.note}</p>
+      </section>
 
       {content.related.length > 0 && (
         <section className="space-y-2">
