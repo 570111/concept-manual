@@ -15,3 +15,18 @@ export function formatTodayLabel(date: Date = new Date()): string {
   const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
   return `${date.getMonth() + 1}月${date.getDate()}日 · ${weekdays[date.getDay()]}`
 }
+
+const DRAWN_KEY = 'today-concept-drawn'
+
+function todayKey(date: Date = new Date()): string {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+}
+
+// 记录"今天有没有抽过"，同一天再打开首页直接看结果，不用重新看一遍抽取动画
+export function hasDrawnToday(date: Date = new Date()): boolean {
+  return localStorage.getItem(DRAWN_KEY) === todayKey(date)
+}
+
+export function markDrawnToday(date: Date = new Date()): void {
+  localStorage.setItem(DRAWN_KEY, todayKey(date))
+}
