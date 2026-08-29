@@ -54,7 +54,7 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
   if (questions.length === 0) {
     return (
       <div className="mx-auto max-w-md space-y-4 text-center">
-        <p className="text-slate-500 dark:text-slate-400">暂时没有可用的题目。</p>
+        <p className="text-slate-400">暂时没有可用的题目。</p>
         <button onClick={onExit} className="btn-secondary">
           {exitLabel}
         </button>
@@ -68,12 +68,12 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
     return (
       <div className="mx-auto max-w-md space-y-5 text-center">
         <div className={`text-6xl ${good ? 'animate-bounce' : ''}`}>{good ? '🎉' : pct >= 50 ? '🙂' : '📖'}</div>
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white">{title} 完成！</h2>
-        <p className="text-slate-500 dark:text-slate-400">
-          得分：<span className="font-semibold text-slate-900 dark:text-white">{score} / {questions.length}</span>（{pct}%）
+        <h2 className="text-xl font-bold text-white">{title} 完成！</h2>
+        <p className="text-slate-400">
+          得分：<span className="font-semibold text-white">{score} / {questions.length}</span>（{pct}%）
         </p>
         {!good && (
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-400">
             答错的题目已经自动收进错题本，建议回顾一下相关概念再来挑战一次。
           </p>
         )}
@@ -105,39 +105,39 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
   return (
     <div className="mx-auto max-w-xl space-y-5">
       <div className="flex items-center justify-between text-sm text-slate-400">
-        <button onClick={onExit} className="font-medium hover:text-emerald-600 dark:hover:text-emerald-400">← {exitLabel}</button>
+        <button onClick={onExit} className="font-medium hover:text-emerald-400">← {exitLabel}</button>
         <span className="font-medium">
           {title} · 第 {index + 1} / {questions.length} 题
         </span>
       </div>
 
-      <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+      <div className="h-3 w-full overflow-hidden rounded-full bg-slate-800">
         <div
-          className="h-full rounded-full bg-emerald-500 transition-all duration-300"
+          className="h-full rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)] transition-all duration-300"
           style={{ width: `${((index + (selected !== null ? 1 : 0)) / questions.length) * 100}%` }}
         />
       </div>
 
-      <div className="rounded-2xl border-2 border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <h3 className="text-base font-semibold text-slate-900 dark:text-white">{q.question}</h3>
+      <div className="tech-card p-6">
+        <h3 className="text-base font-semibold text-white">{q.question}</h3>
         <div className="mt-4 space-y-2">
           {shuffled.map(({ text, originalIndex }, displayIdx) => {
             const isCorrect = originalIndex === q.correctIndex
             const isSelected = originalIndex === selected
-            let style = 'border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800'
+            let style = 'border-slate-700 hover:border-slate-600 hover:bg-slate-800/60'
             if (selected !== null) {
-              if (isCorrect) style = 'border-emerald-400 bg-emerald-50 dark:border-emerald-600 dark:bg-emerald-950/40'
-              else if (isSelected) style = 'border-red-400 bg-red-50 dark:border-red-600 dark:bg-red-950/40'
-              else style = 'border-slate-200 opacity-60 dark:border-slate-700'
+              if (isCorrect) style = 'border-emerald-400/60 bg-emerald-500/10 shadow-[0_0_16px_-6px_rgba(16,185,129,0.6)]'
+              else if (isSelected) style = 'border-red-400/60 bg-red-500/10'
+              else style = 'border-slate-800 opacity-50'
             }
             return (
               <button
                 key={originalIndex}
                 onClick={() => handleSelect(originalIndex)}
                 disabled={selected !== null}
-                className={`w-full rounded-2xl border-2 p-3 text-left text-sm font-medium transition-all active:scale-[0.99] ${style}`}
+                className={`w-full rounded-2xl border p-3 text-left text-sm font-medium text-slate-200 transition-all active:scale-[0.99] ${style}`}
               >
-                <span className="mr-2 font-bold">{String.fromCharCode(65 + displayIdx)}.</span>
+                <span className="mr-2 font-bold text-emerald-400">{String.fromCharCode(65 + displayIdx)}.</span>
                 {text}
                 {selected !== null && isCorrect && <span className="ml-2">✓</span>}
                 {selected !== null && isSelected && !isCorrect && <span className="ml-2">✗</span>}
@@ -147,8 +147,8 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
         </div>
 
         {selected !== null && (
-          <div className="mt-4 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 dark:bg-slate-800/60 dark:text-slate-300">
-            <span className="font-semibold text-slate-900 dark:text-white">解析：</span>
+          <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-800/40 p-4 text-sm text-slate-300">
+            <span className="font-semibold text-white">解析：</span>
             {q.explanation}
           </div>
         )}

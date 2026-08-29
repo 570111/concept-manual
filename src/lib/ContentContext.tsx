@@ -13,12 +13,23 @@ export type ContentData = {
   label: string
 }
 
+// quiz_questions 表的行是 to_jsonb() 直接转出来的，字段名是数据库原始的下划线命名
+type RawQuizRow = {
+  id: string
+  concept_id: string
+  difficulty: QuizQuestion['difficulty']
+  question: string
+  options: string[]
+  correct_index: number
+  explanation: string
+}
+
 type RpcResult = {
   ok: boolean
   label?: string
   concepts?: ConceptMeta[]
   content?: Record<string, ConceptContent>
-  quiz?: QuizQuestion[]
+  quiz?: RawQuizRow[]
 }
 
 type ContentContextValue = {
@@ -43,7 +54,16 @@ async function fetchContent(key: string): Promise<ContentData | null> {
   }
   const result = data as RpcResult
   if (!result?.ok || !result.concepts || !result.content || !result.quiz || !result.label) return null
-  return { concepts: result.concepts, conceptContent: result.content, quizQuestions: result.quiz, label: result.label }
+  const quizQuestions: QuizQuestion[] = result.quiz.map((q) => ({
+    id: q.id,
+    conceptId: q.concept_id,
+    difficulty: q.difficulty,
+    question: q.question,
+    options: q.options,
+    correctIndex: q.correct_index,
+    explanation: q.explanation,
+  }))
+  return { concepts: result.concepts, conceptContent: result.content, quizQuestions, label: result.label }
 }
 
 export function ContentProvider({ children }: { children: ReactNode }) {

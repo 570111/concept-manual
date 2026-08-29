@@ -38,9 +38,9 @@ export default function Graph() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">关系图谱</h1>
-        <p className="mt-2 text-slate-500 dark:text-slate-400">
-          60个概念按分类围成一圈，连线代表它们互相关联。点一个节点看详情，也可以顺着连线摸到相关的概念继续探索。
+        <h1 className="text-2xl font-extrabold text-white">关系图谱</h1>
+        <p className="mt-2 text-slate-400">
+          {concepts.length}个概念按分类围成一圈，连线代表它们互相关联。点一个节点看详情，也可以顺着连线摸到相关的概念继续探索。
         </p>
       </div>
 
@@ -52,10 +52,10 @@ export default function Graph() {
               setDimCategory((c) => (c === cat ? null : cat))
               setSelectedId(null)
             }}
-            className={`flex items-center gap-1.5 rounded-full border-2 px-3 py-1 text-xs font-bold transition-colors ${
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold transition-colors ${
               dimCategory === null || dimCategory === cat
-                ? 'border-slate-200 bg-white text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300'
-                : 'border-slate-100 bg-slate-50 text-slate-300 dark:border-slate-900 dark:bg-slate-900/40 dark:text-slate-600'
+                ? 'border-slate-700 bg-slate-900/60 text-slate-300'
+                : 'border-slate-800 bg-slate-900/20 text-slate-600'
             }`}
           >
             <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: categoryColor[cat] }} />
@@ -65,7 +65,7 @@ export default function Graph() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
-        <div className="overflow-x-auto rounded-2xl border-2 border-slate-200 bg-white p-2 dark:border-slate-800 dark:bg-slate-900">
+        <div className="tech-card overflow-x-auto p-2">
           <svg
             viewBox={`0 0 ${SIZE} ${SIZE}`}
             className="mx-auto block w-full max-w-[720px]"
@@ -83,9 +83,9 @@ export default function Graph() {
                   y1={a.y}
                   x2={b.x}
                   y2={b.y}
-                  stroke={isActive ? '#10b981' : '#94a3b8'}
+                  stroke={isActive ? '#34d399' : '#475569'}
                   strokeWidth={isActive ? 2 : 1}
-                  opacity={activeId ? (isActive ? 0.9 : 0.06) : 0.18}
+                  opacity={activeId ? (isActive ? 0.9 : 0.06) : 0.25}
                 />
               )
             })}
@@ -126,7 +126,7 @@ export default function Graph() {
                   <circle
                     r={isActive || isNeighbor ? 20 : 16}
                     fill={categoryColor[n.category]}
-                    stroke="white"
+                    stroke="#0f172a"
                     strokeWidth={2}
                   />
                   <text textAnchor="middle" dominantBaseline="central" fontSize={16}>
@@ -138,9 +138,9 @@ export default function Graph() {
                       textAnchor="middle"
                       fontSize={13}
                       fontWeight={700}
-                      fill="currentColor"
-                      className="pointer-events-none text-slate-900 dark:text-white"
-                      style={{ paintOrder: 'stroke', stroke: 'white', strokeWidth: 4 }}
+                      fill="white"
+                      className="pointer-events-none"
+                      style={{ paintOrder: 'stroke', stroke: '#0f172a', strokeWidth: 4 }}
                     >
                       {c.title}
                     </text>
@@ -153,7 +153,7 @@ export default function Graph() {
 
         <div className="lg:sticky lg:top-20 lg:self-start">
           {selectedConcept ? (
-            <div className="space-y-4 rounded-2xl border-2 border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+            <div className="tech-card space-y-4 p-5">
               <div className="flex items-center gap-3">
                 <div
                   className="flex h-12 w-12 flex-none items-center justify-center rounded-xl text-2xl"
@@ -165,16 +165,16 @@ export default function Graph() {
                   <div className="text-xs font-bold" style={{ color: categoryColor[selectedConcept.category] }}>
                     {categoryInfo[selectedConcept.category].label}
                   </div>
-                  <h3 className="font-bold text-slate-900 dark:text-white">{selectedConcept.title}</h3>
+                  <h3 className="font-bold text-white">{selectedConcept.title}</h3>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{selectedConcept.summary}</p>
+              <p className="text-sm leading-relaxed text-slate-300">{selectedConcept.summary}</p>
               <Link to={`/concepts/${selectedConcept.id}`} className="btn-primary block text-center">
                 进入学习 →
               </Link>
               {selectedRelated.length > 0 && (
                 <div>
-                  <div className="mb-2 text-xs font-bold text-slate-400">相关概念</div>
+                  <div className="mb-2 text-xs font-bold text-slate-500">相关概念</div>
                   <div className="flex flex-wrap gap-2">
                     {selectedRelated.map((id) => {
                       const rc = getConcept(id)
@@ -183,7 +183,7 @@ export default function Graph() {
                         <button
                           key={id}
                           onClick={() => setSelectedId(id)}
-                          className="flex items-center gap-1.5 rounded-full border-2 border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-emerald-700 dark:hover:text-emerald-400"
+                          className="flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:border-emerald-500/40 hover:text-emerald-400"
                         >
                           <span>{rc.icon}</span>
                           {rc.title}
@@ -195,7 +195,7 @@ export default function Graph() {
               )}
             </div>
           ) : (
-            <div className="rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 p-5 text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-800/40 dark:text-slate-400">
+            <div className="rounded-2xl border border-dashed border-slate-700 bg-slate-900/40 p-5 text-sm text-slate-400">
               点击图上任意一个节点，看看它是什么、和哪些概念有关联。也可以点上方的分类标签，只看某一类的连线。
             </div>
           )}
