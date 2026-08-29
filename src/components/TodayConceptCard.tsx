@@ -1,116 +1,143 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { ConceptMeta } from '../data/concepts'
 import { getTodaysConcept, formatTodayLabel, hasDrawnToday, markDrawnToday } from '../lib/dailyConcept'
 import { isConceptLearned } from '../lib/progress'
 import { useContent } from '../lib/ContentContext'
 
-// 抽取动画每一步的间隔（毫秒），逐渐变慢，模拟"转盘慢下来"的手感
-const SPIN_STEPS = [70, 70, 80, 90, 100, 120, 140, 170, 210, 260, 320, 400]
+const TILE_W = 172 // 每个卡片格的宽度（px）
+const VISIBLE = 3 // 视窗里同时露出几格，中间那格是"中奖位"
+const REEL_LEN = 28 // 整条跑道的格子总数
+const TARGET_INDEX = REEL_LEN - 5 // 目标概念停在跑道的第几格（留几格余量）
+const SPIN_MS = 2400
 
 type Phase = 'idle' | 'drawing' | 'revealed'
+
+function buildReel(pool: ConceptMeta[], target: ConceptMeta): ConceptMeta[] {
+  const reel: ConceptMeta[] = []
+  for (let i = 0; i < REEL_LEN; i++) {
+    reel.push(i === TARGET_INDEX ? target : pool[Math.floor(Math.random() * pool.length)])
+  }
+  return reel
+}
+
+function offsetFor(index: number): number {
+  // 让第 index 格停在视窗正中间那一格
+  return -(index - Math.floor(VISIBLE / 2)) * TILE_W
+}
 
 export default function TodayConceptCard() {
   const { data } = useContent()
   const [learned, setLearned] = useState(false)
   const [phase, setPhase] = useState<Phase>('idle')
-  const [spinConcept, setSpinConcept] = useState<ConceptMeta | null>(null)
+  const [offset, setOffset] = useState(0)
+  const [transitioning, setTransitioning] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const concept = data ? getTodaysConcept(data.concepts) : null
+  const reel = useMemo(() => (data && concept ? buildReel(data.concepts, concept) : []), [data, concept?.id])
 
   useEffect(() => {
     if (concept) setLearned(isConceptLearned(concept.id))
   }, [concept?.id])
 
   useEffect(() => {
-    if (hasDrawnToday()) setPhase('revealed')
+    if (hasDrawnToday()) {
+      setOffset(offsetFor(TARGET_INDEX))
+      setPhase('revealed')
+    }
   }, [])
 
   useEffect(() => () => {
     if (timerRef.current) clearTimeout(timerRef.current)
   }, [])
 
-  if (!concept || !data) return null
+  if (!concept || !data || reel.length === 0) return null
 
   function draw() {
     if (phase === 'drawing') return
     setPhase('drawing')
-    const pool = data!.concepts
-    let step = 0
-    const tick = () => {
-      setSpinConcept(pool[Math.floor(Math.random() * pool.length)])
-      step += 1
-      if (step < SPIN_STEPS.length) {
-        timerRef.current = setTimeout(tick, SPIN_STEPS[step])
-      } else {
-        markDrawnToday()
-        setPhase('revealed')
-      }
-    }
-    timerRef.current = setTimeout(tick, SPIN_STEPS[0])
-  }
-
-  if (phase !== 'revealed') {
-    const showing = phase === 'drawing' ? spinConcept : null
-    return (
-      <div className="mx-auto flex max-w-xl items-center gap-4 rounded-2xl border-2 border-amber-200 bg-amber-50 p-5 text-left shadow-sm dark:border-amber-900 dark:bg-amber-950/30">
-        <div
-          className={`flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-amber-100 text-3xl dark:bg-amber-900/50 ${
-            phase === 'drawing' ? 'animate-pulse' : ''
-          }`}
-        >
-          {phase === 'drawing' ? showing?.icon ?? '🎁' : '🎁'}
-        </div>
-        <div className="flex-1">
-          <div className="text-xs font-bold text-amber-600 dark:text-amber-400">
-            📅 今日一个概念 · {formatTodayLabel()}
-          </div>
-          <h3 className="mt-1 font-bold text-slate-900 dark:text-white">
-            {phase === 'drawing' ? showing?.title ?? '抽取中…' : '还没抽今天的概念'}
-          </h3>
-          <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
-            {phase === 'drawing' ? '手气不错的话……' : '点一下，看看今天抽到哪个概念'}
-          </p>
-        </div>
-        <button
-          onClick={draw}
-          disabled={phase === 'drawing'}
-          className="btn-primary flex-none disabled:translate-y-0 disabled:opacity-70 disabled:shadow-[0_4px_0_0_#047857]"
-        >
-          {phase === 'drawing' ? '抽取中…' : '🎲 抽一个'}
-        </button>
-      </div>
-    )
+    setOffset(0)
+    setTransitioning(false)
+    // 先回到起点（不带动画），下一帧再打开动画开关滑到目标格，触发 CSS transition
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTransitioning(true)
+        setOffset(offsetFor(TARGET_INDEX))
+      })
+    })
+    timerRef.current = setTimeout(() => {
+      markDrawnToday()
+      setPhase('revealed')
+    }, SPIN_MS)
   }
 
   return (
-    <Link
-      to={`/concepts/${concept.id}`}
-      className="group relative mx-auto flex max-w-xl items-center gap-4 rounded-2xl border-2 border-amber-200 bg-amber-50 p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:scale-[1.01] hover:shadow-md dark:border-amber-900 dark:bg-amber-950/30"
-    >
-      <div className="relative flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-amber-100 text-3xl dark:bg-amber-900/50">
-        <span className="animate-pop-in inline-block">{concept.icon}</span>
-        <span className="animate-sparkle pointer-events-none absolute -right-1 -top-1 text-sm">✨</span>
-        <span className="animate-sparkle pointer-events-none absolute -left-1 top-0 text-xs" style={{ animationDelay: '0.15s' }}>
-          ⭐
+    <div className="mx-auto max-w-xl overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-5 shadow-[0_0_30px_-8px_rgba(16,185,129,0.55)]">
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-400/90">
+          &gt;&gt; 今日概念抽取 · {formatTodayLabel()}
         </span>
+        {phase === 'revealed' && learned && (
+          <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 font-mono text-[10px] text-emerald-400">已读</span>
+        )}
       </div>
-      <div className="flex-1">
-        <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-amber-600 dark:text-amber-400">
-          <span>📅 今日一个概念 · {formatTodayLabel()}</span>
-          {learned && (
-            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
-              已读
-            </span>
-          )}
+
+      <div className="relative mx-auto mt-4" style={{ width: VISIBLE * TILE_W, height: 64 }}>
+        {/* 中奖位标记 */}
+        <div
+          className="pointer-events-none absolute top-0 z-10 h-full rounded-xl border-2 border-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.7)]"
+          style={{ width: TILE_W, left: Math.floor(VISIBLE / 2) * TILE_W }}
+        />
+        <div
+          className="relative h-full overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+          }}
+        >
+          <div
+            className="flex h-full items-center"
+            style={{
+              transform: `translateX(${offset}px)`,
+              transition: transitioning ? `transform ${SPIN_MS}ms cubic-bezier(0.12,0.72,0.29,1)` : 'none',
+            }}
+          >
+            {reel.map((c, i) => (
+              <div key={i} className="flex flex-none items-center justify-center" style={{ width: TILE_W }}>
+                <span
+                  className="max-w-[156px] truncate font-mono text-lg font-bold tracking-wide text-emerald-300"
+                  style={{ textShadow: '0 0 12px rgba(52,211,153,0.65)' }}
+                >
+                  {c.title}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-        <h3 className="mt-1 font-bold text-slate-900 dark:text-white">{concept.title}</h3>
-        <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">{concept.summary}</p>
       </div>
-      <span className="flex-none text-sm font-medium text-amber-600 opacity-0 transition-opacity group-hover:opacity-100 dark:text-amber-400">
-        去看看 →
-      </span>
-    </Link>
+
+      {phase !== 'revealed' ? (
+        <div className="mt-4 flex justify-center">
+          <button
+            onClick={draw}
+            disabled={phase === 'drawing'}
+            className="rounded-xl border border-emerald-400/60 bg-emerald-500/10 px-5 py-2 font-mono text-sm font-bold tracking-widest text-emerald-300 shadow-[0_0_14px_rgba(16,185,129,0.35)] transition-all hover:bg-emerald-500/20 disabled:opacity-60"
+          >
+            {phase === 'drawing' ? '扫描中…' : '启动抽取'}
+          </button>
+        </div>
+      ) : (
+        <Link to={`/concepts/${concept.id}`} className="group mt-4 flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h3 className="truncate font-bold text-white">{concept.title}</h3>
+            <p className="mt-0.5 truncate text-sm text-slate-400">{concept.summary}</p>
+          </div>
+          <span className="flex-none font-mono text-sm font-medium text-emerald-400 transition-transform group-hover:translate-x-1">
+            去看看 →
+          </span>
+        </Link>
+      )}
+    </div>
   )
 }
