@@ -7,7 +7,7 @@ export default function RequireAuth() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-sm text-slate-400 dark:text-slate-500">
+      <div className="flex min-h-screen items-center justify-center bg-neutral-950 text-sm text-neutral-300">
         加载中…
       </div>
     )

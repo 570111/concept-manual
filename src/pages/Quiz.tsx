@@ -37,7 +37,7 @@ function CategorySelect({
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">测验练习</h1>
-          <p className="mt-2 text-slate-400">
+          <p className="mt-2 text-neutral-300">
             选一个分类，把这一类下所有概念的题目混在一起练习。也可以去每个概念详情页里做单独的2题小测验。
           </p>
         </div>
@@ -57,14 +57,14 @@ function CategorySelect({
             <button
               key={c}
               onClick={() => onSelect(c)}
-              className="tech-card flex items-center gap-4 p-5 text-left transition-all hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.5)]"
+              className="tech-card flex items-center gap-4 p-5 text-left transition-all hover:-translate-y-1 hover:border-emerald-500/30"
             >
-              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-300 ring-1 ring-emerald-400/40">
+              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-300">
                 {categoryInfo[c].numeral}
               </div>
               <div className="flex-1">
                 <h2 className="font-bold text-white">{categoryInfo[c].label}</h2>
-                <p className="mt-0.5 text-sm text-slate-400">
+                <p className="mt-0.5 text-sm text-neutral-300">
                   {qs.length} 道题目 · 🌱基础{counts.basic} → 🔥应用{counts.advanced}
                 </p>
               </div>
@@ -78,7 +78,7 @@ function CategorySelect({
         })}
       </div>
 
-      <p className="text-center text-sm text-slate-500">
+      <p className="text-center text-sm text-neutral-400">
         还没学过对应的概念？先去 <Link to="/concepts" className="font-medium text-emerald-400 hover:underline">概念地图</Link> 看看。
       </p>
     </div>

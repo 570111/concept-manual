@@ -73,20 +73,20 @@ export default function TodayConceptCard() {
   }
 
   return (
-    <div className="mx-auto max-w-xl overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950/40 p-5 shadow-[0_0_40px_-12px_rgba(16,185,129,0.45)] ring-1 ring-emerald-500/20">
+    <div className="mx-auto max-w-xl overflow-hidden rounded-2xl border border-emerald-800/60 bg-gradient-to-b from-emerald-950/50 to-neutral-900 p-5">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold tracking-wide text-emerald-400/80">
-          <span className="font-mono">&gt;&gt;</span> 今日概念抽取 · {formatTodayLabel()}
+        <span className="text-xs font-medium text-emerald-400">
+          今日概念抽取 · {formatTodayLabel()}
         </span>
         {phase === 'revealed' && learned && (
-          <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-medium text-emerald-400">已读</span>
+          <span className="rounded-full bg-neutral-800 px-2 py-0.5 text-[10px] font-medium text-neutral-300">已读</span>
         )}
       </div>
 
       <div className="relative mx-auto mt-4" style={{ width: VISIBLE * TILE_W, height: 64 }}>
-        {/* 中奖位标记：柔和的发光高亮，而不是硬边框 */}
+        {/* 中奖位标记 */}
         <div
-          className="pointer-events-none absolute top-0 z-20 h-full rounded-2xl bg-emerald-400/10 ring-1 ring-inset ring-emerald-400/50 shadow-[0_0_22px_rgba(52,211,153,0.45)]"
+          className="pointer-events-none absolute top-0 z-20 h-full rounded-xl border border-emerald-500"
           style={{ width: TILE_W, left: Math.floor(VISIBLE / 2) * TILE_W }}
         />
         <div
@@ -105,10 +105,7 @@ export default function TodayConceptCard() {
           >
             {reel.map((c, i) => (
               <div key={i} className="flex flex-none items-center justify-center" style={{ width: TILE_W }}>
-                <span
-                  className="max-w-[156px] truncate text-lg font-semibold tracking-wide text-emerald-300"
-                  style={{ textShadow: '0 0 14px rgba(52,211,153,0.55)' }}
-                >
+                <span className="max-w-[156px] truncate text-lg font-semibold tracking-wide text-white">
                   {c.title}
                 </span>
               </div>
@@ -120,7 +117,7 @@ export default function TodayConceptCard() {
           className="pointer-events-none absolute inset-0 z-10"
           style={{
             background:
-              'linear-gradient(to right, rgba(2,6,23,0.85), transparent 32%, transparent 68%, rgba(2,6,23,0.85))',
+              'linear-gradient(to right, rgba(23,23,23,0.9), transparent 32%, transparent 68%, rgba(23,23,23,0.9))',
           }}
         />
       </div>
@@ -130,7 +127,7 @@ export default function TodayConceptCard() {
           <button
             onClick={draw}
             disabled={phase === 'drawing'}
-            className="rounded-full border border-emerald-400/50 bg-emerald-500/10 px-6 py-2.5 text-sm font-semibold tracking-wide text-emerald-300 shadow-[0_0_16px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-500/20 hover:shadow-[0_0_22px_rgba(16,185,129,0.45)] disabled:opacity-60"
+            className="rounded-full bg-emerald-500 px-6 py-2.5 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-neutral-700 disabled:text-neutral-400"
           >
             {phase === 'drawing' ? '扫描中…' : '启动抽取'}
           </button>
@@ -139,7 +136,7 @@ export default function TodayConceptCard() {
         <Link to={`/concepts/${concept.id}`} className="group mt-5 flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h3 className="truncate font-bold text-white">{concept.title}</h3>
-            <p className="mt-0.5 truncate text-sm text-slate-400">{concept.summary}</p>
+            <p className="mt-0.5 truncate text-sm text-neutral-300">{concept.summary}</p>
           </div>
           <span className="flex-none text-sm font-medium text-emerald-400 transition-transform group-hover:translate-x-1">
             去看看 →

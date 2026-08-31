@@ -27,13 +27,12 @@ export default function Login() {
   }
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-slate-950 px-4">
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(16,185,129,0.15),transparent)]" />
-      <div className="tech-card relative w-full max-w-sm p-8">
+    <div className="flex min-h-screen items-center justify-center bg-neutral-950 px-4">
+      <div className="tech-card w-full max-w-sm p-8">
         <div className="text-center">
           <div className="text-3xl">🔭</div>
           <h1 className="mt-2 text-lg font-bold text-white">破局手册</h1>
-          <p className="mt-1 text-sm text-slate-400">输入访问密钥继续</p>
+          <p className="mt-1 text-sm text-neutral-300">输入访问密钥继续</p>
         </div>
         <form onSubmit={handleSubmit} className="mt-6 space-y-3">
           <input
@@ -42,14 +41,14 @@ export default function Login() {
             onChange={(e) => setKey(e.target.value)}
             placeholder="PJSC-XXXX-XXXX-XXXX"
             autoFocus
-            className="w-full rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2.5 text-center font-mono text-sm tracking-wider text-white outline-none focus:border-emerald-400/60 focus:shadow-[0_0_14px_rgba(16,185,129,0.3)]"
+            className="w-full rounded-full border border-neutral-600 bg-neutral-950/60 px-4 py-2.5 text-center font-mono text-sm tracking-wider text-white outline-none placeholder:text-neutral-500 focus:border-emerald-400/60"
           />
           {error && <p className="text-center text-sm text-red-400">{error}</p>}
           <button type="submit" disabled={checking} className="btn-primary w-full">
             {checking ? '验证中…' : '进入'}
           </button>
         </form>
-        <p className="mt-5 text-center text-xs text-slate-500">
+        <p className="mt-5 text-center text-xs text-neutral-400">
           没有密钥？
           <Link to="/preview" className="font-medium text-emerald-400 hover:underline">
             先免费试读3个概念 →

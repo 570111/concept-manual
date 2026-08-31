@@ -23,21 +23,21 @@ function ConceptNode({
         <div
           className={`flex h-10 w-10 flex-none items-center justify-center rounded-full text-sm font-bold ${
             isDone
-              ? 'bg-emerald-500/20 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.4)] ring-1 ring-emerald-400/50'
+              ? 'bg-emerald-500/20 text-emerald-300'
               : isNext
-                ? 'animate-pulse bg-emerald-500/20 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.4)] ring-1 ring-emerald-400/50'
-                : 'bg-slate-800/60 text-slate-500'
+                ? 'animate-pulse bg-emerald-500/20 text-emerald-300'
+                : 'bg-neutral-800/60 text-neutral-400'
           }`}
         >
           {isDone ? '✓' : index + 1}
         </div>
-        {!isLast && <div className="w-0.5 flex-1 bg-slate-800" />}
+        {!isLast && <div className="w-0.5 flex-1 bg-neutral-800" />}
       </div>
 
       <Link
         to={`/concepts/${concept.id}`}
-        className={`group mb-4 flex flex-1 gap-4 rounded-2xl border bg-slate-900/60 p-5 transition-all hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.4)] ${
-          isNext ? 'border-emerald-400/50 shadow-[0_0_20px_-6px_rgba(16,185,129,0.4)]' : 'border-slate-800'
+        className={`group mb-4 flex flex-1 gap-4 rounded-2xl border bg-neutral-900/60 p-5 transition-all hover:-translate-y-1 hover:border-emerald-500/30 ${
+          isNext ? 'border-emerald-400/50' : 'border-neutral-800'
         }`}
       >
         <div className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-emerald-500/10 text-lg">
@@ -46,7 +46,7 @@ function ConceptNode({
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-bold text-white">{concept.title}</h3>
-            <span className="text-xs font-medium text-slate-500">{concept.aka}</span>
+            <span className="text-xs font-medium text-neutral-400">{concept.aka}</span>
             {isNext && <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[11px] font-bold text-emerald-300">继续学习</span>}
             {isDone && !isNext && (
               <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[11px] font-bold text-emerald-400">
@@ -54,7 +54,7 @@ function ConceptNode({
               </span>
             )}
           </div>
-          <p className="mt-1 text-sm text-slate-400">{concept.summary}</p>
+          <p className="mt-1 text-sm text-neutral-300">{concept.summary}</p>
         </div>
       </Link>
     </div>
@@ -76,12 +76,12 @@ function CategorySection({
   return (
     <section className="space-y-6">
       <div className="tech-card flex items-start gap-3 p-4">
-        <div className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-300 ring-1 ring-emerald-400/40">
+        <div className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-300">
           {categoryInfo[category].numeral}
         </div>
         <div>
           <h2 className="text-xl font-extrabold text-white">{categoryInfo[category].label}</h2>
-          <p className="mt-0.5 text-sm text-slate-400">{categoryInfo[category].desc}</p>
+          <p className="mt-0.5 text-sm text-neutral-300">{categoryInfo[category].desc}</p>
         </div>
       </div>
 
@@ -118,7 +118,7 @@ export default function Concepts() {
     <div className="space-y-12">
       <div>
         <h1 className="text-2xl font-extrabold text-white">概念地图：{concepts.length}个看懂生活规则的思维工具</h1>
-        <p className="mt-2 text-slate-400">
+        <p className="mt-2 text-neutral-300">
           分成{categoryOrder.length}大类：认知偏误关乎"你怎么想"，社会与人际关乎"一群人怎么处"，经济与决策关乎"怎么分配有限的东西"，
           博弈与影响关乎"人和人怎么过招"，系统与演化关乎"事情长期会往哪走"，思维与决策方法是主动能拿来用的推理工具，
           沟通与关系关乎"话该怎么说、情绪从哪来"。每个概念都配一个生活场景，学完可以直接用。
