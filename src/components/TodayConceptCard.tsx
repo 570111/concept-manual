@@ -73,20 +73,23 @@ export default function TodayConceptCard() {
   }
 
   return (
-    <div className="mx-auto max-w-xl overflow-hidden rounded-2xl border border-emerald-800/60 bg-gradient-to-b from-emerald-950/50 to-neutral-900 p-5">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-medium text-emerald-400">
-          今日概念抽取 · {formatTodayLabel()}
-        </span>
+    <div className="relative mx-auto max-w-xl overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950 p-5">
+      {/* 唯一的一处氛围光晕，呼应整站极简的科技感 */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
+        style={{ background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(96,165,250,0.16), transparent)' }}
+      />
+      <div className="relative flex items-center justify-between">
+        <span className="eyebrow">[ 今日概念抽取 ] {formatTodayLabel()}</span>
         {phase === 'revealed' && learned && (
-          <span className="rounded-full bg-neutral-800 px-2 py-0.5 text-[10px] font-medium text-neutral-300">已读</span>
+          <span className="rounded-full border border-neutral-700 px-2 py-0.5 text-[10px] font-medium text-neutral-400">已读</span>
         )}
       </div>
 
       <div className="relative mx-auto mt-4" style={{ width: VISIBLE * TILE_W, height: 64 }}>
         {/* 中奖位标记 */}
         <div
-          className="pointer-events-none absolute top-0 z-20 h-full rounded-xl border border-emerald-500"
+          className="pointer-events-none absolute top-0 z-20 h-full rounded-xl border border-neutral-500"
           style={{ width: TILE_W, left: Math.floor(VISIBLE / 2) * TILE_W }}
         />
         <div
@@ -117,28 +120,24 @@ export default function TodayConceptCard() {
           className="pointer-events-none absolute inset-0 z-10"
           style={{
             background:
-              'linear-gradient(to right, rgba(23,23,23,0.9), transparent 32%, transparent 68%, rgba(23,23,23,0.9))',
+              'linear-gradient(to right, rgba(0,0,0,0.9), transparent 32%, transparent 68%, rgba(0,0,0,0.9))',
           }}
         />
       </div>
 
       {phase !== 'revealed' ? (
-        <div className="mt-5 flex justify-center">
-          <button
-            onClick={draw}
-            disabled={phase === 'drawing'}
-            className="rounded-full bg-emerald-500 px-6 py-2.5 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-neutral-700 disabled:text-neutral-400"
-          >
+        <div className="relative mt-5 flex justify-center">
+          <button onClick={draw} disabled={phase === 'drawing'} className="btn-primary">
             {phase === 'drawing' ? '扫描中…' : '启动抽取'}
           </button>
         </div>
       ) : (
-        <Link to={`/concepts/${concept.id}`} className="group mt-5 flex items-center justify-between gap-3">
+        <Link to={`/concepts/${concept.id}`} className="group relative mt-5 flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h3 className="truncate font-bold text-white">{concept.title}</h3>
-            <p className="mt-0.5 truncate text-sm text-neutral-300">{concept.summary}</p>
+            <p className="mt-0.5 truncate text-sm text-neutral-400">{concept.summary}</p>
           </div>
-          <span className="flex-none text-sm font-medium text-emerald-400 transition-transform group-hover:translate-x-1">
+          <span className="flex-none text-sm font-medium text-white transition-transform group-hover:translate-x-1">
             去看看 →
           </span>
         </Link>

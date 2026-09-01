@@ -38,28 +38,29 @@ export default function Preview() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+    <div className="min-h-screen bg-black text-neutral-100">
     <div className="mx-auto w-full max-w-2xl space-y-10 px-4 py-8">
-      <header className="flex items-center gap-2 text-lg font-semibold text-white">
-        <span className="text-xl">🔭</span>
+      <header className="flex items-center gap-2 text-sm font-medium tracking-wide text-white">
+        <span className="text-lg">🔭</span>
         破局手册
       </header>
 
       <section className="text-center">
-        <h1 className="text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+        <p className="eyebrow">[ 100个思维模型 ]</p>
+        <h1 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
           用100个思维模型
           <br />
           看懂生活里那些说不清的规则
         </h1>
-        <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-300">
+        <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-400">
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？为什么有些老规矩明明不方便却一直没人改？
           这些现象背后都有名字、有原理、有真实案例——不是鸡汤，是能直接用的思维工具。
         </p>
         <div className="mt-6 grid grid-cols-4 gap-2">
           {stats.map((s) => (
             <div key={s.label} className="tech-card py-3">
-              <div className="text-xl font-extrabold text-emerald-400">{s.num}</div>
-              <div className="text-[11px] text-neutral-400">{s.label}</div>
+              <div className="text-xl font-extrabold text-white">{s.num}</div>
+              <div className="text-[11px] text-neutral-500">{s.label}</div>
             </div>
           ))}
         </div>
@@ -73,13 +74,13 @@ export default function Preview() {
         {previewConcepts.map((c) => (
           <div key={c.id} id={`preview-${c.id}`} className="tech-card space-y-3 !rounded-3xl p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-emerald-500/10 text-2xl">
+              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl border border-neutral-800 text-2xl">
                 {c.icon}
               </div>
               <div>
-                <div className="text-xs font-medium text-emerald-400">{c.category}</div>
+                <div className="eyebrow">{c.category}</div>
                 <h3 className="text-base font-bold text-white">
-                  {c.title} <span className="text-xs font-normal text-neutral-400">{c.aka}</span>
+                  {c.title} <span className="text-xs font-normal text-neutral-500">{c.aka}</span>
                 </h3>
               </div>
             </div>
@@ -90,7 +91,7 @@ export default function Preview() {
 
             <div className="space-y-2">
               <div className="text-sm font-bold text-white">这是什么</div>
-              <p className="text-sm leading-relaxed text-neutral-300">{c.explain}</p>
+              <p className="text-sm leading-relaxed text-neutral-400">{c.explain}</p>
             </div>
 
             <Callout tone="good" title={`📚 ${c.realCase.title}`}>
@@ -100,14 +101,14 @@ export default function Preview() {
             <div className="space-y-2">
               <div className="text-sm font-bold text-white">怎么用</div>
               {c.apply.map((a, i) => (
-                <div key={i} className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-3">
+                <div key={i} className="rounded-2xl border border-neutral-800 p-3">
                   <div className="flex items-start gap-2">
-                    <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-[10px] font-bold text-emerald-300">
+                    <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full border border-neutral-700 text-[10px] font-bold text-white">
                       {i + 1}
                     </span>
                     <div>
                       <div className="text-sm font-semibold text-white">{a.title}</div>
-                      <p className="mt-0.5 text-xs leading-relaxed text-neutral-300">{a.body}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-neutral-400">{a.body}</p>
                     </div>
                   </div>
                 </div>
@@ -115,10 +116,10 @@ export default function Preview() {
             </div>
 
             <div className="space-y-1.5">
-              <div className="text-xs font-bold text-neutral-400">常见误解</div>
+              <div className="text-xs font-bold text-neutral-500">常见误解</div>
               {c.misconceptions.map((m, i) => (
-                <div key={i} className="flex gap-2 rounded-xl border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-xs leading-relaxed text-neutral-300">
-                  <span className="flex-none text-neutral-300">✗</span>
+                <div key={i} className="flex gap-2 rounded-xl border border-neutral-800 px-3 py-2 text-xs leading-relaxed text-neutral-400">
+                  <span className="flex-none text-neutral-600">✗</span>
                   {m}
                 </div>
               ))}
@@ -131,7 +132,7 @@ export default function Preview() {
         ))}
       </section>
 
-      <section className="rounded-3xl border border-emerald-500/25 bg-emerald-500/5 p-5">
+      <section className="tech-card p-5">
         <h2 className="text-center text-lg font-bold text-white">完整版包含什么</h2>
         <div className="mt-4 space-y-3">
           {included.map((item) => (
@@ -139,7 +140,7 @@ export default function Preview() {
               <div className="text-xl">{item.icon}</div>
               <div>
                 <div className="text-sm font-semibold text-white">{item.title}</div>
-                <div className="text-xs leading-relaxed text-neutral-300">{item.desc}</div>
+                <div className="text-xs leading-relaxed text-neutral-400">{item.desc}</div>
               </div>
             </div>
           ))}
@@ -148,7 +149,7 @@ export default function Preview() {
 
       <section className="tech-card !rounded-3xl p-6 text-center">
         <div className="text-3xl font-extrabold text-white">{PRICE_TEXT}</div>
-        <p className="mt-1 text-xs text-neutral-400">一次付费，永久可用，密钥不限设备、不限次数</p>
+        <p className="mt-1 text-xs text-neutral-500">一次付费，永久可用，密钥不限设备、不限次数</p>
         <a
           href={PURCHASE_URL}
           target="_blank"
@@ -157,8 +158,8 @@ export default function Preview() {
         >
           去闲鱼拍下 →
         </a>
-        <p className="mt-3 text-xs text-neutral-400">拍下后私信发密钥，一般几分钟内处理</p>
-        <Link to="/login" className="mt-4 block text-xs font-medium text-emerald-400 hover:underline">
+        <p className="mt-3 text-xs text-neutral-500">拍下后私信发密钥，一般几分钟内处理</p>
+        <Link to="/login" className="mt-4 block text-xs font-medium text-white hover:underline">
           已经买过？直接输入密钥登录 →
         </Link>
       </section>
@@ -168,12 +169,12 @@ export default function Preview() {
         {faqs.map((f) => (
           <div key={f.q} className="tech-card p-4">
             <div className="text-sm font-semibold text-white">{f.q}</div>
-            <p className="mt-1 text-xs leading-relaxed text-neutral-300">{f.a}</p>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-400">{f.a}</p>
           </div>
         ))}
       </section>
 
-      <footer className="border-t border-neutral-800 pt-4 text-center text-xs text-neutral-400">
+      <footer className="border-t border-neutral-900 pt-4 text-center text-xs text-neutral-500">
         本手册内容为通俗化学习资料，不构成专业心理咨询、法律或投资建议
       </footer>
     </div>

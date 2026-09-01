@@ -34,13 +34,13 @@ export default function ConceptDetail() {
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       <div className="flex items-center gap-2 text-sm text-neutral-400">
-        <Link to="/concepts" className="font-medium hover:text-emerald-400">← 概念地图</Link>
+        <Link to="/concepts" className="font-medium hover:text-white">← 概念地图</Link>
         <span>·</span>
         <span>{categoryInfo[concept.category].label}</span>
       </div>
 
       <div className="flex items-start gap-4">
-        <div className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-emerald-500/10 text-3xl">
+        <div className="tech-card flex h-14 w-14 flex-none items-center justify-center text-3xl">
           {concept.icon}
         </div>
         <div>
@@ -55,7 +55,7 @@ export default function ConceptDetail() {
 
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-white">这是什么</h2>
-        <p className="leading-relaxed text-neutral-300">{content.explain}</p>
+        <p className="leading-relaxed text-neutral-400">{content.explain}</p>
       </section>
 
       <Callout tone="good" title={`📚 ${content.realCase.title}`}>
@@ -72,12 +72,12 @@ export default function ConceptDetail() {
           {content.apply.map((tip, i) => (
             <div key={i} className="tech-card p-4">
               <div className="flex items-start gap-2.5">
-                <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-emerald-500/15 text-xs font-bold text-emerald-300">
+                <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full border border-neutral-700 text-xs font-bold text-white">
                   {i + 1}
                 </span>
                 <div>
                   <h3 className="font-semibold text-white">{tip.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-neutral-300">{tip.body}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-neutral-400">{tip.body}</p>
                 </div>
               </div>
             </div>
@@ -96,9 +96,9 @@ export default function ConceptDetail() {
             {content.misconceptions.map((m, i) => (
               <li
                 key={i}
-                className="flex gap-2 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-3.5 text-sm leading-relaxed text-neutral-300"
+                className="flex gap-2 rounded-2xl border border-neutral-800 bg-neutral-950 p-3.5 text-sm leading-relaxed text-neutral-400"
               >
-                <span className="flex-none text-neutral-300">✗</span>
+                <span className="flex-none text-neutral-600">✗</span>
                 {m}
               </li>
             ))}
@@ -112,12 +112,12 @@ export default function ConceptDetail() {
 
       <section className="tech-card p-4">
         <div className="flex items-center gap-2">
-          <span className="rounded-full border border-neutral-700 bg-neutral-800/60 px-2.5 py-0.5 text-xs font-bold text-neutral-300">
+          <span className="rounded-full border border-neutral-700 px-2.5 py-0.5 text-xs font-bold text-neutral-400">
             {content.furtherReading.type}
           </span>
           <h3 className="font-semibold text-white">{content.furtherReading.title}</h3>
         </div>
-        <p className="mt-1.5 text-sm leading-relaxed text-neutral-300">{content.furtherReading.note}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-neutral-400">{content.furtherReading.note}</p>
       </section>
 
       {content.related.length > 0 && (
@@ -131,7 +131,7 @@ export default function ConceptDetail() {
                 <Link
                   key={id}
                   to={`/concepts/${id}`}
-                  className="flex items-center gap-1.5 rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition hover:border-emerald-500/40 hover:text-emerald-400"
+                  className="flex items-center gap-1.5 rounded-full border border-neutral-800 px-3 py-1.5 text-sm font-medium text-neutral-400 transition hover:border-neutral-600 hover:text-white"
                 >
                   <span>{rc.icon}</span>
                   {rc.title}
@@ -145,10 +145,10 @@ export default function ConceptDetail() {
       {questions.length > 0 && (
         <section className="space-y-3 border-t border-neutral-800 pt-6">
           {!quizOpen ? (
-            <div className="flex items-center justify-between gap-4 rounded-2xl border border-sky-500/25 bg-sky-500/5 p-5">
+            <div className="tech-card flex items-center justify-between gap-4 p-5">
               <div>
                 <h2 className="font-bold text-white">🎯 小测验：{questions.length}道题巩固一下</h2>
-                <p className="mt-1 text-sm text-neutral-300">答错会自动收进错题本，方便回来复习。</p>
+                <p className="mt-1 text-sm text-neutral-400">答错会自动收进错题本，方便回来复习。</p>
               </div>
               <button onClick={() => setQuizOpen(true)} className="btn-primary flex-none">
                 开始
@@ -168,14 +168,14 @@ export default function ConceptDetail() {
 
       <div className="flex items-center justify-between border-t border-neutral-800 pt-6 text-sm">
         {prev ? (
-          <Link to={`/concepts/${prev.id}`} className="font-medium text-neutral-300 hover:text-emerald-400">
+          <Link to={`/concepts/${prev.id}`} className="font-medium text-neutral-400 hover:text-white">
             ← {prev.title}
           </Link>
         ) : (
           <span />
         )}
         {next ? (
-          <Link to={`/concepts/${next.id}`} className="font-medium text-neutral-300 hover:text-emerald-400">
+          <Link to={`/concepts/${next.id}`} className="font-medium text-neutral-400 hover:text-white">
             {next.title} →
           </Link>
         ) : (

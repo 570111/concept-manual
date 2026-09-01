@@ -19,10 +19,10 @@ function ContinueLearningCard({ concepts }: { concepts: { id: string; icon: stri
 
   if (doneCount === 0) {
     return (
-      <div className="mx-auto flex max-w-xl items-center justify-between gap-4 rounded-2xl border border-emerald-500/20 bg-neutral-900/60 p-4">
+      <div className="tech-card mx-auto flex max-w-xl items-center justify-between gap-4 p-4">
         <div className="text-left">
           <div className="text-sm font-semibold text-white">还没开始学习</div>
-          <div className="text-xs text-neutral-300">从第一个概念开始，每个只要5分钟</div>
+          <div className="text-xs text-neutral-400">从第一个概念开始，每个只要5分钟</div>
         </div>
         <Link to={`/concepts/${concepts[0].id}`} className="btn-primary flex-none">
           开始学习
@@ -33,10 +33,10 @@ function ContinueLearningCard({ concepts }: { concepts: { id: string; icon: stri
 
   if (!nextConcept) {
     return (
-      <div className="mx-auto flex max-w-xl items-center justify-between gap-4 rounded-2xl border border-emerald-500/20 bg-neutral-900/60 p-4">
+      <div className="tech-card mx-auto flex max-w-xl items-center justify-between gap-4 p-4">
         <div className="text-left">
           <div className="text-sm font-semibold text-white">已经学完全部 {concepts.length} 个概念</div>
-          <div className="text-xs text-neutral-300">去测验页检验一下掌握程度吧</div>
+          <div className="text-xs text-neutral-400">去测验页检验一下掌握程度吧</div>
         </div>
         <Link to="/quiz" className="btn-primary flex-none">
           去测验
@@ -46,9 +46,9 @@ function ContinueLearningCard({ concepts }: { concepts: { id: string; icon: stri
   }
 
   return (
-    <div className="mx-auto flex max-w-xl items-center justify-between gap-4 rounded-2xl border border-emerald-500/20 bg-neutral-900/60 p-4">
+    <div className="tech-card mx-auto flex max-w-xl items-center justify-between gap-4 p-4">
       <div className="text-left">
-        <div className="text-xs text-neutral-300">已学完 {doneCount} / {concepts.length} 个 · 继续学习</div>
+        <div className="text-xs text-neutral-400">已学完 {doneCount} / {concepts.length} 个 · 继续学习</div>
         <div className="text-sm font-semibold text-white">{nextConcept.icon} {nextConcept.title}</div>
       </div>
       <Link to={`/concepts/${nextConcept.id}`} className="btn-primary flex-none">
@@ -90,7 +90,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-white sm:text-4xl">
           用{concepts.length}个思维模型，看懂生活里那些说不清的规则
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-neutral-300">
+        <p className="mx-auto mt-4 max-w-2xl text-neutral-400">
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？为什么有些老规矩明明不方便却一直没人改？
           这些现象背后都有名字、有原理。每个概念用一个生活场景讲透，讲完还告诉你怎么在自己的生活里用上。
         </p>
@@ -105,12 +105,12 @@ export default function Home() {
           <Link
             key={m.to}
             to={m.to}
-            className="group tech-card p-6 transition hover:-translate-y-1 hover:border-emerald-500/40"
+            className="group tech-card p-6 transition hover:border-neutral-700"
           >
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/15 text-xl">{m.icon}</div>
+            <div className="text-xl">{m.icon}</div>
             <h2 className="mt-3 text-lg font-semibold text-white">{m.title}</h2>
-            <p className="mt-2 text-sm text-neutral-300">{m.desc}</p>
-            <span className="mt-4 inline-block text-sm font-medium text-emerald-400 group-hover:underline">
+            <p className="mt-2 text-sm text-neutral-400">{m.desc}</p>
+            <span className="mt-4 inline-block text-sm font-medium text-white group-hover:underline">
               开始 →
             </span>
           </Link>
@@ -122,15 +122,15 @@ export default function Home() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categoryOrder.map((cat) => (
             <div key={cat} className="tech-card p-5">
-              <div className="text-xs font-medium tracking-wide text-emerald-400">{categoryInfo[cat].label}</div>
-              <p className="mt-2 text-sm text-neutral-300">{categoryInfo[cat].desc}</p>
+              <div className="eyebrow">{categoryInfo[cat].label}</div>
+              <p className="mt-2 text-sm text-neutral-400">{categoryInfo[cat].desc}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {concepts
                   .filter((c) => c.category === cat)
                   .map((c) => (
                     <span
                       key={c.id}
-                      className="rounded-full border border-neutral-700 bg-neutral-800/60 px-2.5 py-1 text-xs font-medium text-neutral-300"
+                      className="rounded-full border border-neutral-800 px-2.5 py-1 text-xs font-medium text-neutral-400"
                     >
                       {c.icon} {c.title}
                     </span>

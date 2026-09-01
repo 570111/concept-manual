@@ -27,12 +27,12 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-neutral-950 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-black px-4">
       <div className="tech-card w-full max-w-sm p-8">
         <div className="text-center">
-          <div className="text-3xl">🔭</div>
-          <h1 className="mt-2 text-lg font-bold text-white">破局手册</h1>
-          <p className="mt-1 text-sm text-neutral-300">输入访问密钥继续</p>
+          <div className="text-2xl">🔭</div>
+          <h1 className="mt-2 text-base font-medium text-white">破局手册</h1>
+          <p className="eyebrow mt-2">输入访问密钥继续</p>
         </div>
         <form onSubmit={handleSubmit} className="mt-6 space-y-3">
           <input
@@ -41,16 +41,16 @@ export default function Login() {
             onChange={(e) => setKey(e.target.value)}
             placeholder="PJSC-XXXX-XXXX-XXXX"
             autoFocus
-            className="w-full rounded-full border border-neutral-600 bg-neutral-950/60 px-4 py-2.5 text-center font-mono text-sm tracking-wider text-white outline-none placeholder:text-neutral-500 focus:border-emerald-400/60"
+            className="w-full rounded-full border border-neutral-700 bg-transparent px-4 py-2.5 text-center font-mono text-sm tracking-wider text-white outline-none placeholder:text-neutral-600 focus:border-neutral-400"
           />
           {error && <p className="text-center text-sm text-red-400">{error}</p>}
           <button type="submit" disabled={checking} className="btn-primary w-full">
             {checking ? '验证中…' : '进入'}
           </button>
         </form>
-        <p className="mt-5 text-center text-xs text-neutral-400">
+        <p className="mt-5 text-center text-xs text-neutral-500">
           没有密钥？
-          <Link to="/preview" className="font-medium text-emerald-400 hover:underline">
+          <Link to="/preview" className="font-medium text-white hover:underline">
             先免费试读3个概念 →
           </Link>
         </p>

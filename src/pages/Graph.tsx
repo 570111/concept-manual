@@ -39,7 +39,7 @@ export default function Graph() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-extrabold text-white">关系图谱</h1>
-        <p className="mt-2 text-neutral-300">
+        <p className="mt-2 text-neutral-400">
           {concepts.length}个概念按分类围成一圈，连线代表它们互相关联。点一个节点看详情，也可以顺着连线摸到相关的概念继续探索。
         </p>
       </div>
@@ -54,8 +54,8 @@ export default function Graph() {
             }}
             className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold transition-colors ${
               dimCategory === null || dimCategory === cat
-                ? 'border-neutral-700 bg-neutral-900/60 text-neutral-300'
-                : 'border-neutral-800 bg-neutral-900/20 text-neutral-300'
+                ? 'border-neutral-700 text-neutral-300'
+                : 'border-neutral-800 text-neutral-600'
             }`}
           >
             <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: categoryColor[cat] }} />
@@ -83,7 +83,7 @@ export default function Graph() {
                   y1={a.y}
                   x2={b.x}
                   y2={b.y}
-                  stroke={isActive ? '#34d399' : '#475569'}
+                  stroke={isActive ? '#ffffff' : '#404040'}
                   strokeWidth={isActive ? 2 : 1}
                   opacity={activeId ? (isActive ? 0.9 : 0.06) : 0.25}
                 />
@@ -126,7 +126,7 @@ export default function Graph() {
                   <circle
                     r={isActive || isNeighbor ? 20 : 16}
                     fill={categoryColor[n.category]}
-                    stroke="#0f172a"
+                    stroke="#000000"
                     strokeWidth={2}
                   />
                   <text textAnchor="middle" dominantBaseline="central" fontSize={16}>
@@ -140,7 +140,7 @@ export default function Graph() {
                       fontWeight={700}
                       fill="white"
                       className="pointer-events-none"
-                      style={{ paintOrder: 'stroke', stroke: '#0f172a', strokeWidth: 4 }}
+                      style={{ paintOrder: 'stroke', stroke: '#000000', strokeWidth: 4 }}
                     >
                       {c.title}
                     </text>
@@ -168,7 +168,7 @@ export default function Graph() {
                   <h3 className="font-bold text-white">{selectedConcept.title}</h3>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed text-neutral-300">{selectedConcept.summary}</p>
+              <p className="text-sm leading-relaxed text-neutral-400">{selectedConcept.summary}</p>
               <Link to={`/concepts/${selectedConcept.id}`} className="btn-primary block text-center">
                 进入学习 →
               </Link>
@@ -183,7 +183,7 @@ export default function Graph() {
                         <button
                           key={id}
                           onClick={() => setSelectedId(id)}
-                          className="flex items-center gap-1.5 rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition hover:border-emerald-500/40 hover:text-emerald-400"
+                          className="flex items-center gap-1.5 rounded-full border border-neutral-800 px-3 py-1.5 text-sm font-medium text-neutral-400 transition hover:border-neutral-600 hover:text-white"
                         >
                           <span>{rc.icon}</span>
                           {rc.title}
@@ -195,7 +195,7 @@ export default function Graph() {
               )}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-neutral-700 bg-neutral-900/40 p-5 text-sm text-neutral-300">
+            <div className="rounded-2xl border border-dashed border-neutral-800 p-5 text-sm text-neutral-500">
               点击图上任意一个节点，看看它是什么、和哪些概念有关联。也可以点上方的分类标签，只看某一类的连线。
             </div>
           )}

@@ -18,10 +18,10 @@ export default function NavBar() {
   }
 
   return (
-    <header className="sticky top-0 z-20 border-b border-neutral-800 bg-neutral-950/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-neutral-900 bg-black/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <NavLink to="/" className="flex items-center gap-2 text-lg font-semibold text-white">
-          <span className="text-xl">🔭</span>
+        <NavLink to="/" className="flex items-center gap-2 text-sm font-medium tracking-wide text-white">
+          <span className="text-lg">🔭</span>
           破局手册
         </NavLink>
         <nav className="flex items-center gap-1">
@@ -31,10 +31,10 @@ export default function NavBar() {
               to={l.to}
               end={l.to === '/'}
               className={({ isActive }) =>
-                `rounded-full px-3.5 py-1.5 text-sm font-bold transition-colors ${
+                `rounded-full border px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
                   isActive
-                    ? 'bg-emerald-500 text-neutral-950'
-                    : 'text-neutral-300 hover:bg-neutral-800/60 hover:text-neutral-200'
+                    ? 'border-white text-white'
+                    : 'border-transparent text-neutral-400 hover:text-neutral-200'
                 }`
               }
             >
@@ -43,7 +43,7 @@ export default function NavBar() {
           ))}
           <button
             onClick={handleLogout}
-            className="ml-1 rounded-full px-3.5 py-1.5 text-sm font-bold text-neutral-400 transition-colors hover:bg-neutral-800/60 hover:text-neutral-300"
+            className="ml-1 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide text-neutral-500 transition-colors hover:text-neutral-300"
           >
             退出
           </button>
