@@ -85,36 +85,36 @@ export default function Home() {
   ]
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-32">
       <section>
         <p className="eyebrow">[ {concepts.length}个思维模型 · {categoryOrder.length}大类 ]</p>
-        <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl">
+        <h1 className="mt-6 max-w-3xl text-5xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl">
           看懂生活里
           <br />
           那些说不清的规则
         </h1>
-        <p className="mt-6 max-w-lg text-neutral-400">
+        <p className="mt-8 max-w-lg text-base leading-relaxed text-neutral-400">
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？这些现象背后都有名字、有原理——每个概念用一个生活场景讲透，讲完告诉你怎么用。
         </p>
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-8 flex flex-wrap gap-3">
           <Link to="/concepts" className="btn-secondary">概念地图 ↗</Link>
           <Link to="/graph" className="btn-secondary">关系图谱 ↗</Link>
           <Link to="/quiz" className="btn-secondary">测验练习 ↗</Link>
         </div>
       </section>
 
-      <section className="space-y-3">
+      <section className="space-y-4">
         <TodayConceptCard />
         <ContinueLearningCard concepts={concepts} />
       </section>
 
       <section className="divide-y divide-neutral-900 border-y border-neutral-900">
         {rows.map((r) => (
-          <Link key={r.to} to={r.to} className="group flex items-center justify-between gap-6 py-7">
+          <Link key={r.to} to={r.to} className="group flex items-center justify-between gap-8 py-10">
             <div className="min-w-0">
               <p className="eyebrow">[ {r.tag} ]</p>
-              <h2 className="mt-2 text-xl font-semibold text-white">{r.title}</h2>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-neutral-400">{r.desc}</p>
+              <h2 className="mt-3 text-2xl font-semibold text-white">{r.title}</h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-400">{r.desc}</p>
             </div>
             <span className="flex-none text-sm font-medium text-neutral-500 transition-colors group-hover:text-white">
               开始 →
@@ -127,24 +127,24 @@ export default function Home() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="eyebrow">[ 分类总览 ]</p>
-            <h2 className="mt-2 text-2xl font-bold text-white">{categoryOrder.length}大类，{concepts.length}个概念</h2>
+            <h2 className="mt-3 text-3xl font-bold text-white">{categoryOrder.length}大类，{concepts.length}个概念</h2>
           </div>
           <Link to="/concepts" className="btn-secondary">查看全部 ↗</Link>
         </div>
-        <div className="mt-6 divide-y divide-neutral-900 border-t border-neutral-900">
+        <div className="mt-10 divide-y divide-neutral-900 border-t border-neutral-900">
           {categoryOrder.map((cat, i) => {
             const count = concepts.filter((c) => c.category === cat).length
             return (
               <Link
                 key={cat}
                 to="/concepts"
-                className="group flex items-center justify-between gap-6 py-5 transition-colors hover:bg-neutral-950"
+                className="group flex items-center justify-between gap-6 py-7 transition-colors hover:bg-neutral-950"
               >
-                <div className="flex min-w-0 items-baseline gap-4">
+                <div className="flex min-w-0 items-baseline gap-5">
                   <span className="flex-none font-mono text-xs text-neutral-600">{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <h3 className="font-semibold text-white">{categoryInfo[cat].label}</h3>
-                    <p className="mt-1 max-w-xl text-sm text-neutral-400">{categoryInfo[cat].desc}</p>
+                    <h3 className="text-lg font-semibold text-white">{categoryInfo[cat].label}</h3>
+                    <p className="mt-1.5 max-w-xl text-sm text-neutral-400">{categoryInfo[cat].desc}</p>
                   </div>
                 </div>
                 <span className="flex-none text-xs text-neutral-500">{count}个</span>

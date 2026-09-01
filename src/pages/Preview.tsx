@@ -38,8 +38,8 @@ export default function Preview() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-neutral-100">
-    <div className="mx-auto w-full max-w-2xl space-y-10 px-4 py-8">
+    <div className="min-h-screen text-neutral-100">
+    <div className="mx-auto w-full max-w-2xl space-y-14 px-6 py-14">
       <header className="flex items-center gap-2 text-sm font-medium tracking-wide text-white">
         <span className="text-lg">🔭</span>
         破局手册

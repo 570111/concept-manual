@@ -27,8 +27,8 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black px-4">
-      <div className="tech-card w-full max-w-sm p-8">
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <div className="tech-card w-full max-w-sm p-10">
         <div className="text-center">
           <div className="text-2xl">🔭</div>
           <h1 className="mt-2 text-base font-medium text-white">破局手册</h1>
