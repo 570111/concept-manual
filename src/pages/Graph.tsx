@@ -156,7 +156,7 @@ export default function Graph() {
             <div className="tech-card space-y-4 p-5">
               <div className="flex items-center gap-3">
                 <div
-                  className="flex h-12 w-12 flex-none items-center justify-center rounded-xl text-2xl"
+                  className="flex h-12 w-12 flex-none items-center justify-center rounded-[10px] text-2xl"
                   style={{ backgroundColor: `${categoryColor[selectedConcept.category]}22` }}
                 >
                   {selectedConcept.icon}
@@ -195,7 +195,7 @@ export default function Graph() {
               )}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-slate-800 p-5 text-sm text-slate-500">
+            <div className="rounded-[10px] border border-dashed border-slate-800 p-5 text-sm text-slate-500">
               点击图上任意一个节点，看看它是什么、和哪些概念有关联。也可以点上方的分类标签，只看某一类的连线。
             </div>
           )}

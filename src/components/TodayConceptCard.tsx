@@ -73,14 +73,14 @@ export default function TodayConceptCard() {
   }
 
   return (
-    <div className="relative mx-auto max-w-xl overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+    <div className="relative mx-auto max-w-xl overflow-hidden rounded-[10px] border border-slate-800 bg-slate-900/70 p-5">
       {/* 唯一的一处氛围光晕，呼应整站极简的科技感 */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
         style={{ background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(96,165,250,0.16), transparent)' }}
       />
       <div className="relative flex items-center justify-between">
-        <span className="eyebrow">[ 今日概念抽取 ] {formatTodayLabel()}</span>
+        <span className="eyebrow">今日概念抽取 · {formatTodayLabel()}</span>
         {phase === 'revealed' && learned && (
           <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[10px] font-medium text-slate-400">已读</span>
         )}
@@ -89,7 +89,7 @@ export default function TodayConceptCard() {
       <div className="relative mx-auto mt-4" style={{ width: VISIBLE * TILE_W, height: 64 }}>
         {/* 中奖位标记 */}
         <div
-          className="pointer-events-none absolute top-0 z-20 h-full rounded-xl border border-slate-500"
+          className="pointer-events-none absolute top-0 z-20 h-full rounded-[10px] border border-slate-500"
           style={{ width: TILE_W, left: Math.floor(VISIBLE / 2) * TILE_W }}
         />
         <div

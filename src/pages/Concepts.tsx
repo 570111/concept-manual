@@ -36,7 +36,7 @@ function ConceptNode({
 
       <Link
         to={`/concepts/${concept.id}`}
-        className={`group mb-4 flex flex-1 gap-4 rounded-2xl border bg-slate-900/50 p-5 transition-colors hover:border-slate-600 ${
+        className={`group mb-4 flex flex-1 gap-4 rounded-[10px] border bg-slate-900/50 p-5 transition-colors hover:border-slate-600 ${
           isNext ? 'border-slate-500' : 'border-slate-800'
         }`}
       >

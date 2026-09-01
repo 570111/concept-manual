@@ -135,7 +135,7 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
                 key={originalIndex}
                 onClick={() => handleSelect(originalIndex)}
                 disabled={selected !== null}
-                className={`w-full rounded-2xl border p-3 text-left text-sm font-medium text-slate-200 transition-all active:scale-[0.99] ${style}`}
+                className={`w-full rounded-[10px] border p-3 text-left text-sm font-medium text-slate-200 transition-all active:scale-[0.99] ${style}`}
               >
                 <span className="mr-2 font-bold text-slate-500">{String.fromCharCode(65 + displayIdx)}.</span>
                 {text}
@@ -147,7 +147,7 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
         </div>
 
         {selected !== null && (
-          <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-800/40 p-4 text-sm text-slate-400">
+          <div className="mt-4 rounded-[10px] border border-slate-800 bg-slate-800/40 p-4 text-sm text-slate-400">
             <span className="font-semibold text-white">解析：</span>
             {q.explanation}
           </div>

@@ -87,19 +87,22 @@ export default function Home() {
   return (
     <div className="space-y-32">
       <section>
-        <p className="eyebrow">[ {concepts.length}个思维模型 · {categoryOrder.length}大类 ]</p>
-        <h1 className="mt-6 max-w-3xl text-5xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl">
+        <p className="eyebrow">{concepts.length}个思维模型 · {categoryOrder.length}大类</p>
+        <h1
+          className="mt-5 max-w-3xl text-white sm:text-[64px]"
+          style={{ fontSize: '52px', fontWeight: 510, letterSpacing: '-1.4px', lineHeight: '1.05' }}
+        >
           看懂生活里
           <br />
           那些说不清的规则
         </h1>
-        <p className="mt-8 max-w-lg text-base leading-relaxed text-slate-400">
+        <p className="mt-6 max-w-lg text-[15px] leading-[24px] text-[#8a8f98]">
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？这些现象背后都有名字、有原理——每个概念用一个生活场景讲透，讲完告诉你怎么用。
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link to="/concepts" className="btn-secondary">概念地图 ↗</Link>
-          <Link to="/graph" className="btn-secondary">关系图谱 ↗</Link>
-          <Link to="/quiz" className="btn-secondary">测验练习 ↗</Link>
+        <div className="mt-8 flex flex-wrap gap-2">
+          <Link to="/concepts" className="tech-card px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-white/[0.06]">概念地图</Link>
+          <Link to="/graph" className="tech-card px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-white/[0.06]">关系图谱</Link>
+          <Link to="/quiz" className="tech-card px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-white/[0.06]">测验练习</Link>
         </div>
       </section>
 
@@ -112,11 +115,11 @@ export default function Home() {
         {rows.map((r) => (
           <Link key={r.to} to={r.to} className="group flex items-center justify-between gap-8 py-10">
             <div className="min-w-0">
-              <p className="eyebrow">[ {r.tag} ]</p>
-              <h2 className="mt-3 text-2xl font-semibold text-white">{r.title}</h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">{r.desc}</p>
+              <p className="eyebrow">{r.tag}</p>
+              <h2 className="mt-2 text-[22px] font-medium tracking-[-0.02em] text-white">{r.title}</h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#8a8f98]">{r.desc}</p>
             </div>
-            <span className="flex-none text-sm font-medium text-slate-500 transition-colors group-hover:text-white">
+            <span className="flex-none text-sm font-medium text-[#8a8f98] transition-colors group-hover:text-white">
               开始 →
             </span>
           </Link>
@@ -126,10 +129,10 @@ export default function Home() {
       <section>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow">[ 分类总览 ]</p>
-            <h2 className="mt-3 text-3xl font-bold text-white">{categoryOrder.length}大类，{concepts.length}个概念</h2>
+            <p className="eyebrow">分类总览</p>
+            <h2 className="mt-2 text-[28px] font-medium tracking-[-0.02em] text-white">{categoryOrder.length}大类，{concepts.length}个概念</h2>
           </div>
-          <Link to="/concepts" className="btn-secondary">查看全部 ↗</Link>
+          <Link to="/concepts" className="btn-secondary">查看全部</Link>
         </div>
         <div className="mt-10 divide-y divide-slate-900 border-t border-slate-900">
           {categoryOrder.map((cat, i) => {
@@ -138,12 +141,12 @@ export default function Home() {
               <Link
                 key={cat}
                 to="/concepts"
-                className="group flex items-center justify-between gap-6 py-7 transition-colors hover:bg-slate-950"
+                className="group flex items-center justify-between gap-6 py-7 transition-colors hover:bg-white/[0.02]"
               >
                 <div className="flex min-w-0 items-baseline gap-5">
                   <span className="flex-none font-mono text-xs text-slate-600">{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <h3 className="text-lg font-semibold text-white">{categoryInfo[cat].label}</h3>
+                    <h3 className="text-lg font-medium text-white">{categoryInfo[cat].label}</h3>
                     <p className="mt-1.5 max-w-xl text-sm text-slate-400">{categoryInfo[cat].desc}</p>
                   </div>
                 </div>

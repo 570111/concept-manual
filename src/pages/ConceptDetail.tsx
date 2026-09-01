@@ -96,7 +96,7 @@ export default function ConceptDetail() {
             {content.misconceptions.map((m, i) => (
               <li
                 key={i}
-                className="flex gap-2 rounded-2xl border border-slate-800 bg-slate-900/50 p-3.5 text-sm leading-relaxed text-slate-400"
+                className="flex gap-2 rounded-[10px] border border-slate-800 bg-slate-900/50 p-3.5 text-sm leading-relaxed text-slate-400"
               >
                 <span className="flex-none text-slate-600">✗</span>
                 {m}

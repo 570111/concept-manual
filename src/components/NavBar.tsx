@@ -18,9 +18,9 @@ export default function NavBar() {
   }
 
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-900 bg-slate-950/90 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <NavLink to="/" className="flex items-center gap-2 text-sm font-medium tracking-wide text-white">
+    <header className="sticky top-0 z-20 bg-[#08090a]/85 backdrop-blur">
+      <div className="mx-auto flex h-[72px] max-w-5xl items-center justify-between px-6">
+        <NavLink to="/" className="flex items-center gap-2 text-sm font-medium text-white">
           <span className="text-lg">🔭</span>
           破局手册
         </NavLink>
@@ -31,10 +31,8 @@ export default function NavBar() {
               to={l.to}
               end={l.to === '/'}
               className={({ isActive }) =>
-                `rounded-full border px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
-                  isActive
-                    ? 'border-white text-white'
-                    : 'border-transparent text-slate-400 hover:text-slate-200'
+                `rounded-[8px] px-3 py-1.5 text-[13px] font-medium transition-colors ${
+                  isActive ? 'bg-white/[0.06] text-white' : 'text-[#8a8f98] hover:text-white'
                 }`
               }
             >
@@ -43,7 +41,7 @@ export default function NavBar() {
           ))}
           <button
             onClick={handleLogout}
-            className="ml-1 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide text-slate-500 transition-colors hover:text-slate-300"
+            className="ml-1 rounded-[8px] px-3 py-1.5 text-[13px] font-medium text-[#8a8f98] transition-colors hover:text-white"
           >
             退出
           </button>

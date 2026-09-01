@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;510;600;700&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.force-dark-disabled));
@@ -7,35 +8,31 @@
 }
 
 html {
-  font-family: system-ui, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, sans-serif;
+  font-family: "Inter", system-ui, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: #020617;
-  background-image:
-    radial-gradient(ellipse 70% 45% at 50% -5%, rgba(96,165,250,0.10), transparent),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-attachment: fixed;
+  background-color: #08090a;
 }
 
 @layer components {
   .btn-primary {
-    @apply rounded-full border border-white bg-transparent px-5 py-2 text-xs font-medium uppercase tracking-widest text-white
-      transition-colors duration-150 hover:bg-white hover:text-black
-      disabled:cursor-not-allowed disabled:border-slate-700 disabled:text-slate-600 disabled:hover:bg-transparent;
+    @apply rounded-full bg-[#e5e5e6] px-4 py-2 text-[13px] font-medium text-[#08090a]
+      transition-colors duration-150 hover:bg-white
+      disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400;
   }
 
   .btn-secondary {
-    @apply rounded-full border border-slate-700 bg-transparent px-5 py-2 text-xs font-medium uppercase tracking-widest text-slate-300
-      transition-colors duration-150 hover:border-slate-400 hover:text-white;
+    @apply rounded-full bg-transparent px-4 py-2 text-[13px] font-medium text-[#8a8f98]
+      transition-colors duration-150 hover:text-white;
   }
 
   .tech-card {
-    @apply rounded-xl border border-slate-800 bg-slate-900/70;
+    @apply rounded-[10px] border border-white/[0.08] bg-white/[0.025];
   }
 
   .eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-[0.15em] text-slate-500;
+    @apply text-[13px] font-medium text-[#8a8f98];
   }
 }

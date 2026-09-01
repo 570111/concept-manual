@@ -46,7 +46,7 @@ export default function Preview() {
       </header>
 
       <section className="text-center">
-        <p className="eyebrow">[ 100个思维模型 ]</p>
+        <p className="eyebrow">100个思维模型</p>
         <h1 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
           用100个思维模型
           <br />
@@ -72,9 +72,9 @@ export default function Preview() {
           <p className="mt-1 text-xs text-slate-400">不删减、不打码，跟付费后看到的正文一模一样</p>
         </div>
         {previewConcepts.map((c) => (
-          <div key={c.id} id={`preview-${c.id}`} className="tech-card space-y-3 !rounded-3xl p-4">
+          <div key={c.id} id={`preview-${c.id}`} className="tech-card space-y-3 !rounded-[14px] p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl border border-slate-800 text-2xl">
+              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-[10px] border border-slate-800 text-2xl">
                 {c.icon}
               </div>
               <div>
@@ -101,7 +101,7 @@ export default function Preview() {
             <div className="space-y-2">
               <div className="text-sm font-bold text-white">怎么用</div>
               {c.apply.map((a, i) => (
-                <div key={i} className="rounded-2xl border border-slate-800 p-3">
+                <div key={i} className="rounded-[10px] border border-slate-800 p-3">
                   <div className="flex items-start gap-2">
                     <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full border border-slate-700 text-[10px] font-bold text-white">
                       {i + 1}
@@ -118,7 +118,7 @@ export default function Preview() {
             <div className="space-y-1.5">
               <div className="text-xs font-bold text-slate-500">常见误解</div>
               {c.misconceptions.map((m, i) => (
-                <div key={i} className="flex gap-2 rounded-xl border border-slate-800 px-3 py-2 text-xs leading-relaxed text-slate-400">
+                <div key={i} className="flex gap-2 rounded-[10px] border border-slate-800 px-3 py-2 text-xs leading-relaxed text-slate-400">
                   <span className="flex-none text-slate-600">✗</span>
                   {m}
                 </div>
@@ -147,7 +147,7 @@ export default function Preview() {
         </div>
       </section>
 
-      <section className="tech-card !rounded-3xl p-6 text-center">
+      <section className="tech-card !rounded-[14px] p-6 text-center">
         <div className="text-3xl font-extrabold text-white">{PRICE_TEXT}</div>
         <p className="mt-1 text-xs text-slate-500">一次付费，永久可用，密钥不限设备、不限次数</p>
         <a
