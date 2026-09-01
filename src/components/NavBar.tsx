@@ -18,7 +18,7 @@ export default function NavBar() {
   }
 
   return (
-    <header className="sticky top-0 z-20 border-b border-neutral-900 bg-black/90 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-slate-900 bg-slate-950/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         <NavLink to="/" className="flex items-center gap-2 text-sm font-medium tracking-wide text-white">
           <span className="text-lg">🔭</span>
@@ -34,7 +34,7 @@ export default function NavBar() {
                 `rounded-full border px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
                   isActive
                     ? 'border-white text-white'
-                    : 'border-transparent text-neutral-400 hover:text-neutral-200'
+                    : 'border-transparent text-slate-400 hover:text-slate-200'
                 }`
               }
             >
@@ -43,7 +43,7 @@ export default function NavBar() {
           ))}
           <button
             onClick={handleLogout}
-            className="ml-1 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide text-neutral-500 transition-colors hover:text-neutral-300"
+            className="ml-1 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide text-slate-500 transition-colors hover:text-slate-300"
           >
             退出
           </button>

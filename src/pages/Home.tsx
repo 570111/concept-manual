@@ -22,7 +22,7 @@ function ContinueLearningCard({ concepts }: { concepts: ConceptMeta[] }) {
       <div className="tech-card mx-auto flex max-w-xl items-center justify-between gap-4 p-4">
         <div className="text-left">
           <div className="text-sm font-semibold text-white">还没开始学习</div>
-          <div className="text-xs text-neutral-400">从第一个概念开始，每个只要5分钟</div>
+          <div className="text-xs text-slate-400">从第一个概念开始，每个只要5分钟</div>
         </div>
         <Link to={`/concepts/${concepts[0].id}`} className="btn-primary flex-none">
           开始学习
@@ -36,7 +36,7 @@ function ContinueLearningCard({ concepts }: { concepts: ConceptMeta[] }) {
       <div className="tech-card mx-auto flex max-w-xl items-center justify-between gap-4 p-4">
         <div className="text-left">
           <div className="text-sm font-semibold text-white">已经学完全部 {concepts.length} 个概念</div>
-          <div className="text-xs text-neutral-400">去测验页检验一下掌握程度吧</div>
+          <div className="text-xs text-slate-400">去测验页检验一下掌握程度吧</div>
         </div>
         <Link to="/quiz" className="btn-primary flex-none">
           去测验
@@ -48,7 +48,7 @@ function ContinueLearningCard({ concepts }: { concepts: ConceptMeta[] }) {
   return (
     <div className="tech-card mx-auto flex max-w-xl items-center justify-between gap-4 p-4">
       <div className="text-left">
-        <div className="text-xs text-neutral-400">已学完 {doneCount} / {concepts.length} 个 · 继续学习</div>
+        <div className="text-xs text-slate-400">已学完 {doneCount} / {concepts.length} 个 · 继续学习</div>
         <div className="text-sm font-semibold text-white">{nextConcept.icon} {nextConcept.title}</div>
       </div>
       <Link to={`/concepts/${nextConcept.id}`} className="btn-primary flex-none">
@@ -93,7 +93,7 @@ export default function Home() {
           <br />
           那些说不清的规则
         </h1>
-        <p className="mt-8 max-w-lg text-base leading-relaxed text-neutral-400">
+        <p className="mt-8 max-w-lg text-base leading-relaxed text-slate-400">
           为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？这些现象背后都有名字、有原理——每个概念用一个生活场景讲透，讲完告诉你怎么用。
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -108,15 +108,15 @@ export default function Home() {
         <ContinueLearningCard concepts={concepts} />
       </section>
 
-      <section className="divide-y divide-neutral-900 border-y border-neutral-900">
+      <section className="divide-y divide-slate-900 border-y border-slate-900">
         {rows.map((r) => (
           <Link key={r.to} to={r.to} className="group flex items-center justify-between gap-8 py-10">
             <div className="min-w-0">
               <p className="eyebrow">[ {r.tag} ]</p>
               <h2 className="mt-3 text-2xl font-semibold text-white">{r.title}</h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-400">{r.desc}</p>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">{r.desc}</p>
             </div>
-            <span className="flex-none text-sm font-medium text-neutral-500 transition-colors group-hover:text-white">
+            <span className="flex-none text-sm font-medium text-slate-500 transition-colors group-hover:text-white">
               开始 →
             </span>
           </Link>
@@ -131,23 +131,23 @@ export default function Home() {
           </div>
           <Link to="/concepts" className="btn-secondary">查看全部 ↗</Link>
         </div>
-        <div className="mt-10 divide-y divide-neutral-900 border-t border-neutral-900">
+        <div className="mt-10 divide-y divide-slate-900 border-t border-slate-900">
           {categoryOrder.map((cat, i) => {
             const count = concepts.filter((c) => c.category === cat).length
             return (
               <Link
                 key={cat}
                 to="/concepts"
-                className="group flex items-center justify-between gap-6 py-7 transition-colors hover:bg-neutral-950"
+                className="group flex items-center justify-between gap-6 py-7 transition-colors hover:bg-slate-950"
               >
                 <div className="flex min-w-0 items-baseline gap-5">
-                  <span className="flex-none font-mono text-xs text-neutral-600">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="flex-none font-mono text-xs text-slate-600">{String(i + 1).padStart(2, '0')}</span>
                   <div>
                     <h3 className="text-lg font-semibold text-white">{categoryInfo[cat].label}</h3>
-                    <p className="mt-1.5 max-w-xl text-sm text-neutral-400">{categoryInfo[cat].desc}</p>
+                    <p className="mt-1.5 max-w-xl text-sm text-slate-400">{categoryInfo[cat].desc}</p>
                   </div>
                 </div>
-                <span className="flex-none text-xs text-neutral-500">{count}个</span>
+                <span className="flex-none text-xs text-slate-500">{count}个</span>
               </Link>
             )
           })}

@@ -16,7 +16,7 @@ export default function Callout({ tone = 'info', title, children }: Props) {
   return (
     <div className={`rounded-2xl border p-4 text-sm ${toneStyles[tone]}`}>
       {title && <div className="mb-1 font-semibold text-white">{title}</div>}
-      <div className="leading-relaxed text-neutral-300">{children}</div>
+      <div className="leading-relaxed text-slate-300">{children}</div>
     </div>
   )
 }

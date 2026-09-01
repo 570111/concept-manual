@@ -41,14 +41,14 @@ export default function Login() {
             onChange={(e) => setKey(e.target.value)}
             placeholder="PJSC-XXXX-XXXX-XXXX"
             autoFocus
-            className="w-full rounded-full border border-neutral-700 bg-transparent px-4 py-2.5 text-center font-mono text-sm tracking-wider text-white outline-none placeholder:text-neutral-600 focus:border-neutral-400"
+            className="w-full rounded-full border border-slate-700 bg-transparent px-4 py-2.5 text-center font-mono text-sm tracking-wider text-white outline-none placeholder:text-slate-600 focus:border-slate-400"
           />
           {error && <p className="text-center text-sm text-red-400">{error}</p>}
           <button type="submit" disabled={checking} className="btn-primary w-full">
             {checking ? '验证中…' : '进入'}
           </button>
         </form>
-        <p className="mt-5 text-center text-xs text-neutral-500">
+        <p className="mt-5 text-center text-xs text-slate-500">
           没有密钥？
           <Link to="/preview" className="font-medium text-white hover:underline">
             先免费试读3个概念 →

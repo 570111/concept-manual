@@ -54,7 +54,7 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
   if (questions.length === 0) {
     return (
       <div className="mx-auto max-w-md space-y-4 text-center">
-        <p className="text-neutral-400">暂时没有可用的题目。</p>
+        <p className="text-slate-400">暂时没有可用的题目。</p>
         <button onClick={onExit} className="btn-secondary">
           {exitLabel}
         </button>
@@ -69,11 +69,11 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
       <div className="mx-auto max-w-md space-y-5 text-center">
         <div className={`text-6xl ${good ? 'animate-bounce' : ''}`}>{good ? '🎉' : pct >= 50 ? '🙂' : '📖'}</div>
         <h2 className="text-xl font-bold text-white">{title} 完成！</h2>
-        <p className="text-neutral-400">
+        <p className="text-slate-400">
           得分：<span className="font-semibold text-white">{score} / {questions.length}</span>（{pct}%）
         </p>
         {!good && (
-          <p className="text-sm text-neutral-400">
+          <p className="text-sm text-slate-400">
             答错的题目已经自动收进错题本，建议回顾一下相关概念再来挑战一次。
           </p>
         )}
@@ -104,14 +104,14 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
 
   return (
     <div className="mx-auto max-w-xl space-y-5">
-      <div className="flex items-center justify-between text-sm text-neutral-400">
+      <div className="flex items-center justify-between text-sm text-slate-400">
         <button onClick={onExit} className="font-medium hover:text-white">← {exitLabel}</button>
         <span className="font-medium">
           {title} · 第 {index + 1} / {questions.length} 题
         </span>
       </div>
 
-      <div className="h-3 w-full overflow-hidden rounded-full bg-neutral-800">
+      <div className="h-3 w-full overflow-hidden rounded-full bg-slate-800">
         <div
           className="h-full rounded-full bg-white transition-all duration-300"
           style={{ width: `${((index + (selected !== null ? 1 : 0)) / questions.length) * 100}%` }}
@@ -124,20 +124,20 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
           {shuffled.map(({ text, originalIndex }, displayIdx) => {
             const isCorrect = originalIndex === q.correctIndex
             const isSelected = originalIndex === selected
-            let style = 'border-neutral-700 hover:border-neutral-600 hover:bg-neutral-800/60'
+            let style = 'border-slate-700 hover:border-slate-600 hover:bg-slate-800/60'
             if (selected !== null) {
               if (isCorrect) style = 'border-emerald-400/60 bg-emerald-500/10'
               else if (isSelected) style = 'border-red-400/60 bg-red-500/10'
-              else style = 'border-neutral-800 opacity-50'
+              else style = 'border-slate-800 opacity-50'
             }
             return (
               <button
                 key={originalIndex}
                 onClick={() => handleSelect(originalIndex)}
                 disabled={selected !== null}
-                className={`w-full rounded-2xl border p-3 text-left text-sm font-medium text-neutral-200 transition-all active:scale-[0.99] ${style}`}
+                className={`w-full rounded-2xl border p-3 text-left text-sm font-medium text-slate-200 transition-all active:scale-[0.99] ${style}`}
               >
-                <span className="mr-2 font-bold text-neutral-500">{String.fromCharCode(65 + displayIdx)}.</span>
+                <span className="mr-2 font-bold text-slate-500">{String.fromCharCode(65 + displayIdx)}.</span>
                 {text}
                 {selected !== null && isCorrect && <span className="ml-2">✓</span>}
                 {selected !== null && isSelected && !isCorrect && <span className="ml-2">✗</span>}
@@ -147,7 +147,7 @@ export default function QuizRunner({ title, questions, scoreKey, onExit, exitLab
         </div>
 
         {selected !== null && (
-          <div className="mt-4 rounded-2xl border border-neutral-800 bg-neutral-800/40 p-4 text-sm text-neutral-400">
+          <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-800/40 p-4 text-sm text-slate-400">
             <span className="font-semibold text-white">解析：</span>
             {q.explanation}
           </div>

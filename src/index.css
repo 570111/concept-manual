@@ -12,9 +12,9 @@ html {
 
 body {
   margin: 0;
-  background-color: #000000;
+  background-color: #020617;
   background-image:
-    radial-gradient(ellipse 70% 45% at 50% -5%, rgba(255,255,255,0.05), transparent),
+    radial-gradient(ellipse 70% 45% at 50% -5%, rgba(96,165,250,0.10), transparent),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   background-attachment: fixed;
 }
@@ -23,19 +23,19 @@ body {
   .btn-primary {
     @apply rounded-full border border-white bg-transparent px-5 py-2 text-xs font-medium uppercase tracking-widest text-white
       transition-colors duration-150 hover:bg-white hover:text-black
-      disabled:cursor-not-allowed disabled:border-neutral-700 disabled:text-neutral-600 disabled:hover:bg-transparent;
+      disabled:cursor-not-allowed disabled:border-slate-700 disabled:text-slate-600 disabled:hover:bg-transparent;
   }
 
   .btn-secondary {
-    @apply rounded-full border border-neutral-700 bg-transparent px-5 py-2 text-xs font-medium uppercase tracking-widest text-neutral-300
-      transition-colors duration-150 hover:border-neutral-400 hover:text-white;
+    @apply rounded-full border border-slate-700 bg-transparent px-5 py-2 text-xs font-medium uppercase tracking-widest text-slate-300
+      transition-colors duration-150 hover:border-slate-400 hover:text-white;
   }
 
   .tech-card {
-    @apply rounded-xl border border-neutral-900 bg-neutral-950;
+    @apply rounded-xl border border-slate-800 bg-slate-900/70;
   }
 
   .eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-[0.15em] text-neutral-500;
+    @apply text-[11px] font-medium uppercase tracking-[0.15em] text-slate-500;
   }
 }

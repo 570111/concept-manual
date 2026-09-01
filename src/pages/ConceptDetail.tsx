@@ -33,7 +33,7 @@ export default function ConceptDetail() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <div className="flex items-center gap-2 text-sm text-neutral-400">
+      <div className="flex items-center gap-2 text-sm text-slate-400">
         <Link to="/concepts" className="font-medium hover:text-white">← 概念地图</Link>
         <span>·</span>
         <span>{categoryInfo[concept.category].label}</span>
@@ -45,7 +45,7 @@ export default function ConceptDetail() {
         </div>
         <div>
           <h1 className="text-2xl font-extrabold text-white">{concept.title}</h1>
-          <p className="mt-0.5 text-sm text-neutral-400">{concept.aka}</p>
+          <p className="mt-0.5 text-sm text-slate-400">{concept.aka}</p>
         </div>
       </div>
 
@@ -55,7 +55,7 @@ export default function ConceptDetail() {
 
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-white">这是什么</h2>
-        <p className="leading-relaxed text-neutral-400">{content.explain}</p>
+        <p className="leading-relaxed text-slate-400">{content.explain}</p>
       </section>
 
       <Callout tone="good" title={`📚 ${content.realCase.title}`}>
@@ -72,12 +72,12 @@ export default function ConceptDetail() {
           {content.apply.map((tip, i) => (
             <div key={i} className="tech-card p-4">
               <div className="flex items-start gap-2.5">
-                <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full border border-neutral-700 text-xs font-bold text-white">
+                <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full border border-slate-700 text-xs font-bold text-white">
                   {i + 1}
                 </span>
                 <div>
                   <h3 className="font-semibold text-white">{tip.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-neutral-400">{tip.body}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-400">{tip.body}</p>
                 </div>
               </div>
             </div>
@@ -91,14 +91,14 @@ export default function ConceptDetail() {
 
       {content.misconceptions.length > 0 && (
         <section className="space-y-2">
-          <h2 className="text-sm font-bold text-neutral-400">常见误解</h2>
+          <h2 className="text-sm font-bold text-slate-400">常见误解</h2>
           <ul className="space-y-2">
             {content.misconceptions.map((m, i) => (
               <li
                 key={i}
-                className="flex gap-2 rounded-2xl border border-neutral-800 bg-neutral-950 p-3.5 text-sm leading-relaxed text-neutral-400"
+                className="flex gap-2 rounded-2xl border border-slate-800 bg-slate-900/50 p-3.5 text-sm leading-relaxed text-slate-400"
               >
-                <span className="flex-none text-neutral-600">✗</span>
+                <span className="flex-none text-slate-600">✗</span>
                 {m}
               </li>
             ))}
@@ -112,17 +112,17 @@ export default function ConceptDetail() {
 
       <section className="tech-card p-4">
         <div className="flex items-center gap-2">
-          <span className="rounded-full border border-neutral-700 px-2.5 py-0.5 text-xs font-bold text-neutral-400">
+          <span className="rounded-full border border-slate-700 px-2.5 py-0.5 text-xs font-bold text-slate-400">
             {content.furtherReading.type}
           </span>
           <h3 className="font-semibold text-white">{content.furtherReading.title}</h3>
         </div>
-        <p className="mt-1.5 text-sm leading-relaxed text-neutral-400">{content.furtherReading.note}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{content.furtherReading.note}</p>
       </section>
 
       {content.related.length > 0 && (
         <section className="space-y-2">
-          <h2 className="text-sm font-bold text-neutral-400">关联概念</h2>
+          <h2 className="text-sm font-bold text-slate-400">关联概念</h2>
           <div className="flex flex-wrap gap-2">
             {content.related.map((id) => {
               const rc = data.concepts.find((c) => c.id === id)
@@ -131,7 +131,7 @@ export default function ConceptDetail() {
                 <Link
                   key={id}
                   to={`/concepts/${id}`}
-                  className="flex items-center gap-1.5 rounded-full border border-neutral-800 px-3 py-1.5 text-sm font-medium text-neutral-400 transition hover:border-neutral-600 hover:text-white"
+                  className="flex items-center gap-1.5 rounded-full border border-slate-800 px-3 py-1.5 text-sm font-medium text-slate-400 transition hover:border-slate-600 hover:text-white"
                 >
                   <span>{rc.icon}</span>
                   {rc.title}
@@ -143,12 +143,12 @@ export default function ConceptDetail() {
       )}
 
       {questions.length > 0 && (
-        <section className="space-y-3 border-t border-neutral-800 pt-6">
+        <section className="space-y-3 border-t border-slate-800 pt-6">
           {!quizOpen ? (
             <div className="tech-card flex items-center justify-between gap-4 p-5">
               <div>
                 <h2 className="font-bold text-white">🎯 小测验：{questions.length}道题巩固一下</h2>
-                <p className="mt-1 text-sm text-neutral-400">答错会自动收进错题本，方便回来复习。</p>
+                <p className="mt-1 text-sm text-slate-400">答错会自动收进错题本，方便回来复习。</p>
               </div>
               <button onClick={() => setQuizOpen(true)} className="btn-primary flex-none">
                 开始
@@ -166,16 +166,16 @@ export default function ConceptDetail() {
         </section>
       )}
 
-      <div className="flex items-center justify-between border-t border-neutral-800 pt-6 text-sm">
+      <div className="flex items-center justify-between border-t border-slate-800 pt-6 text-sm">
         {prev ? (
-          <Link to={`/concepts/${prev.id}`} className="font-medium text-neutral-400 hover:text-white">
+          <Link to={`/concepts/${prev.id}`} className="font-medium text-slate-400 hover:text-white">
             ← {prev.title}
           </Link>
         ) : (
           <span />
         )}
         {next ? (
-          <Link to={`/concepts/${next.id}`} className="font-medium text-neutral-400 hover:text-white">
+          <Link to={`/concepts/${next.id}`} className="font-medium text-slate-400 hover:text-white">
             {next.title} →
           </Link>
         ) : (
