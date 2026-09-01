@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { categoryOrder, categoryInfo } from '../data/concepts'
+import { categoryOrder, categoryInfo, type ConceptMeta } from '../data/concepts'
 import { useContent } from '../lib/ContentContext'
 import { getLearnedConcepts } from '../lib/progress'
 import TodayConceptCard from '../components/TodayConceptCard'
 
-function ContinueLearningCard({ concepts }: { concepts: { id: string; icon: string; title: string }[] }) {
+function ContinueLearningCard({ concepts }: { concepts: ConceptMeta[] }) {
   const [learned, setLearned] = useState<Set<string> | null>(null)
 
   useEffect(() => {
@@ -63,54 +63,60 @@ export default function Home() {
   if (!data) return null
   const { concepts } = data
 
-  const modules = [
+  const rows = [
     {
       to: '/concepts',
-      icon: '🗺️',
-      title: '概念地图',
-      desc: `${concepts.length}个概念分${categoryOrder.length}大类，每个都配一个生活场景 + 应用方法，讲清楚是什么、怎么用、别用错。`,
+      tag: '概念地图',
+      title: '每个概念，一个生活场景讲透',
+      desc: `${concepts.length}个概念分${categoryOrder.length}大类，从一个具体场景引入，讲清楚是什么、怎么用、常见误用的边界在哪。`,
     },
     {
       to: '/graph',
-      icon: '🕸️',
-      title: '关系图谱',
-      desc: '这些概念之间怎么互相关联，用一张图看清楚——从一个概念顺藤摸瓜学到相关的另一个。',
+      tag: '关系图谱',
+      title: '概念之间不是孤立的',
+      desc: '一张图看清楚这些概念怎么互相关联——从一个概念顺藤摸瓜，学到相关的另一个。',
     },
     {
       to: '/quiz',
-      icon: '✏️',
-      title: '测验练习',
-      desc: '每学完几个概念做几道题，检验自己是不是真的理解了，答错自动收进错题本。',
+      tag: '测验练习',
+      title: '学完不是看看就过',
+      desc: '按分类混合练习，或者在每个概念页单独测验，答错自动收进错题本，方便回来复习。',
     },
   ]
 
   return (
-    <div className="space-y-12">
-      <section className="text-center">
-        <h1 className="text-3xl font-bold text-white sm:text-4xl">
-          用{concepts.length}个思维模型，看懂生活里那些说不清的规则
+    <div className="space-y-20">
+      <section>
+        <p className="eyebrow">[ {concepts.length}个思维模型 · {categoryOrder.length}大类 ]</p>
+        <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl">
+          看懂生活里
+          <br />
+          那些说不清的规则
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-neutral-400">
-          为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？为什么有些老规矩明明不方便却一直没人改？
-          这些现象背后都有名字、有原理。每个概念用一个生活场景讲透，讲完还告诉你怎么在自己的生活里用上。
+        <p className="mt-6 max-w-lg text-neutral-400">
+          为什么排队的人越多你越想排？为什么道歉的话术总能戳中你？这些现象背后都有名字、有原理——每个概念用一个生活场景讲透，讲完告诉你怎么用。
         </p>
-        <div className="mt-6 space-y-3">
-          <TodayConceptCard />
-          <ContinueLearningCard concepts={concepts} />
+        <div className="mt-6 flex flex-wrap gap-2">
+          <Link to="/concepts" className="btn-secondary">概念地图 ↗</Link>
+          <Link to="/graph" className="btn-secondary">关系图谱 ↗</Link>
+          <Link to="/quiz" className="btn-secondary">测验练习 ↗</Link>
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-3">
-        {modules.map((m) => (
-          <Link
-            key={m.to}
-            to={m.to}
-            className="group tech-card p-6 transition hover:border-neutral-700"
-          >
-            <div className="text-xl">{m.icon}</div>
-            <h2 className="mt-3 text-lg font-semibold text-white">{m.title}</h2>
-            <p className="mt-2 text-sm text-neutral-400">{m.desc}</p>
-            <span className="mt-4 inline-block text-sm font-medium text-white group-hover:underline">
+      <section className="space-y-3">
+        <TodayConceptCard />
+        <ContinueLearningCard concepts={concepts} />
+      </section>
+
+      <section className="divide-y divide-neutral-900 border-y border-neutral-900">
+        {rows.map((r) => (
+          <Link key={r.to} to={r.to} className="group flex items-center justify-between gap-6 py-7">
+            <div className="min-w-0">
+              <p className="eyebrow">[ {r.tag} ]</p>
+              <h2 className="mt-2 text-xl font-semibold text-white">{r.title}</h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-neutral-400">{r.desc}</p>
+            </div>
+            <span className="flex-none text-sm font-medium text-neutral-500 transition-colors group-hover:text-white">
               开始 →
             </span>
           </Link>
@@ -118,26 +124,33 @@ export default function Home() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-xl font-semibold text-white">{categoryOrder.length}大类，{concepts.length}个概念一览</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categoryOrder.map((cat) => (
-            <div key={cat} className="tech-card p-5">
-              <div className="eyebrow">{categoryInfo[cat].label}</div>
-              <p className="mt-2 text-sm text-neutral-400">{categoryInfo[cat].desc}</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {concepts
-                  .filter((c) => c.category === cat)
-                  .map((c) => (
-                    <span
-                      key={c.id}
-                      className="rounded-full border border-neutral-800 px-2.5 py-1 text-xs font-medium text-neutral-400"
-                    >
-                      {c.icon} {c.title}
-                    </span>
-                  ))}
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow">[ 分类总览 ]</p>
+            <h2 className="mt-2 text-2xl font-bold text-white">{categoryOrder.length}大类，{concepts.length}个概念</h2>
+          </div>
+          <Link to="/concepts" className="btn-secondary">查看全部 ↗</Link>
+        </div>
+        <div className="mt-6 divide-y divide-neutral-900 border-t border-neutral-900">
+          {categoryOrder.map((cat, i) => {
+            const count = concepts.filter((c) => c.category === cat).length
+            return (
+              <Link
+                key={cat}
+                to="/concepts"
+                className="group flex items-center justify-between gap-6 py-5 transition-colors hover:bg-neutral-950"
+              >
+                <div className="flex min-w-0 items-baseline gap-4">
+                  <span className="flex-none font-mono text-xs text-neutral-600">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="font-semibold text-white">{categoryInfo[cat].label}</h3>
+                    <p className="mt-1 max-w-xl text-sm text-neutral-400">{categoryInfo[cat].desc}</p>
+                  </div>
+                </div>
+                <span className="flex-none text-xs text-neutral-500">{count}个</span>
+              </Link>
+            )
+          })}
         </div>
       </section>
     </div>
